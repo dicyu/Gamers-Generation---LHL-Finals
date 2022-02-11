@@ -1,0 +1,18 @@
+DROP TABLE friends_list ON DELETE CASCADE
+DROP TABLE blocked_list ON DELETE CASCADE
+
+
+CREATE TABLE friends_list(
+  id SERIAL PRIMARY KEY NOT NULL,
+  gamer_id FOREIGN KEY NOT NULL,
+  added_on TIMESTAMP,
+  games_id FOREIGN KEY NOT NULL,
+  online BOOLEAN default FALSE
+);
+
+CREATE TABLE blocked_list(
+  id SERIAL PRIMARY KEY NOT NULL,
+  gamer_id FOREIGN KEY NOT NULL,
+  added_on TIMESTAMP,
+  games_id FOREIGN KEY NOT NULL
+);
