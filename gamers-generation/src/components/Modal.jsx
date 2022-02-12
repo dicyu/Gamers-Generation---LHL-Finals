@@ -1,15 +1,18 @@
+// Imports
 import React, { useEffect } from 'react'
 import './Modal.css';
 
 
 const ReportModal = props => {
 
+  // Function for Esc key use to close
   const closeWhenEscapeKey = (e) => {
     if ((e.charCode || e.keyCode) === 27) {
       props.onClose()
     }
   }
 
+  // Clean up for esc key
   useEffect(() => {
     document.body.addEventListener('keydown', closeWhenEscapeKey)
     return function cleanUp() {
@@ -17,6 +20,7 @@ const ReportModal = props => {
     }
   }, [])
 
+  // Render for modal
   return (
     <div className={`modal ${props.show ? 'show' : ''}`} onClick={props.onClose}>
       <div className='modal-content' onClick={e => e.stopPropagation()}>
