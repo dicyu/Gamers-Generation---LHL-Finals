@@ -8,7 +8,9 @@ const Application = function(props) {
   return (
     <div className="Report">
       <button onClick={() => setShow(true) }>Report</button>
-      <ReportModal onClose={() => setShow(false)} show={show} />
+      <ReportModal title="Report" onClose={() => setShow(false)} show={show}>
+        <p>Testing</p>
+      </ReportModal>
     </div>
   )
 }
