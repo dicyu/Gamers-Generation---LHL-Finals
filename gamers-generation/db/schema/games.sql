@@ -1,13 +1,10 @@
 DROP TABLE IF EXISTS games_list;
 
-CREATE TABLE games_list(
+CREATE TABLE games(
   id SERIAL PRIMARY KEY NOT NULL,
-  game_id INTEGER,
   game_name VARCHAR(255),
   released TIMESTAMP,
-  kid_friendly BOOLEAN DEFAULT FALSE
-  genres FOREIGN KEY REFERENCES genres(id),
-  skill_level VARCHAR(25)
+  genres FOREIGN KEY REFERENCES genres(id)
 );
 
 

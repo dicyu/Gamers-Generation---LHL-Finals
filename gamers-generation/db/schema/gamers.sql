@@ -8,5 +8,9 @@ CREATE TABLE gamers(
   friends_list FOREIGN KEY REFERENCES friends_list(id),
   blocked_list FOREIGN KEY REFERENCES blocked_list(id),
   preferences_list_id FOREIGN KEY REFERENCES preferences(id),
-  bio text
+  bio TEXT,
+  email VARCHAR(255),
+  password VARCHAR(255),
+  language VARCHAR NOT NULL DEFAULT "English",
+  timezone TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT(current_timestamp AT TIME ZONE 'UTC')
 );

@@ -1,10 +1,20 @@
-INSERT INTO genres (name, kid_friendly)
+INSERT INTO genres (name)
 VALUES
-("Simulation", TRUE)
-("Racing", TRUE)
-("Platformer", TRUE)
-("Sandbox", TRUE)
-("Puzzlers", TRUE)
-("Party Games", TRUE)
-("Survival", TRUE)
-("Simulation", TRUE)
+("Simulation"),
+("Racing"),
+("Platformer"),
+("Sandbox"),
+("Puzzlers"),
+("Party Games"),
+("Hack and Slash"),
+("Sport"),
+("MMORPG"),
+("Indie"),
+("Role-playing game"),
+("Mobile game"),
+("Horror"),
+("Real-time Strategy"),
+("Strategy"),
+("Adventure"),
+("Otome"),
+("Adult");

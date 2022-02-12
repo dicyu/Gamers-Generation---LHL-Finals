@@ -1,8 +1,12 @@
-INSERT INTO games_list (id, game_name, released, genres, skill_level, kid_friendly)
+INSERT INTO games (game_name, released, genres)
 VALUES 
-(1, "Minecraft", 2011-11-18, [], "Casual", TRUE),
-(2, "FFXIV", 2011-11-18, [], "Hardcore"),
-(3, "SiNoALICE", 2011-11-18, [], "Semi-casual"),
-(4, "Lost Ark", 2011-11-18, [], "Semi-casual"),
-(5, "Pokemon GO", 2011-11-18, [], "Semi-casual", TRUE),
-(6, "Stardew Valley", 2011-11-18, [], "Semi-casual", TRUE);
+("Final Fantasy XIV", 2010-09-29),
+("World of Final Fantasy", 2016-10-24),
+("Demon Slayer", 2010-09-29),
+("Epic Seven", 2010-09-29,),
+("Contract Demon", 2019-03-30),
+("	
+Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles", 2021-10-13),
+("Call of Duty: Black Ops Zombies", 2011-11-30),
+("Minecraft", 2011-11-17),
+("Dark Souls", 2011-09-21);
