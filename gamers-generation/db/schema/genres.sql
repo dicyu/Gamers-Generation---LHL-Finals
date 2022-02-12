@@ -1,0 +1,8 @@
+DROP TABLE genres;
+
+CREATE TABLE genres(
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255),
+  kid_friendly BOOLEAN DEFAULT FALSE,
+  rating VARCHAR(255)
+);

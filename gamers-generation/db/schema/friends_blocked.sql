@@ -1,5 +1,5 @@
-DROP TABLE friends_list ON DELETE CASCADE
-DROP TABLE blocked_list ON DELETE CASCADE
+DROP TABLE friends_list ON DELETE CASCADE;
+DROP TABLE blocked_list ON DELETE CASCADE;
 
 
 CREATE TABLE friends_list(

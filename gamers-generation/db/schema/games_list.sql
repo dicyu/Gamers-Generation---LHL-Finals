@@ -4,7 +4,7 @@ CREATE TABLE games_list(
   id SERIAL PRIMARY KEY NOT NULL
   name VARCHAR(255)
   released TIMESTAMP
-  genre_id FOREIGN KEY
+  genres FOREIGN KEY REFERENCES genres(id),
   skill_level VARCHAR(25)
 );
 
