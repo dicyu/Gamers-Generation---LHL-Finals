@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  background-color: #0c3468;
+  color: white;
+
+  &__home {
+    margin-right: 20px;
+    margin-left: 20px;
+    color: #fff;
+  }
+
+  &__search {
+    display: flex;
+    flex: 0.3;
+    opacity: 1;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px gray solid;
+    padding: 0 50px;
+    color: #fff;
+
+    > input {
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      min-width: 35vw;
+      outline: 0;
+      color: #000;
+      font-weight: 900;
+      font-size: 20px;
+    }
+  }
+
+  &__authentication {
+    display: flex;
+    flex: 0.3;
+    justify-content: flex-end;
+
+    .MuiSvgIcon-root {
+      margin-left: auto;
+      margin-right: 10px;
+    }
+  }
+}
+
+.searchIcon {
+  color: #000;
+}
