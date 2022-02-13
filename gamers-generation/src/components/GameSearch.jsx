@@ -7,13 +7,19 @@ function GameSearch(props) {
   const [query, setQuery] = useState("")
   return (
     <div className='game-search'>
-      <input className='search-bar' placeholder="Enter Post Title" onChange={e => setQuery(e.target.value)} />
+      <input className='search-bar' placeholder="Enter Game Title" onChange={e => setQuery(e.target.value)} />
+      <br></br>
       {
-      Data.map((game, index) => (
-      <div className="box" key={index}>
-        <p>{game.name}</p>
-        <p>{game.released}</p>
-      </div>
+        Data.filter(game => {
+          if (query === '') {
+            return null
+          } else if (game.name.toLowerCase().includes(query.toLowerCase())) {
+            return game;
+          }
+        }).map((game, index) => (
+          <div className="box" key={index}>
+            <p>{game.name} {game.released}</p>
+            </div>
         ))
       }
     </div>

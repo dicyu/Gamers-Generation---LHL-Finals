@@ -5,12 +5,20 @@
   align-items: center;
 }
 
+.search-bar {
+  height: 2rem;
+  width: 40rem;
+}
+
 .box {
+  background-color: #0c3468;
   text-align: left;
   border: #FFF ridge 1px;
   border-radius: 10px;
   margin: 3px;
+  height: 2rem;
   width: 20rem;
   padding-left: 10px;
+  padding-top: 10px;
   color: #FFF;
 }
