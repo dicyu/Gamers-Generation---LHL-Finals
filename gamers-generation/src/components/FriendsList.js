@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import FriendsListItem from "./FriendsListItem";
 
 export default function FriendsList(props) {
