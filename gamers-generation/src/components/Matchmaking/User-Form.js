@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function UserForm(props) {
-  const [name, setName] = useState(name | "");
+  const [name, setName] = useState(props.name | "");
   const [gamerTag, setGamerTag] = useState(props.gamerTag | "");
   const [email, setEmail] = useState(props.email | "");
   const [password, setPassword] = useState(props.password | null);
@@ -13,7 +13,7 @@ export default function UserForm(props) {
     <main className="user__create">
       <form autoComplete="off" onSubmit={(event) => event.preventDefault}>
         <input
-          className="user___create-input text--semi-bold"
+          className="user___create--input-name text--semi-bold"
           name={name}
           type="text"
           placeholder=""
@@ -21,7 +21,7 @@ export default function UserForm(props) {
           value={name}
         />
         <input
-          className="user___create-input text--semi-bold"
+          className="user___create--input-gamertag text--semi-bold"
           name={gamerTag}
           type="text"
           placeholder=""
@@ -29,7 +29,7 @@ export default function UserForm(props) {
           value={gamerTag}
         />
         <input
-          className="user___create-input text--semi-bold"
+          className="user___create--input-email text--semi-bold"
           name={email}
           type="text"
           placeholder=""
@@ -37,7 +37,7 @@ export default function UserForm(props) {
           value={email}
         />
         <input
-          className="user___create-input text--semi-bold"
+          className="user___create--input-password text--semi-bold"
           name={password}
           type="text"
           placeholder=""
@@ -45,7 +45,7 @@ export default function UserForm(props) {
           value={password}
         />
         <input
-          className="user___create-input text--semi-bold"
+          className="user___create--input-timezone text--semi-bold"
           name={timezone}
           type="text"
           placeholder=""
