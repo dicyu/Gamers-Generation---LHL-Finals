@@ -27,7 +27,12 @@ const ReportModal = props => {
         <div className='modal-header'>
           <h4 className='modal-title'>{props.title}</h4>
         </div>
-        <div className='modal-body'>{props.children}</div>
+        <div className='modal-body'>{props.children}
+        <select class='report-select'>
+        <option value='reason'>Reason</option>
+        <option value='test'>Test</option>
+        </select>
+        </div>
         <div className='modal-footer'>
           <button onClick={props.onClose} className='button'>Close</button>
         </div>

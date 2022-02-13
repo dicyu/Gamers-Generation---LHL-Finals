@@ -18,6 +18,12 @@
   pointer-events: visible;
 }
 
+.report-select {
+  border-radius: 10px;
+  font-size: 1em;
+  padding: 5px 0 5px 0;
+}
+
 .modal-content {
   width: 500px;
   background-color: #FFF;
