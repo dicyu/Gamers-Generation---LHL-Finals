@@ -11,7 +11,12 @@ export default function UserForm(props) {
 
   return (
     <main className="user__create">
-      <form autoComplete="off" onSubmit={(event) => event.preventDefault}>
+      <form
+        action="/action_page.php"
+        id="new-user"
+        autoComplete="off"
+        onSubmit={(event) => event.preventDefault}
+      >
         <input
           className="user___create--input-name text--semi-bold"
           name={name}
@@ -44,6 +49,7 @@ export default function UserForm(props) {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
+        <input type="submit" />
         <input
           className="user___create--input-timezone text--semi-bold"
           name={timezone}
@@ -63,6 +69,9 @@ export default function UserForm(props) {
           type="submit"
         />
       </form>
+      <textarea form="new-user" maxlength="240">
+        Give us your gaming life's story :3c
+      </textarea>
     </main>
   );
 }
