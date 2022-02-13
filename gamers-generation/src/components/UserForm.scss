@@ -1,0 +1,14 @@
+.user {
+  &___create {
+    display: flex;
+    width: 465px;
+    height: 48px;
+    border-radius: 10px;
+    background: 002d57;
+    border-color: rgb(8, 8, 165);
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

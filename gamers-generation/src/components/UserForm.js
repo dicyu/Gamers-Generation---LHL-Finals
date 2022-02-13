@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import Input from "./Information/input";
+
+import "components/UserForm.scss";
 
 export default function UserForm(props) {
-  const [name, setName] = useState(props.name | "");
-  const [gamerTag, setGamerTag] = useState(props.gamerTag | "");
-  const [email, setEmail] = useState(props.email | "");
-  const [password, setPassword] = useState(props.password | null);
-  const [timezone, setTimezone] = useState(
-    props.timezone | "Eastern Standard Time"
-  );
+  // const [name, setName] = useState(props.name | "");
+  // const [gamerTag, setGamerTag] = useState(props.gamerTag | "");
+  // const [email, setEmail] = useState(props.email | "");
+  // const [password, setPassword] = useState(props.password | null);
+  // const [timezone, setTimezone] = useState(
+  //   props.timezone | "Eastern Standard Time"
+  // );
 
   return (
     <main className="user__create">
@@ -17,46 +20,35 @@ export default function UserForm(props) {
         autoComplete="off"
         onSubmit={(event) => event.preventDefault}
       >
-        <input
-          className="user___create--input-name text--semi-bold"
-          name={name}
-          type="text"
-          placeholder=""
-          onChange={(e) => setName(e.target.value)}
-          value={name}
+        <Input
+          name={props.name}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          value={props.name}
         />
-        <input
-          className="user___create--input-gamertag text--semi-bold"
-          name={gamerTag}
-          type="text"
-          placeholder=""
-          onChange={(e) => setGamerTag(e.target.value)}
-          value={gamerTag}
+        <Input
+          name={props.gamer_tag}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          value={props.gamer_tag}
         />
-        <input
-          className="user___create--input-email text--semi-bold"
-          name={email}
-          type="text"
-          placeholder=""
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+        <Input
+          name={props.email}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          value={props.email}
         />
-        <input
-          className="user___create--input-password text--semi-bold"
-          name={password}
-          type="text"
-          placeholder=""
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
+        <Input
+          name={props.password}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          value={props.password}
         />
-        <input type="submit" />
-        <input
-          className="user___create--input-timezone text--semi-bold"
-          name={timezone}
-          type="text"
-          placeholder=""
-          onChange={(e) => setTimezone(e.target.value)}
-          value={timezone}
+        <Input
+          name={props.timezone}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          value={props.timezone}
         />
         <input
           className="user___create--upload-pic text--semi-bold"
@@ -68,6 +60,7 @@ export default function UserForm(props) {
           className="user___create--submit text--semi-bold"
           type="submit"
         />
+        <input type="submit" />
       </form>
       <textarea form="new-user" maxlength="240">
         Give us your gaming life's story :3c

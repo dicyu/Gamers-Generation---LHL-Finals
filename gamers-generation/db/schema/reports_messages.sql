@@ -1,17 +1,5 @@
-DROP TABLE reports;
-DROP TABLE messages;
-
-CREATE TABLE reports(
-  id SERIAL PRIMARY KEY NOT NULL,
-  reporter_id INT,
-    FOREIGN KEY (reporter_id) REFERENCES gamers(id),
-  reported_id INT, 
-    FOREIGN KEY (reported_id) REFERENCES gamers(id),
-  messages_id INT, 
-    FOREIGN KEY (messages_id) REFERENCES messages(id),
-  reason text,
-  active BOOLEAN default TRUE
-);
+DROP TABLE IF EXISTS reports;
+DROP TABLE IF EXISTS messages;
 
 CREATE TABLE messages(
   id SERIAL PRIMARY KEY NOT NULL,
@@ -19,3 +7,11 @@ CREATE TABLE messages(
   date TIMESTAMP
 );
 
+CREATE TABLE reports(
+  id SERIAL PRIMARY KEY NOT NULL,
+  gamer_id INT REFERENCES gamers(id) ON DELETE CASCADE,
+  reported_id INT REFERENCES gamers(id) ON DELETE CASCADE,
+  message_id INT REFERENCES messages(id),
+  reason text,
+  active BOOLEAN default TRUE
+);

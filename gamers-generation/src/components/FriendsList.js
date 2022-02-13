@@ -2,10 +2,11 @@ import React from "react";
 import FriendsListItem from "./FriendsListItem";
 
 export default function FriendsList(props) {
+  // what props do we want to pass?
+
   return (
     <FriendsListItem
       id={props.id}
-      selected={props.selected}
       gamer_tag={props.gamer_tag}
       timezone={props.timezone}
     />
