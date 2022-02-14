@@ -1,4 +1,4 @@
-INSERT INTO friends_list (gamers_id, friend_id)
+INSERT INTO friends_list (gamer_id, friend_id)
 VALUES 
 (1, 2),
 (2, 3),
