@@ -2,6 +2,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
+import Input from "./components/Information/Input";
 
 import React, { useState } from "react";
 import ReportModal from "./components/Modal";
@@ -22,6 +23,7 @@ function App() {
         </span>
       ) : null}
       {/* input */}
+      <Input placeholder={"Death is upon us :D"} />
 
       {/* Modal Button Press (JUST A TEST BUTTON) */}
 

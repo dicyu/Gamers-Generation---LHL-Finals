@@ -9,7 +9,7 @@ export default function Input(props) {
   };
   return (
     <input
-      className="user___create--input text--semi-bold"
+      className="user___create text--semi-bold"
       name={name}
       type="text"
       onChange={(e) => handleChange(e.target.value)}
