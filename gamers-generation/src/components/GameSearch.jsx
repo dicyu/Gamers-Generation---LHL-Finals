@@ -47,12 +47,13 @@ function GameSearch({ placeholder, data }) {
         </div>
       </div>
       {filteredGame.length != 0 && (
-        <div className='dataResult'>
+        <div>
           {filteredGame.slice(0, 15).map((value, key) => {
             return (
-              <a className='dataItem' key={key} href={value.link} target='_blank'>
-                <p>{value.name}</p>
-              </a>
+              <div key={value.key} className='styles'>
+                <p className='innertext'>{value.name}</p>
+                <button className='findbtn'>Find a Gamer!</button>
+              </div>
             );
           })}
     </div>
