@@ -1,4 +1,4 @@
-[
+const testData = [
   {
     "id": 1,
     "name": "Final Fantasy XIV",
@@ -35,3 +35,5 @@
     "rating": 4.5
   }
 ]
+
+export default testData;
