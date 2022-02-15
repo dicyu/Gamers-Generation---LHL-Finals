@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS reports;
 DROP TABLE IF EXISTS messages;
 
-CREATE TABLE messages(
+CREATE TABLE messages(SELECT
   id SERIAL PRIMARY KEY NOT NULL,
   message text,
   date TIMESTAMP

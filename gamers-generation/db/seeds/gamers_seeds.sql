@@ -1,4 +1,4 @@
-INSERT INTO gamers (name, gamer_tag, games_list, friends_list, blocked_list, bio, email, password)
+INSERT INTO gamers (name, gamer_tag, avatar , bio, email, password)
 VALUES 
 ('Mary Liu', 'Checkers775', 'https://www.pngall.com/wp-content/uploads/2016/03/Cat-PNG-2.png', 'Hey! Looking for casual players to group with after work hours are over', 'spawncheck@test.ca', 'bycrptMe'),
 ('Charlie Richards', 'PWNmaster', 'https://www.pngall.com/wp-content/uploads/2016/06/Sparrow-PNG-Image.png', 'description', 'test@test.ca', 'bycrptMe'),
