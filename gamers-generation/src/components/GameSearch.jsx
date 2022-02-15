@@ -29,6 +29,12 @@ function GameSearch({ placeholder, data }) {
     setQuery('');
   };
 
+    function handleClick(event, value) {
+      event.preventDefault();
+      console.log(value.id);
+    }
+  
+
   return (
     <div className='search'>
       <div className='searchInputs'>
@@ -50,9 +56,10 @@ function GameSearch({ placeholder, data }) {
         <div>
           {filteredGame.slice(0, 15).map((value, key) => {
             return (
-              <div key={value.key} className='styles'>
+              <div key={key} className='styles'>
                 <p className='innertext'>{value.name}</p>
-                <button className='findbtn'>Find a Gamer!</button>
+                <button onClick={((event) => handleClick(event, value))} 
+                type='submit' className='findbtn'>Find a Gamer!</button>
               </div>
             );
           })}
