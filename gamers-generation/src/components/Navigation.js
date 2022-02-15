@@ -5,10 +5,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 
-import testData from './testData'
-import GameSearch from "./GameSearch";
-
-
 
 function Navigation() {
 
@@ -18,8 +14,7 @@ function Navigation() {
       <IconButton>
         <HomeIcon fontSize="large" className="navbar__home" />
       </IconButton>
-      
-      <GameSearch placeholder='Enter Game...' data={testData} />
+  
 
       <span className="navbar__authentication">
         <IconButton>

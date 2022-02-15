@@ -5,7 +5,7 @@ import "./Header.scss";
 function Header() {
   return (
     <div className="header">
-      <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
+      {/* <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
         Random Text is here I might be able to edit random text later on
       </Box>
       <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
@@ -14,7 +14,7 @@ function Header() {
         ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
         et dolore magna aliqua.
-      </Box>
+      </Box> */}
     </div>
   );
 }
