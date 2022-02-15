@@ -20,7 +20,7 @@ export default function Login(props) {
           </label>
           <br />
           <label class="password">
-            Password
+            Password:
             <Input
               name={props.password}
               onChange={props.onChange}
@@ -28,7 +28,7 @@ export default function Login(props) {
             />
           </label>
           <br />
-          <label class="passwodConfirm">
+          <label class="passwordConfirm">
             Confirm password:
             <Input
               name={props.confirmPassword}
