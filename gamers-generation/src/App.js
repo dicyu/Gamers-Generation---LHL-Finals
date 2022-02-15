@@ -1,11 +1,11 @@
 import "./App.scss";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
-import Sidebar from "./components/Sidebar";
-import Input from "./components/Information/Input";
+// import Sidebar from "./components/Sidebar";
+import Login from "./components/login";
 
 import React, { useState } from "react";
-import ReportModal from "./components/Modal";
+// import ReportModal from "./components/Modal";
 
 function App() {
   const user = false;
@@ -16,24 +16,26 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+      <section class="BoxA"></section>
       <Header />
-      {user ? (
+      {/*{user ? (
         <span className="sidebar__container">
           <Sidebar />
         </span>
       ) : null}
       {/* input */}
-      <Input placeholder={"Death is upon us :D"} />
-
+      {/* <Input placeholder={"Death is upon us :D"} /> */}
       {/* Modal Button Press (JUST A TEST BUTTON) */}
-
-      <div className="Report">
-        <button onClick={() => setShow(true)}>Report</button>
-        <ReportModal title="Report" onClose={() => setShow(false)} show={show}>
+      <Login
+        email={"newmountcristo32@hotmail.com"}
+        password="byCrypt me"
+      ></Login>
+      {/* <div className="Report"> */}
+      {/* <button onClick={() => setShow(trues)}>Report</button> */}
+      {/* <ReportModal title="Report" onClose={() => setShow(false)} show={show}>
           <p>Testing</p>
-        </ReportModal>
-      </div>
-
+        </ReportModal> */}
+      {/* </div> */}
       {/* footer picture */}
     </div>
   );
