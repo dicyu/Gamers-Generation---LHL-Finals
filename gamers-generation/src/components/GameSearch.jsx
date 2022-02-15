@@ -32,6 +32,7 @@ function GameSearch({ placeholder, data }) {
     function handleClick(event, value) {
       event.preventDefault();
       console.log(value.id);
+      console.log(value.released)
     }
   
 

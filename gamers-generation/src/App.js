@@ -7,6 +7,8 @@ import Input from "./components/Information/Input";
 import React, { useState } from "react";
 import ReportModal from "./components/Modal";
 
+import GamesList from "./components/GamesList";
+
 function App() {
   const user = false;
 
@@ -23,16 +25,19 @@ function App() {
         </span>
       ) : null}
       {/* input */}
-      <Input placeholder={"Death is upon us :D"} />
+
+      <GamesList />
+
+      {/* <Input placeholder={"Death is upon us :D"} /> */}
 
       {/* Modal Button Press (JUST A TEST BUTTON) */}
 
-      <div className="Report">
+      {/* <div className="Report">
         <button onClick={() => setShow(true)}>Report</button>
         <ReportModal title="Report" onClose={() => setShow(false)} show={show}>
           <p>Testing</p>
         </ReportModal>
-      </div>
+      </div>*/}
 
       {/* footer picture */}
     </div>
