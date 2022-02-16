@@ -8,9 +8,11 @@ import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 
 import GamesList from "./components/GamesList";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   const user = true;
+  const profile = false;
 
   // State for Reporting - Modal
   const [show, setShow] = useState(false);
@@ -29,13 +31,16 @@ function App() {
           </div>
         ) : null}
         {/* input */}
-        <div className="cards_container">
-          <ProfileCards />
-          <ProfileCards />
-        </div>
-        <Input placeholder={"Death is upon us :D"} />
+        <EditProfile />
+        {profile ? (
+          <div className="cards_container">
+            <ProfileCards />
+            <ProfileCards />
+          </div>
+        ) : null}
+        {/* <Input placeholder={"Death is upon us :D"} /> */}
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-        <div className="Report">
+        {/* <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
             title="Report"
@@ -44,7 +49,7 @@ function App() {
           >
             <p>Testing</p>
           </ReportModal>
-        </div>
+        </div> */}
         footer picture
       </div>
     </div>
