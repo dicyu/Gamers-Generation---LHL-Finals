@@ -7,11 +7,11 @@ function Profile(props) {
   const testData = ['Ren', 'bybang', 'pro.di.gy'];
 
   return (
-
+    <div className='bio'>
       <div className='bio__container'>
-        <div className='bio__recent-box'>
+        <span className='bio__recent-box'>
           Recent Gamers <span class='bio__inner-text'>Played With</span>
-        </div>
+        </span>
           {testData.map(gamer => (
           <div className='gamers-container'>
             <div className='gamers-name'>
@@ -22,7 +22,13 @@ function Profile(props) {
             </div>
           </div>
         ))}
+        
       </div>
+      
+        <div className='skill-container'>
+          Testing
+        </div>
+    </div>
 
   )
 }

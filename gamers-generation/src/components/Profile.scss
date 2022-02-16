@@ -1,5 +1,9 @@
 // Profile CSS
 
+  .bio {
+    width: 100%;
+  }
+
   .bio__container {
     display: inline;
     width: 465px;
@@ -37,4 +41,12 @@
     display: flex;
     gap: 100px;
     color: #FFF;
+  }
+
+  .skill-container {
+    color: #FFF;
+    float: right;
+    background: #005eb5;
+    width: 250px;
+    height: 150px;
   }
