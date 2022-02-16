@@ -1,23 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 
+
 function Navigation() {
+
+    
   return (
     <div className="navbar">
       <IconButton>
         <HomeIcon fontSize="large" className="navbar__home" />
       </IconButton>
-
-      <span className="navbar__search">
-        <input placeholder="Search games" />
-        <IconButton>
-          <SearchIcon className="searchIcon" />
-        </IconButton>
-      </span>
+  
 
       <span className="navbar__authentication">
         <IconButton>

@@ -6,6 +6,8 @@ import Sidebar from "./components/Sidebar";
 import React, { useState } from "react";
 import ReportModal from "./components/Modal";
 
+import GamesList from "./components/GamesList";
+
 function App() {
   const user = false;
 
