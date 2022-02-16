@@ -1,0 +1,21 @@
+.user {
+  &___create {
+    display: flex;
+    width: 465px;
+    height: 48px;
+    border-radius: 10px;
+    background: #005eb5;
+    border-color: transparent;
+    color: white;
+
+    // &:hover {
+    //   opacity: 0.9;
+    // }
+  }
+}
+
+::placeholder {
+  color: white;
+}
+
+// reminder to do image SCSS for just user profile

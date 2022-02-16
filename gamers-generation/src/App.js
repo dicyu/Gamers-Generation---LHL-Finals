@@ -3,6 +3,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
+import Input from "./components/Information/Input";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 
@@ -27,16 +28,30 @@ function App() {
           <ProfileCards />
           <ProfileCards />
         </div>
-      </div>
-      {/* Modal Button Press (JUST A TEST BUTTON) */}
-      {/* <div className="Report">
+        <Input placeholder={"Death is upon us :D"} />
+
+        {/* Modal Button Press (JUST A TEST BUTTON) */}
+
+        <div className="Report">
+          <button onClick={() => setShow(true)}>Report</button>
+          <ReportModal
+            title="Report"
+            onClose={() => setShow(false)}
+            show={show}
+          >
+            <p>Testing</p>
+          </ReportModal>
+        </div>
+        {/* Modal Button Press (JUST A TEST BUTTON) */}
+        {/* <div className="Report">
         <button onClick={() => setShow(true)}>Report</button>
         <ReportModal title="Report" onClose={() => setShow(false)} show={show}>
           <p>Testing</p>
         </ReportModal>
       </div> */}
 
-      {/* footer picture */}
+        {/* footer picture */}
+      </div>
     </div>
   );
 }

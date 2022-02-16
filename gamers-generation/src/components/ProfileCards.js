@@ -6,8 +6,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
 
-const people = [];
-
 function ProfileCards() {
   const [people, setPeople] = useState([
     {
