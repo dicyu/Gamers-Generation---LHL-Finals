@@ -1,8 +1,12 @@
 import React from 'react'
 
+import './Profile.scss'
+
 function Profile(props) {
   return (
-    <h1>Testing</h1>
+    <div className='bio__container'>
+      <p>blahblahblahblah</p>
+    </div>
   )
 }
 
