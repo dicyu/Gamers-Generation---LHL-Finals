@@ -2,11 +2,11 @@ import React from "react";
 import Box from "@mui/material/Box";
 import "./Header.scss";
 
-function Header() {
+function Header(props) {
   return (
     <div className="header">
       <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
-        Welcome to Gamers Generation
+        {props.message}
       </Box>
       <label class="smaller-text">
         <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>

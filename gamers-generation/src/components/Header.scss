@@ -1,6 +1,8 @@
+@import "./styles/variables.scss";
+
 .header {
   padding: 120px 88px 0;
-  color: wheat;
+  color: $white;
   font-size: 60px;
   display: flex;
   flex-direction: column;

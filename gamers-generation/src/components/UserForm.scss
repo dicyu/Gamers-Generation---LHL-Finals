@@ -1,12 +1,14 @@
+@import "../components/styles/variables.scss";
+
 .user {
   &___create {
     display: flex;
     width: 465px;
     height: 40px;
     border-radius: 10px;
-    background: #005eb5;
+    background: $input-blue;
     border-color: transparent;
-    color: white;
+    color: $white;
 
     // &:hover {
     //   opacity: 0.9;

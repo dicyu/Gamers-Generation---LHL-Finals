@@ -3,7 +3,7 @@ import Input from "./Information/Input";
 import Submit from "./Information/Submit";
 
 import "../App.scss";
-import "./login.scss";
+import "./Login.scss";
 
 export default function Login(props) {
   return (
@@ -11,7 +11,7 @@ export default function Login(props) {
       <div>
         <form class="login-form">
           <label class="email">
-            Name:
+            Email:
             <Input
               name={props.email}
               onChange={props.onChange}
