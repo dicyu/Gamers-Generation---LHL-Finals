@@ -1,3 +1,40 @@
-.bio__container {
-  color: white;
-}
+// Profile CSS
+
+  .bio__container {
+    display: inline;
+    width: 465px;
+    height: 50px;
+    border-radius: 10px;
+    background: #005eb5;
+    border-color: transparent;
+    margin-left: 100px;
+    margin-top: 40px;
+  }
+  
+  .bio__recent-box {
+    font-size: 22px;
+    color: white;
+    padding-top: 13px;
+    padding-left: 15px;
+  }
+  
+  .bio__inner-text {
+    padding-left: 10px;
+    font-size: 13px;
+    color: #A1A1A1;
+  }
+
+  .gamers-container {
+    width: 465px;
+    height: 50px;
+    border-radius: 10px;
+    background: #005eb5;
+    border-color: transparent;
+    margin-top: 50px;
+  }
+
+  .gamers-name {
+    display: flex;
+    gap: 100px;
+    color: #FFF;
+  }
