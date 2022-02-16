@@ -1,13 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Bebas+Neue&family=Black+Ops+One&family=Creepster&family=Fredericka+the+Great&family=Libre+Barcode+39+Extended+Text&family=Play&family=Racing+Sans+One&family=Rye&family=Staatliches&family=Yanone+Kaffeesatz:wght@600&display=swap");
+
 * body {
   background-color: #000c2b;
+  // font-family: "Aldrich", sans-serif;
+  // font-family: "Racing Sans One", cursive;
+  // font-family: "Play", sans-serif;
 }
 
-.sidebar__container {
-  display: flex;
-  height: 100vh;
-  justify-content: flex-end;
-  position: fixed;
-  right: 0;
-  top: 0;
-  left: 200px;
+.main__container {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  .cards_container {
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    padding: 2rem;
+    z-index: 0;
+    grid-template-columns: 1fr;
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .sidebar__container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    width: 260px;
+  }
 }
