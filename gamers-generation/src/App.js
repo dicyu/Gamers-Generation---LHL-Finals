@@ -7,6 +7,8 @@ import Input from "./components/Information/Input";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 
+import GamesList from "./components/GamesList";
+
 function App() {
   const user = true;
 
