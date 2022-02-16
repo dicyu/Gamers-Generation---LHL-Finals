@@ -1,0 +1,27 @@
+@import "./styles/variables.scss";
+
+.login-form {
+  display: flex;
+  width: 475px;
+  height: 165;
+  padding: 100px;
+  padding-top: 60px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+  color: $white;
+}
+
+label,
+input {
+  display: block;
+}
+
+label {
+  margin-bottom: 40px;
+}
+
+Button {
+  margin-left: 410px;
+}

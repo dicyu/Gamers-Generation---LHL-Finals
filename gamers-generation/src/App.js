@@ -16,7 +16,10 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <Header />
+      <Header
+        message="Welcome to
+      Gaming Generation"
+      />
       <div className="main__container">
         {user ? (
           <div className="sidebar__container">
@@ -29,9 +32,7 @@ function App() {
           <ProfileCards />
         </div>
         <Input placeholder={"Death is upon us :D"} />
-
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-
         <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
@@ -42,15 +43,7 @@ function App() {
             <p>Testing</p>
           </ReportModal>
         </div>
-        {/* Modal Button Press (JUST A TEST BUTTON) */}
-        {/* <div className="Report">
-        <button onClick={() => setShow(true)}>Report</button>
-        <ReportModal title="Report" onClose={() => setShow(false)} show={show}>
-          <p>Testing</p>
-        </ReportModal>
-      </div> */}
-
-        {/* footer picture */}
+        footer picture
       </div>
     </div>
   );

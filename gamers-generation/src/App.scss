@@ -1,10 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Bebas+Neue&family=Black+Ops+One&family=Creepster&family=Fredericka+the+Great&family=Libre+Barcode+39+Extended+Text&family=Play&family=Racing+Sans+One&family=Rye&family=Staatliches&family=Yanone+Kaffeesatz:wght@600&display=swap");
+@import "./components/styles/variables.scss";
 
 * body {
-  background-color: #000c2b;
-  // font-family: "Aldrich", sans-serif;
-  // font-family: "Racing Sans One", cursive;
-  // font-family: "Play", sans-serif;
+  background-color: $body-background-color;
 }
 
 .main__container {
@@ -28,4 +25,20 @@
     z-index: 2;
     width: 260px;
   }
+}
+
+.BoxA {
+  display: flex;
+  float: right;
+  align-items: center;
+  border: 200px black transparent;
+  width: 337px;
+  height: 703px;
+  background-color: $placeholder-blue;
+  margin: 46px;
+  padding: 6px;
+  margin-top: 178px;
+  border-radius: 36px;
+  margin-right: 73px;
+  margin-bottom: -6px;
 }
