@@ -1,5 +1,15 @@
+@import "./styles/variables.scss";
+
 .header {
-  padding: 120px 120px 0;
-  color: wheat;
-  font-size: 30px;
+  padding: 120px 88px 0;
+  color: $white;
+  font-size: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 522px;
+}
+
+.smaller-text {
+  font-size: 18px;
 }

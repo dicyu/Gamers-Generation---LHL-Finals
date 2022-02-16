@@ -1,15 +1,17 @@
+@import "./styles/variables.scss";
+
 .sidebar {
-  color: white;
-  background-color: #011a35;
+  color: $white;
+  background-color: $background-color;
   display: flex;
   flex: 0.3;
-  border-top: 1px solid #011a35;
+  border-top: 1px solid $background-color;
   max-width: 260px;
 
   &__header {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #011a35;
+    border-bottom: 1px solid $background-color;
     padding: 13px;
     width: 100%;
 

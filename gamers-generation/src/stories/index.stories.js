@@ -11,15 +11,10 @@ storiesOf("Input", module).add("Base", () => (
 ));
 
 storiesOf("Button", module)
-  .add("Cancel", () => {
-    <Button cancel>Cancel</Button>;
-  })
-  .add("Add", () => {
-    <Button add>Add</Button>;
-  })
-  .add("Remove", () => {
-    <Button remove>Remove</Button>;
-  })
-  .add("Clickable", () => {
-    <Button onClick={action("button-clicked")}>Click Me</Button>;
-  });
+  .add("Base", () => <Button>Base</Button>)
+  .add("Remove", () => <Button remove>Cancel</Button>)
+  .add("Cancel", () => <Button cancel>Cancel</Button>)
+  .add("Submit", () => <Button submit>Submit</Button>)
+  .add("Clickable", () => (
+    <Button onClick={action("button-clicked")}>Clickable</Button>
+  ));

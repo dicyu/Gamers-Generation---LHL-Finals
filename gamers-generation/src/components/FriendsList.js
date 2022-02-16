@@ -2,7 +2,9 @@ import React from "react";
 import FriendsListItem from "./FriendsListItem";
 
 export default function FriendsList(props) {
-  // what props do we want to pass?
+  if (!props.friends) {
+    return <span></span>;
+  }
 
   return (
     <FriendsListItem
