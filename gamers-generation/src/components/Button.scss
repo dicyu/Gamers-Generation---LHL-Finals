@@ -1,24 +1,26 @@
+@import "./styles/variables.scss";
+
 .button {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
   height: 2rem;
   line-height: 1.2rem;
   margin-right: 1rem;
   width: 8rem;
   border-width: 2px;
   border-style: solid;
-  border-color: $white;
+  border-color: transparent;
   color: $white;
-  background-color: transparent;
+  background-color: $nav-background-color;
 }
 
 .button--remove {
-  color: $red;
+  background-color: $red;
 }
 .button--submit {
-  color: $blue;
+  background-color: $blue;
 }
 .button--cancel {
-  color: $pink;
+  background-color: $pink;
 }

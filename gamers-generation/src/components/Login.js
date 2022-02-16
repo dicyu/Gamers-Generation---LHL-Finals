@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "./Information/Input";
-import Submit from "./Information/Submit";
+import Button from "./Button";
 
 import "../App.scss";
 import "./Login.scss";
@@ -36,7 +36,7 @@ export default function Login(props) {
               placeholder=""
             />
           </label>
-          <Submit />
+          <Button submit>Submit</Button>
         </form>
       </div>
     </section>

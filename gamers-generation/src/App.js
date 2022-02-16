@@ -1,12 +1,13 @@
 import "./App.scss";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
-// import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar";
 import Login from "./components/Login.js";
 import Register from "./Register";
 
 import React, { useState } from "react";
-// import ReportModal from "./components/Modal";
+import ReportModal from "./components/Modal";
+import Button from "./components/Button";
 
 function App() {
   const user = false;
@@ -22,30 +23,34 @@ function App() {
         message="Join ---
       Gaming Generation"
       />
-      {/*{user ? (
+      *
+      {user ? (
         <span className="sidebar__container">
           <Sidebar />
         </span>
       ) : null}
       {/* input */}
-      {/* <Input placeholder={"Death is upon us :D"} /> */}
       {/* Modal Button Press (JUST A TEST BUTTON) */}
-      {/* <Login
+      <Login
         email={"newmountcristo32@hotmail.com"}
         password="byCrypt me"
-      ></Login> */}
+      ></Login>
       <Register
         gamer_tag={"ImpactBrother460"}
         email={"newmountcristo32@hotmail.com"}
         password="byCrypt me"
       ></Register>
-      {/* <div className="Report"> */}
-      {/* <button onClick={() => setShow(trues)}>Report</button> */}
-      {/* <ReportModal title="Report" onClose={() => setShow(false)} show={show}>
+      <div className="Report">
+        {" "}
+        */}
+        <button onClick={() => setShow(true)}>Report</button>
+        <ReportModal title="Report" onClose={() => setShow(false)} show={show}>
+          {""}
           <p>Testing</p>
-        </ReportModal> */}
-      {/* </div> */}
-      {/* footer picture */}
+        </ReportModal>
+        <Button cancel>cancel</Button>
+      </div>
+      footer picture
     </div>
   );
 }

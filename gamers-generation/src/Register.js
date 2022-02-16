@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "./components/Information/Input";
-import Submit from "./components/Information/Submit";
+import Button from "./components/Button";
 
 import "./App.scss";
 import "./Register.scss";
@@ -44,7 +44,7 @@ export default function Register(props) {
               placeholder=""
             />
           </label>
-          <Submit />
+          <Button submit>Submit</Button>
         </form>
       </div>
     </section>

@@ -1,3 +1,5 @@
+@import "./components/styles/variables.scss";
+
 .login-form {
   display: flex;
   width: 475px;
@@ -8,7 +10,7 @@
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: space-between;
-  color: white;
+  color: $white;
 }
 
 label,
