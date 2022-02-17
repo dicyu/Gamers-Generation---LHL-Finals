@@ -43,6 +43,15 @@ export default function useAppData() {
       });
   });
 
+  const register = (id, gamers) => {
+    const gamer = { ...state.gamers[id], gamers: { ...gamers } };
+    const newGamer = { ...state.gamers, [id]: { gamer } };
+
+    return axios
+      .post(`/gamers/${id}`, newGamer)
+      .then(() => setState(...state, gamer));
+  };
+
   const addFriend = (id, friends_list) => {
     const friend = {
       ...state.friends_list[id],
@@ -77,5 +86,5 @@ export default function useAppData() {
     });
   };
 
-  return { state, setState, addFriend, removeFriend };
+  return { state, setState, addFriend, removeFriend, register };
 }

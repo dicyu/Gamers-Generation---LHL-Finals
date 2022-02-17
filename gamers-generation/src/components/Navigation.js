@@ -4,7 +4,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import UserForm from "./UserForm";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function Navigation() {
@@ -49,9 +48,9 @@ function Navigation() {
               </Button>
             </IconButton>
           </Link>
-          <Routes>
+          {/* <Routes>
             <Route path="/register" element={<UserForm />} />
-          </Routes>
+          </Routes> */}
         </Router>
       </span>
     </div>

@@ -4,21 +4,28 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query("SELECT * FROM gamers")
       .then((gamers) => {
-        res.json(gamers.rows);
+        return res.json(gamers.rows);
       })
       .catch((err) => {
-        res.status(500).send("You cannot access the gamers list,  ", err);
+        return res
+          .status(500)
+          .send("You cannot access the gamers list,  ", err);
       });
   });
 
   router.post("/", (req, res) => {
-    const { name, gamer_tag, avatar, bio, email, password } = req.body;
-    const queParam = [name, gamer_tag, avatar, bio, email, password];
+    const { name, gamer_tag, email, password } = req.body;
+    console.log(req.body);
+    const queParam = [name, gamer_tag, email, password[0]];
+    // console.log(queParam);
     let query =
-      "INSERT INTO gamers (name, gamer_tag, avatar, bio, email, password) VALUES ($1, $2, $3, $4, $5, $6)";
-    db.query(query, queParam)
+      "INSERT INTO gamers (name, gamer_tag, email, password) VALUES ($1, $2, $3, $4);";
+    return db
+      .query(query, queParam)
       .then((data) => {
+        console.log("Hey", data);
         const user = data.rows;
+        return res.redirect("/");
         res.json({ user });
       })
       .catch((err) => {
