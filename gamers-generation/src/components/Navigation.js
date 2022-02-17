@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
-// import SearchIcon from "@mui/icons-material/Search";
+import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import { Router, Link } from "react-router-dom";
-
-//, Routes, Route
+import UserForm from "./UserForm";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function Navigation() {
   return (
@@ -15,13 +14,19 @@ function Navigation() {
         <HomeIcon fontSize="large" className="navbar__home" />
       </IconButton>
 
+      <span className="navbar__search">
+        <input placeholder="Search games" />
+        <IconButton>
+          <SearchIcon className="searchIcon" />
+        </IconButton>
+      </span>
+
       <span className="navbar__authentication">
         <Router>
           <Link to="/register">
             <IconButton>
               <Button
                 variant="outlined"
-                href="#contained-buttons"
                 style={{
                   backgroundColor: "transparent",
                   color: "#fff",
@@ -35,7 +40,6 @@ function Navigation() {
             <IconButton>
               <Button
                 variant="contained"
-                href="#contained-buttons"
                 style={{
                   backgroundColor: "#fff",
                   color: "#000",
@@ -45,10 +49,9 @@ function Navigation() {
               </Button>
             </IconButton>
           </Link>
-          {/* <Routes>
-            <Route path=''></Route>
-            <Route></Route>
-          </Routes> */}
+          <Routes>
+            <Route path="/register" element={<UserForm />} />
+          </Routes>
         </Router>
       </span>
     </div>

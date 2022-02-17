@@ -3,12 +3,11 @@ import "./App.scss";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
-import Input from "./components/Information/Input";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 
 function App() {
-  const user = true;
+  const user = false;
 
   // State for Reporting - Modal
   const [show, setShow] = useState(false);
@@ -31,7 +30,6 @@ function App() {
           <ProfileCards />
           <ProfileCards />
         </div>
-        <Input placeholder={"Death is upon us :D"} />
         {/* Modal Button Press (JUST A TEST BUTTON) */}
         <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
