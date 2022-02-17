@@ -13,6 +13,7 @@ import EditProfile from "./components/EditProfile";
 function App() {
   const user = true;
   const profile = false;
+  const editProfile = true;
 
   // State for Reporting - Modal
   const [show, setShow] = useState(false);
@@ -31,7 +32,7 @@ function App() {
           </div>
         ) : null}
         {/* input */}
-        <EditProfile />
+        {editProfile ? <EditProfile /> : null}
         {profile ? (
           <div className="cards_container">
             <ProfileCards />
