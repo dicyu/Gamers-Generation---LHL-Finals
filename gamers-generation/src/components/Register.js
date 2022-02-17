@@ -18,10 +18,10 @@ export default function Register(props) {
         password,
       })
       .then((res) => {
-        fetch("http://localhost:8002/");
+        fetch("http://localhost:8002/").then((res) => res.json());
       })
       .catch((err) => {
-        console.log("hLO", err);
+        console.log("Horrid", err);
       });
   };
   return (
@@ -60,11 +60,7 @@ export default function Register(props) {
             />
           </label>
           <br />
-          {/* <label class="password">
-            Confirm password:
-            <Input name="password" placeholder="" />
-          </label> */}
-          <input onClick={newFunction}></input>
+          <input class="submit" type="submit" onClick={newFunction} />
         </form>
       </div>
     </section>

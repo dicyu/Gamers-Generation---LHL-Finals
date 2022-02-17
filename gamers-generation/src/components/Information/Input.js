@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "../UserEditForm.scss";
 
 export default function Input(props) {
-  // const [val, setVal] = useState("");
   const handleChange = (value) => {
     props.setVal(value);
   };
