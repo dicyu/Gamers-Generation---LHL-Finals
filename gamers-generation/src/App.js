@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import Input from "./components/Information/Input";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
+import Profile from "./components/Profile";
 
 import GamesList from "./components/GamesList";
 
@@ -28,14 +29,17 @@ function App() {
             <Sidebar />
           </div>
         ) : null}
+
+        <Profile />
+
         {/* input */}
-        <div className="cards_container">
+        {/* <div className="cards_container">
           <ProfileCards />
           <ProfileCards />
-        </div>
-        <Input placeholder={"Death is upon us :D"} />
+        </div> */}
+        {/* <Input placeholder={"Death is upon us :D"} /> */}
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-        <div className="Report">
+        {/* <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
             title="Report"
@@ -44,7 +48,7 @@ function App() {
           >
             <p>Testing</p>
           </ReportModal>
-        </div>
+        </div> */}
         footer picture
       </div>
     </div>
