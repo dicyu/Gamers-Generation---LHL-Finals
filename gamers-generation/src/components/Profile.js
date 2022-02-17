@@ -9,9 +9,9 @@ function Profile(props) {
   return (
     <div className='bio'>
       <div className='bio__container'>
-        <span className='bio__recent-box'>
+        <div className='bio__recent-box'>
           Recent Gamers <span class='bio__inner-text'>Played With</span>
-        </span>
+        </div>
           {testData.map(gamer => (
           <div className='gamers-container'>
             <div className='gamers-name'>

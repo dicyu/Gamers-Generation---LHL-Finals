@@ -5,21 +5,20 @@
   }
 
   .bio__container {
-    display: inline;
     width: 465px;
     height: 50px;
     border-radius: 10px;
     background: #005eb5;
     border-color: transparent;
-    margin-left: 100px;
-    margin-top: 40px;
+    margin-left: 20px;
   }
   
   .bio__recent-box {
     font-size: 22px;
     color: white;
-    padding-top: 13px;
+    padding-top: 10px;
     padding-left: 15px;
+    padding-bottom: 10px;
   }
   
   .bio__inner-text {
@@ -35,11 +34,15 @@
     background: #005eb5;
     border-color: transparent;
     margin-top: 50px;
+    margin-bottom: 20px;
   }
 
   .gamers-name {
+    font-size: 20px;
     display: flex;
     gap: 100px;
+    padding-left: 15px;
+    padding-top: 12px;
     color: #FFF;
   }
 
@@ -47,6 +50,8 @@
     color: #FFF;
     float: right;
     background: #005eb5;
-    width: 250px;
-    height: 150px;
+    width: 350px;
+    height: 300px;
+    margin-right: 200px;
+    margin-top: -50px;
   }
