@@ -8,6 +8,10 @@ function Profile(props) {
 
   return (
     <div className='bio'>
+
+      <div className='bio__bio'>
+        Testing
+      </div>
       <div className='bio__container'>
         <div className='bio__recent-box'>
           Recent Gamers <span class='bio__inner-text'>Played With</span>
