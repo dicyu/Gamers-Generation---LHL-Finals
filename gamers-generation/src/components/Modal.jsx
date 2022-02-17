@@ -1,6 +1,6 @@
 // Imports
 import React, { useEffect } from 'react'
-import './Modal.css';
+import './Modal.scss';
 
 
 const ReportModal = props => {
@@ -28,7 +28,7 @@ const ReportModal = props => {
           <h4 className='modal-title'>{props.title}</h4>
         </div>
         <div className='modal-body'>{props.children}
-        <select class='report-select'>
+        <select className='report-select'>
         <option value='reason'>Reason</option>
         <option value='test'>Test</option>
         </select>

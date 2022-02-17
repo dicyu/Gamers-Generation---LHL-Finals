@@ -1,7 +1,7 @@
 import React from "react";
 import "./Sidebar.scss";
-import Avatar from "@mui/material/Avatar";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 
 function Sidebar() {
