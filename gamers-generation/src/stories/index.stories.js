@@ -6,9 +6,13 @@ import { action } from "@storybook/addon-actions";
 import Input from "../components/Information/Input";
 import Button from "../components/Button";
 
-storiesOf("Input", module).add("Base", () => (
-  <Input placeholder={"Death is upon us :D"} />
-));
+storiesOf("Input", module)
+  .add("Base", () => <Input placeholder={"Death is upon us :D"} />)
+  .add("")
+  .add()
+  .add()
+  .add()
+  .add();
 
 storiesOf("Button", module)
   .add("Base", () => <Button>Base</Button>)

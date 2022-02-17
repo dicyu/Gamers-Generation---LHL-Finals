@@ -1,70 +1,103 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import Input from "./Information/input";
 
 import "components/UserForm.scss";
 
 export default function UserForm(props) {
-  // const [name, setName] = useState(props.name | "");
-  // const [gamerTag, setGamerTag] = useState(props.gamerTag | "");
-  // const [email, setEmail] = useState(props.email | "");
-  // const [password, setPassword] = useState(props.password | null);
-  // const [timezone, setTimezone] = useState(
-  //   props.timezone | "Eastern Standard Time"
-  // );
+  const { register } = useForm({
+    defaultValues: {
+      name: "",
+      gamer_tag: "luo",
+      email: "",
+      password: "bycryptMe",
+    },
+  });
+
+  const handleEnter = (event) => {
+    if (event.key.toLowerCase() === "enter") {
+      const form = event.target.form;
+      const index = [...form].indexOf(event.target);
+      form.elements[index + 1].focus();
+      event.preventDefault();
+    }
+  };
 
   return (
     <main className="user__create">
       <form
-        action="/action_page.php"
+        action="http://localhost:8001/gamers"
         id="new-user"
         autoComplete="off"
         onSubmit={(event) => event.preventDefault}
       >
-        <Input
-          name={props.name}
-          placeholder={props.placeholder}
-          onChange={props.onChange}
-          value={props.name}
-        />
-        <Input
-          name={props.gamer_tag}
-          placeholder={props.placeholder}
-          onChange={props.onChange}
-          value={props.gamer_tag}
-        />
-        <Input
-          name={props.email}
-          placeholder={props.placeholder}
-          onChange={props.onChange}
-          value={props.email}
-        />
-        <Input
-          name={props.password}
-          placeholder={props.placeholder}
-          onChange={props.onChange}
-          value={props.password}
-        />
-        <Input
-          name={props.timezone}
-          placeholder={props.placeholder}
-          onChange={props.onChange}
-          value={props.timezone}
-        />
-        <input
-          className="user___create--upload-pic text--semi-bold"
-          name="filename"
-          type="file"
-          id="myFile"
-        />
+        <label>
+          Name:
+          <Input
+            name="name"
+            value={props.name}
+            placeholder=""
+            ref={register}
+            onKeyDown={handleEnter}
+          />
+        </label>
+        <label>
+          Username:
+          <Input
+            name="gamer_tag"
+            value={props.gamer_tag}
+            ref={register}
+            onKeyDown={handleEnter}
+          />
+        </label>
+        <label>
+          Email:
+          <Input
+            name="email"
+            value={props.email}
+            ref={register}
+            placeholder=""
+            onKeyDown={handleEnter}
+          />
+        </label>
+        <label>
+          Password:
+          <Input
+            name="password"
+            value={props.password}
+            ref={register}
+            placeholder=""
+            onKeyDown={handleEnter}
+          />
+        </label>
+        <label>
+          Timezone:
+          <Input
+            name="timezone"
+            value={props.timezone}
+            ref={register}
+            placeholder=""
+            onKeyDown={handleEnter}
+          />
+        </label>
+        <label>
+          Profile picture:
+          <input
+            className="user___create--upload-pic text--semi-bold"
+            name="avatar"
+            type="file"
+            id="myFile"
+            ref={register}
+          />
+        </label>
         <input
           className="user___create--submit text--semi-bold"
           type="submit"
         />
-        <input type="submit" />
+        <textarea name="bio" form="new-user" maxlength="240">
+          Give us your gaming life's story :3c
+        </textarea>
       </form>
-      <textarea form="new-user" maxlength="240">
-        Give us your gaming life's story :3c
-      </textarea>
     </main>
   );
 }

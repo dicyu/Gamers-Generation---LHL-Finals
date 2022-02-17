@@ -12,6 +12,7 @@ export default function Input(props) {
       className="user___create text--semi-bold"
       name={name}
       type="text"
+      ref={props.ref}
       onChange={(e) => handleChange(e.target.value)}
       placeholder={props.placeholder}
       value={name}
