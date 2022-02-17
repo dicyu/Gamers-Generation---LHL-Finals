@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 
-import "../UserForm.scss";
+import "../UserEditForm.scss";
 
 export default function Input(props) {
+  // const [val, setVal] = useState("");
+  const handleChange = (value) => {
+    props.setVal(value);
+  };
   return (
-    <div>
-      <label for={props.id}>{props.id}</label>
-      <input
-        className="user___create text--semi-bold"
-        id={props.id}
-        name={props.id}
-        type="text"
-        onChange={props.handleChange}
-        placeholder={props.placeholder}
-      ></input>
-    </div>
+    <input
+      className="user__edit text--semi-bold"
+      name={props.name}
+      type="text"
+      onChange={(e) => handleChange(e.target.value)}
+      placeholder={props.placeholder}
+      value={props.val}
+    ></input>
   );
 }

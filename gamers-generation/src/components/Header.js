@@ -5,22 +5,31 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 
 function Header() {
-  const signUp = false;
+  const signUp = true;
+  let title = "";
+  if (signUp) {
+    title = "Join -- Gamers Generation";
+  } else {
+    title = "Welcome to Gamers Generation";
+  }
 
   return (
     <div className="header">
       {signUp ? (
         <div className="header__welcome">
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
-            Random Text is here I might be able to edit random text later on
+            {title}
           </Box>
-          <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
-            This is a smaller instruction for Gamers Geneartion. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua.
-          </Box>
+          <br />
+          <label class="smaller-text">
+            <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
+              This is a smaller instruction for Gamers Geneartion. Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+            </Box>
+          </label>
         </div>
       ) : (
         <div>
