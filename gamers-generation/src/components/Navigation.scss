@@ -12,6 +12,7 @@
   padding: 10px 0;
   background-color: $nav-background-color;
   color: $white;
+  z-index: 2;
 
   &__home {
     margin-right: 20px;

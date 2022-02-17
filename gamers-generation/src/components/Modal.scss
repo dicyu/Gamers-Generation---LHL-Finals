@@ -1,3 +1,5 @@
+@import "./styles/variables.scss";
+
 .modal {
   position: fixed;
   left: 0;
@@ -16,17 +18,20 @@
 .modal.show {
   opacity: 1;
   pointer-events: visible;
+  z-index: 3;
 }
 
 .report-select {
   border-radius: 10px;
   font-size: 1em;
   padding: 5px 0 5px 0;
+  margin: 10px;
 }
 
 .modal-content {
-  width: 500px;
-  background-color: #FFF;
+  width: 80vw;
+  height: 80vh;
+  background-color: #0c3468;
   transform: translateY(-200px);
   transition: all 0.3s ease-in-out;
 }
@@ -35,8 +40,19 @@
   transform: translateY(0);
 }
 
-.modal-header, .modal-footer {
+.modal-header {
   padding: 10px;
+  color: $white;
+}
+.modal-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    background-color: $white;
+    color: $black;
+  }
 }
 
 .modal-title {
@@ -44,7 +60,18 @@
 }
 
 .modal-body {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
-  border-top: 1px solid #EEE;
-  border-bottom: 1px solid #EEE;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  color: $white;
+}
+
+.report__text {
+  margin: 20px;
+  height: 40vh;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
 }
