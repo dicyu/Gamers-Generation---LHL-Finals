@@ -4,15 +4,11 @@
   &___create {
     display: flex;
     width: 465px;
-    height: 40px;
+    height: 100%;
     border-radius: 10px;
     background: $input-blue;
     border-color: transparent;
     color: $white;
-
-    // &:hover {
-    //   opacity: 0.9;
-    // }
   }
 }
 

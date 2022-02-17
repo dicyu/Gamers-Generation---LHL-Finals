@@ -40,16 +40,14 @@ function App() {
         ) : null}
         {/* <Input placeholder={"Death is upon us :D"} /> */}
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-        {/* <div className="Report">
+        <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
             title="Report"
             onClose={() => setShow(false)}
             show={show}
-          >
-            <p>Testing</p>
-          </ReportModal>
-        </div> */}
+          ></ReportModal>
+        </div>
         footer picture
       </div>
     </div>
