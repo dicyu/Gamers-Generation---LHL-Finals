@@ -12,18 +12,20 @@ export default function Login() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const newFunction = () => {
-    return axios
-      .post("http://localhost:8001/login", {
-        email,
-        password,
-        confirmPassword,
-      })
-      .then((res) => {
-        fetch("http://localhost:8002/").then((res) => res.json());
-      })
-      .catch((err) => {
-        console.log("Login failed, ", err);
-      });
+    return (
+      axios
+        .post("http://localhost:8001/login", {
+          email,
+          password,
+          confirmPassword,
+        })
+        // .then((res) => {
+        //   fetch("http://localhost:8002/").then((res) => res.json());
+        // })
+        .catch((err) => {
+          console.log("Login failed, ", err);
+        })
+    );
   };
   return (
     <section class="login">

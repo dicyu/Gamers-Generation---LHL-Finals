@@ -4,7 +4,7 @@ const salt = bcrypt.genSaltSync(10);
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query("SELECT * FROM gamers")
+    db.query("SELECT * FROM gamers;")
       .then((gamers) => {
         return res.json(gamers.rows);
       })
