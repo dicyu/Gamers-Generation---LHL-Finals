@@ -13,13 +13,6 @@ function Navigation() {
         <HomeIcon fontSize="large" className="navbar__home" />
       </IconButton>
 
-      <span className="navbar__search">
-        <input placeholder="Search games" />
-        <IconButton>
-          <SearchIcon className="searchIcon" />
-        </IconButton>
-      </span>
-
       <span className="navbar__authentication">
         <Router>
           <Link to="/register">

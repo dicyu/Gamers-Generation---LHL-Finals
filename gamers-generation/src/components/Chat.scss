@@ -1,14 +1,49 @@
 @import "./styles/variables.scss";
 
 .chat {
-  margin: 0;
+  width: 550px;
+  height: 55px;
+  border-radius: 10px;
+  background: $input-blue;
+  border-color: transparent;
+  color: white;
+  margin-left: 20px;
 
   &__name {
-    width: 475px;
-    height: 165;
-    border-radius: 10px;
-    background: $input-blue;
-    border-color: transparent;
-    color: white;
+    padding-top: 13px;
+    padding-left: 20px;
+    font-size: 12px;
+
   }
+}
+
+.chat__chat-container {
+  margin-top: 60px;
+  width: 550px;
+  height: 200px;
+  border-radius: 10px;
+  background: $input-blue;
+  border-color: transparent;
+}
+
+.chat__text {
+  position: relative;
+  top: -40px;
+  padding-left: 10px;
+  padding-top: 10px;
+  resize: none;
+  height: 30px;
+  width: 470px;
+  border-radius: 10px;
+  border: none;
+  font-size: 12pt;
+}
+
+.button {
+  position: relative;
+  top: -90px;
+  height: 48px;
+  width: 55px;
+  left: 85px;
+  padding-top: 5px
 }
