@@ -17,7 +17,7 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    const { email, password, confirmPassword } = req.body;
+    const { email, password } = req.body;
     const queParam = [
       email,
       // bcrypt.hashSync(password, salt),

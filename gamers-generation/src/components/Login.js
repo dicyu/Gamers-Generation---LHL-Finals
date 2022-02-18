@@ -9,7 +9,6 @@ import "./Login.scss";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const newFunction = () => {
     return (
@@ -19,7 +18,6 @@ export default function Login() {
           {
             email,
             password,
-            confirmPassword,
           },
           { withCredentials: true }
         )
@@ -51,16 +49,6 @@ export default function Login() {
             />
           </label>
           <br />
-          <label class="passwordConfirm">
-            Confirm password:
-            <Input
-              type="password"
-              name="confirm-password"
-              setVal={setConfirmPassword}
-              val={confirmPassword}
-              placeholder=""
-            />
-          </label>
           <Button submit onClick={newFunction}>
             Submit
           </Button>

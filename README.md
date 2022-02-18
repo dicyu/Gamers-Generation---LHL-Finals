@@ -20,7 +20,7 @@
 ## Behavioural Requirements
 
 - [x] Register
-- [] Login
+- [x] Login
 - [] Match with other users
 - [] Edit user profile
 - [] Choose gaming preferences

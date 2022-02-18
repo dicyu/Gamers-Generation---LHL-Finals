@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
+import Profile from "./components/Profile";
 // import UserEditForm from "./components/UserEditForm";
 // import Login from "./components/Login";
 // import Register from "./components/Register";
@@ -29,9 +30,7 @@ function App() {
             <Sidebar />
           </div>
         ) : null}
-
         <Profile />
-
         {/* input */}
         {editProfile ? <EditProfile /> : null}
         {/* <UserEditForm /> */}
@@ -44,7 +43,7 @@ function App() {
         ) : null}
         {/* <Input placeholder={"Death is upon us :D"} /> */}
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-        {/* <div className="Report">
+        <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
             title="Report"
