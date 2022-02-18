@@ -14,11 +14,15 @@ export default function Login() {
   const newFunction = () => {
     return (
       axios
-        .post("http://localhost:8001/login", {
-          email,
-          password,
-          confirmPassword,
-        })
+        .post(
+          "/login",
+          {
+            email,
+            password,
+            confirmPassword,
+          },
+          { withCredentials: true }
+        )
         // .then((res) => {
         //   fetch("http://localhost:8002/").then((res) => res.json());
         // })
@@ -30,7 +34,7 @@ export default function Login() {
   return (
     <section class="login">
       <div>
-        <form class="login-form">
+        <form class="login-form" onSubmit={(event) => event.preventDefault()}>
           <label class="email">
             Email:
             <Input name="email" setVal={setEmail} val={email} placeholder="" />

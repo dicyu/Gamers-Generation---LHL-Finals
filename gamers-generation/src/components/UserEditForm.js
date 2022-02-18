@@ -16,7 +16,7 @@ export default function UserEditForm() {
   return (
     <main class="user__edit">
       <form
-        action="http://localhost:8001/gamers"
+        action="/gamers"
         id="new-user"
         autoComplete="off"
         onSubmit={(event) => event.preventDefault}

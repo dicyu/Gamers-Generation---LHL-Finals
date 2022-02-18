@@ -11,14 +11,11 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const newFunction = () => {
     return axios
-      .post("http://localhost:8001/register", {
+      .post("/register", {
         name,
         username,
         email,
         password,
-      })
-      .then((res) => {
-        fetch("http://localhost:8002/").then((res) => res.json());
       })
       .catch((err) => {
         console.log("Horrid", err);

@@ -13,7 +13,7 @@ const KEY1 = process.env.KEY1;
 const KEY2 = process.env.KEY2;
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(
   cookieSession({
     name: "session",

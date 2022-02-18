@@ -53,7 +53,7 @@ function Navigation() {
             </IconButton>
           </Link>
           {/* <Routes>
-            <Route path="/register" />
+            <Route path="/register" element= <Route2/> />
           </Routes> */}
         </Router>
       </span>
