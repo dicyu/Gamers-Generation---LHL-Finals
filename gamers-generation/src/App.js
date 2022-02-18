@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 // import UserEditForm from "./components/UserEditForm";
-import Login from "./components/Login";
+// import Login from "./components/Login";
 // import Register from "./components/Register";
 
 import EditProfile from "./components/EditProfile";
@@ -29,26 +29,24 @@ function App() {
           </div>
         ) : null}{" "}
         {/* */}
-        {/* input
-        {/* <EditProfile /> */}
-        {/* {profile ? (
+        input
+        <EditProfile />
+        {profile ? (
           <div className="cards_container">
             <ProfileCards />
             <ProfileCards />
           </div>
-        ) : null} */}
+        ) : null}
         {/* <Input placeholder={"Death is upon us :D"} /> */}
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-        {/* <div className="Report"> */}
-        {/* <button onClick={() => setShow(true)}>Report</button>
+        <div className="Report">
+          <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
             title="Report"
             onClose={() => setShow(false)}
             show={show}
           ></ReportModal>
-        </div> */}
-        {/* <Register /> */}
-        <Login />
+        </div>
         footer picture
       </div>
     </div>
