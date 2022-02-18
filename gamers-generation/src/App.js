@@ -45,6 +45,9 @@ function App() {
             </div>
           </div>
         ) : null}
+
+        <Profile />
+
         {/* input */}
         {editProfile ? <EditProfile /> : null}
         <Register />
@@ -58,7 +61,7 @@ function App() {
         ) : null}
         {/* <Input placeholder={"Death is upon us :D"} /> */}
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-        <div className="Report">
+        {/* <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
             title="Report"

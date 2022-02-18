@@ -1,0 +1,74 @@
+// Profile CSS
+
+  .bio {
+    width: 100%;
+
+    &__container {
+      width: 465px;
+      height: 50px;
+      border-radius: 10px;
+      background: #005eb5;
+      border-color: transparent;
+      margin-left: 20px;
+    }
+    
+    &__recent-box {
+      font-size: 22px;
+      color: white;
+      padding-top: 10px;
+      padding-left: 15px;
+      padding-bottom: 10px;
+    }
+    
+    &__inner-text {
+      padding-left: 10px;
+      font-size: 13px;
+      color: #A1A1A1;
+    }
+    
+    &__gamers-container {
+      width: 465px;
+      height: 50px;
+      border-radius: 10px;
+      background: #005eb5;
+      border-color: transparent;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+    
+    &__gamers-name {
+      font-size: 20px;
+      display: flex;
+      gap: 100px;
+      padding-left: 15px;
+      padding-top: 12px;
+      color: #FFF;
+    }
+    
+    &__skill-container {
+      position: relative;
+      border-radius: 10px;
+      color: #FFF;
+      float: right;
+      background: #005eb5;
+      width: 350px;
+      height: 300px;
+      right: 150px;
+      top: -51px;
+    }
+
+    &__skill-text {
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+    
+    &__gamerbio {
+      font-size: 13pt;
+      width: 465px;
+      height: 50px;
+      margin-left: 20px;
+      position: relative;
+      top: -110px;
+      left: 143px;
+    }
+  }

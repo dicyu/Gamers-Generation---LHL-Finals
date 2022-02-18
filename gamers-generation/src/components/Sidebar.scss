@@ -2,16 +2,16 @@
 
 .sidebar {
   color: $white;
-  background-color: $background-color;
+  background-color: $nav-sidebar-color;
   display: flex;
   flex: 0.3;
-  border-top: 1px solid $background-color;
+  border-top: 1px solid $nav-sidebar-color;
   max-width: 260px;
 
   &__header {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid $background-color;
+    border-bottom: 1px solid $nav-sidebar-color;
     padding: 13px;
     width: 100%;
 
