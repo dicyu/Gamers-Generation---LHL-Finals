@@ -6,8 +6,8 @@ import Sidebar from "./components/Sidebar";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 // import UserEditForm from "./components/UserEditForm";
-// import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./components/Login";
+// import Register from "./components/Register";
 
 import EditProfile from "./components/EditProfile";
 
@@ -47,7 +47,8 @@ function App() {
             show={show}
           ></ReportModal>
         </div> */}
-        <Register />
+        {/* <Register /> */}
+        <Login />
         footer picture
       </div>
     </div>

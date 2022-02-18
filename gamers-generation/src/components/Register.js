@@ -4,7 +4,7 @@ import Input from "./Information/Input";
 
 import "./Register.scss";
 
-export default function Register(props) {
+export default function Register() {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -28,8 +28,8 @@ export default function Register(props) {
     <section class="register">
       <div>
         <form
-          action="http://localhost:8001/register"
-          method="post"
+          // action="http://localhost:8001/register"
+          // method="post"
           class="register-form"
         >
           <label class="name">
@@ -53,6 +53,7 @@ export default function Register(props) {
           <label class="password">
             Password:
             <Input
+              type="password"
               name="password"
               placeholder=""
               setVal={setPassword}
@@ -60,7 +61,10 @@ export default function Register(props) {
             />
           </label>
           <br />
-          <input class="submit" type="submit" onClick={newFunction} />
+          {/* <input class="submit" type="submit" onClick={newFunction} /> */}
+          <button class="submit" onClick={newFunction}>
+            Submit
+          </button>
         </form>
       </div>
     </section>

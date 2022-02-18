@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const bcrypt = require("bcrypt");
+const salt = bcrypt.genSaltSync(10);
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -15,9 +17,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const { name, gamer_tag, email, password } = req.body;
-    console.log(req.body);
-    const queParam = [name, gamer_tag, email, password[0]];
-    // console.log(queParam);
+    const queParam = [name, gamer_tag, email, bcrypt.hashSync(password, salt)];
     let query =
       "INSERT INTO gamers (name, gamer_tag, email, password) VALUES ($1, $2, $3, $4);";
     return db
@@ -25,7 +25,6 @@ module.exports = (db) => {
       .then((data) => {
         console.log("Hey", data);
         const user = data.rows;
-        return res.redirect("/");
         res.json({ user });
       })
       .catch((err) => {

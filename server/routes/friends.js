@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const cookieSession = require("cookie-session");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
