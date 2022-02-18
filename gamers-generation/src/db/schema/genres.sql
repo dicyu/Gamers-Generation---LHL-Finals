@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS genres;
-
-CREATE TABLE genres(
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255)
-);

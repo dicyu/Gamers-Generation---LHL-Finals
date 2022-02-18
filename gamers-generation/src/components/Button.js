@@ -12,8 +12,12 @@ export default function Button(props) {
   });
 
   return (
-    <button className={buttonClass} onClick={props.onClick}>
-      {props.children}
+    <button
+      className={buttonClass}
+      onClick={props.onClick}
+      type={props.type || ""}
+    >
+      Submit
     </button>
   );
 }
