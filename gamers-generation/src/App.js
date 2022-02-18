@@ -12,6 +12,8 @@ import Register from "./components/Register";
 import GamesList from "./components/GamesList";
 import EditProfile from "./components/EditProfile";
 
+import Chat from "./components/Chat";
+
 function App() {
   const user = true;
   const profile = false;
@@ -68,6 +70,7 @@ function App() {
         </div>
         footer picture
       </div>
+      <Chat />
     </div>
   );
 }
