@@ -8,7 +8,7 @@ export default function GamesList(props) {
   console.log(testData)
   return (
     <div>
-      <h1 className='title'>Search for a game...</h1>
+      <h1 className='title-games'>Search for a game...</h1>
       <GameSearch data={testData} />
     </div>
   )
