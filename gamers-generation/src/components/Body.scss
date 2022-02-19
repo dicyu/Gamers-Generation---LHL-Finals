@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  &__one {
+    margin-top: 50px;
+    margin-left: 150px;
+    height: 300px;
+    width: 300px;
+    background-color: #0c3468;
+    border-radius: 10px;
+    color: white;
+  }
+
+  &__two {
+    margin-top: 50px;
+    margin-left: 100px;
+    height: 300px;
+    width: 300px;
+    background-color: #0c3468;
+    border-radius: 10px;
+    color: white;
+  }
+
+  &__three {
+    margin-top: 50px;
+    margin-left: 100px;
+    height: 300px;
+    width: 300px;
+    background-color: #0c3468;
+    border-radius: 10px;
+    color: white;
+  }
+}
