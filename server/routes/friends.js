@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const cookieSession = require("cookie-session");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -15,20 +16,20 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    // const { gamersID, friendID } = req.body;
-    // const queParam = [gamersID, friendID];
-    // let query =
-    //   "INSERT INTO friends_list (gamer_id, friend_id) VALUES ($1, $2)";
-    // db.query(query, queParam)
-    //   .then((data) => {
-    //     const friend = data.rows;
-    //     return res.json({ friend });
-    //   })
-    //   .catch(() => {
-    //     return res
-    //       .status(500)
-    //       .send("You cannot add friends right now, sorry D: ", err);
-    //   });
+    const { gamersID, friendID } = req.body;
+    const queParam = [gamersID, friendID];
+    let query =
+      "INSERT INTO friends_list (gamer_id, friend_id) VALUES ($1, $2)";
+    db.query(query, queParam)
+      .then((data) => {
+        const friend = data.rows;
+        return res.json({ friend });
+      })
+      .catch(() => {
+        return res
+          .status(500)
+          .send("You cannot add friends right now, sorry D: ", err);
+      });
   });
 
   return router;

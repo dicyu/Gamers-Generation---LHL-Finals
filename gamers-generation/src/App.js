@@ -5,15 +5,15 @@ import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
-import UserEditForm from "./components/UserEditForm";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Profile from "./components/Profile";
+// import UserEditForm from "./components/UserEditForm";
+// import Login from "./components/Login";
+// import Register from "./components/Register";
 
-import GamesList from "./components/GamesList";
 import EditProfile from "./components/EditProfile";
 
 function App() {
-  const user = true;
+  const user = false;
   const profile = false;
   const editProfile = false;
 
@@ -28,29 +28,11 @@ function App() {
         {user ? (
           <div className="sidebar__container">
             <Sidebar />
-            <div className="cards_container">
-              <ProfileCards />
-              <ProfileCards />
-            </div>
-            {/* Modal Button Press (JUST A TEST BUTTON) */}
-            <div className="Report">
-              <button onClick={() => setShow(true)}>Report</button>
-              <ReportModal
-                title="Report"
-                onClose={() => setShow(false)}
-                show={show}
-              >
-                <p>Testing</p>
-              </ReportModal>
-            </div>
           </div>
         ) : null}
-
         <Profile />
-
         {/* input */}
         {editProfile ? <EditProfile /> : null}
-        <Register />
         {/* <UserEditForm /> */}
         <EditProfile />
         {profile ? (
@@ -61,7 +43,7 @@ function App() {
         ) : null}
         {/* <Input placeholder={"Death is upon us :D"} /> */}
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-        {/* <div className="Report">
+        <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
             title="Report"
