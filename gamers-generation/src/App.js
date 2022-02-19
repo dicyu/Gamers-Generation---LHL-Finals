@@ -8,12 +8,15 @@ import ProfileCards from "./components/ProfileCards";
 import UserEditForm from "./components/UserEditForm";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Body from "./components/Body";
 
 import GamesList from "./components/GamesList";
 import EditProfile from "./components/EditProfile";
 
+import Slideshow from "./components/Slideshow";
+
 function App() {
-  const user = true;
+  const user = false;
   const profile = false;
   const editProfile = false;
 
@@ -23,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+      {/* Slideshow */}
       <Header />
       <div className="main__container">
         {user ? (
@@ -45,11 +49,12 @@ function App() {
             </div>
           </div>
         ) : null}
+        <Body />
         {/* input */}
-        {editProfile ? <EditProfile /> : null}
-        <Register />
+        {/* {editProfile ? <EditProfile /> : null} */}
+        {/* <Register /> */}
         {/* <UserEditForm /> */}
-        <EditProfile />
+        {/* <EditProfile /> */}
         {profile ? (
           <div className="cards_container">
             <ProfileCards />
@@ -58,14 +63,14 @@ function App() {
         ) : null}
         {/* <Input placeholder={"Death is upon us :D"} /> */}
         {/* Modal Button Press (JUST A TEST BUTTON) */}
-        <div className="Report">
+        {/* <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal
             title="Report"
             onClose={() => setShow(false)}
             show={show}
           ></ReportModal>
-        </div>
+        </div> */}
         footer picture
       </div>
     </div>
@@ -73,3 +78,5 @@ function App() {
 }
 
 export default App;
+
+// Code Taken out here for now
