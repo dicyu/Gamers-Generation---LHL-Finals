@@ -11,25 +11,29 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const newFunction = () => {
-    return (
-      axios
-        .post(
-          "/login",
-          {
-            email,
-            password,
-          },
-          { withCredentials: true }
-        )
-        // .then((res) => {
-        //   fetch("http://localhost:8002/").then((res) => res.json());
-        // })
-        .catch((err) => {
-          console.log("Login failed, ", err);
-        })
-    );
+    return axios
+      .post(
+        "/login",
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .catch((err) => {
+        console.log("Login failed, ", err);
+      });
   };
   return (
+<<<<<<< HEAD
+    <section className="login">
+      <div>
+        <form
+          className="login-form"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label className="email">
+=======
     <section class="login">
       <div className='test'>
         <div class='login-title'>
@@ -38,11 +42,12 @@ export default function Login() {
         </div>
         <form class="login-form" onSubmit={(event) => event.preventDefault()}>
           <label class="email">
+>>>>>>> 1c8fad7a2c4d55b9071a4dbf90df43d0adeaaac6
             Email:
             <Input name="email" setVal={setEmail} val={email} placeholder="" />
           </label>
           <br />
-          <label class="password">
+          <label className="password">
             Password:
             <Input
               type="password"

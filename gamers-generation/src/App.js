@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
@@ -20,9 +20,19 @@ import IconButton from "@mui/material/IconButton";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const user = false;
-  const profile = false;
-  const editProfile = false;
+  let user = false;
+  let profile = false;
+  let editProfile = true;
+
+  if (document.cookie) {
+    user = true;
+  } else {
+    user = false;
+  }
+
+  // useEffect(
+
+  // )
 
   // State for Reporting - Modal
   const [show, setShow] = useState(false);

@@ -14,7 +14,7 @@ export default function UserEditForm() {
   };
 
   return (
-    <main class="user__edit">
+    <main className="user__edit">
       <form
         action="/gamers"
         id="new-user"

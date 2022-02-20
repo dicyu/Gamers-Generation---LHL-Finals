@@ -37,6 +37,7 @@ const reportsRouter = require("./routes/reports");
 const profileCardsRouter = require("./routes/profileCards");
 const likesRouter = require("./routes/likes");
 const loginRouter = require("./routes/login");
+const editRouter = require("./routes/profile-edit");
 
 app.use("/friends", friendsRouter(db));
 app.use("/reports", reportsRouter(db));
@@ -44,6 +45,7 @@ app.use("/register", gamersRegisterRouter(db));
 app.use("/profileCards", profileCardsRouter(db));
 app.use("/likes", likesRouter(db));
 app.use("/login", loginRouter(db));
+app.use("/edit", editRouter(db));
 app.use("/", indexRouter);
 
 module.exports = app;

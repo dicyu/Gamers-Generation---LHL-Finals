@@ -1,7 +1,5 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
-const e = require("express");
-const salt = bcrypt.genSaltSync(10);
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -18,12 +16,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const { email, password } = req.body;
-    const queParam = [
-      email,
-      // bcrypt.hashSync(password, salt),
-      // bcrypt.hashSync(confirmPassword, salt),
-    ];
-
+    const queParam = [email];
     let query = "SELECT * FROM gamers WHERE email = $1;";
 
     db.query(query, queParam)
