@@ -6,24 +6,21 @@ function Body(props) {
     <div className='container'>
       <div className='container__one'>
         <h2 className='container__header'>
-          <div className='header__text'>Testing</div>
+          <div className='header__text'>1. Sign Up</div>
         </h2>
-        <p className='container__title'>Testing info here</p>
-        <p>More Info</p>
+        <div className='inner-text'>It's easy. Just sign up for an account and you on your way to finding another like minded gamer!</div>
       </div>
       <div className='container__two'>
         <h2 className='container__header'>
-        <div className='header__text'>Testing</div>
+        <div className='header__text'>2. Setup your profile!</div>
         </h2>
-        <p>Testing info here</p>
-        <p>More Info</p>
+        <div className='inner-text'>It's easy. Just sign up for an account and you on your way to finding another like minded gamer!</div>
       </div>
       <div className='container__three'>
         <h2 className='container__header'>
-        <div className='header__text'>Testing</div>
+        <div className='header__text'>Match!</div>
         </h2>
-        <p>Testing info here</p>
-        <p>More Info</p>
+        <div className='inner-text'>It's easy. Just sign up for an account and you on your way to finding another like minded gamer!</div>
       </div>
     </div>
   )
