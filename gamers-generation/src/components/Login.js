@@ -8,37 +8,36 @@ import "./Login.scss";
 export default function Login(props) {
   return (
     <section class="login">
-      <div>
-        <form class="login-form">
-          <label class="email">
-            Email:
-            <Input
-              name={props.email}
-              onChange={props.onChange}
-              placeholder=""
-            />
-          </label>
-          <br />
-          <label class="password">
-            Password:
-            <Input
-              name={props.password}
-              onChange={props.onChange}
-              placeholder=""
-            />
-          </label>
-          <br />
-          <label class="passwordConfirm">
-            Confirm password:
-            <Input
-              name={props.confirmPassword}
-              onChange={props.onChange}
-              placeholder=""
-            />
-          </label>
-          <Button submit>Submit</Button>
-        </form>
-      </div>
+      <form class="login-form">
+        <div className="login-title">
+          Welcome
+          <p>Gaming Generations</p>
+        </div>
+        <label class="email">
+          Email:
+          <Input name={props.email} onChange={props.onChange} placeholder="" />
+        </label>
+        <br />
+        <label class="password">
+          Password:
+          <Input
+            name={props.password}
+            onChange={props.onChange}
+            placeholder=""
+          />
+        </label>
+        <br />
+        <label class="passwordConfirm">
+          Confirm password:
+          <Input
+            name={props.confirmPassword}
+            onChange={props.onChange}
+            placeholder=""
+          />
+        </label>
+        <Button submit>Submit</Button>
+      </form>
+      <div className='right-image-login'></div>
     </section>
   );
 }

@@ -1,8 +1,7 @@
 .register-form {
   display: flex;
   width: 475px;
-  height: 165;
-  padding-top: 50px;
+  height: 165px;
   padding-left: 100px;
   flex-direction: row;
   flex-wrap: wrap;
@@ -27,35 +26,11 @@ label {
   margin-bottom: 40px;
 }
 
-.submit {
-  margin-left: 417px;
-}
-
-p {
-  white-space: pre;
-}
-
-.name {
-  padding-bottom: 30px;
-}
-
-.gamer_tag {
-  padding-bottom: 30px;
-}
-
-.email {
-  padding-bottom: 30px;
-}
-
-.password {
-  padding-bottom: 30px;
-}
-
 .right-image {
   position: relative;
   float: right;
   right: 100px;
-  bottom: 630px;
+  bottom: 280px;
   width: 500px;
   height: 600px;
   background-image: url('./images/1.jpeg');
