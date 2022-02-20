@@ -26,6 +26,7 @@ function Header() {
               <p>A place where you can find liked minded gamers to play your favorite game with!</p>
           </label>
             <button className='signup-btn'>Sign Up</button>
+            <div className='header-2'>Get started</div>
         </div>
       ) : (
         <div>

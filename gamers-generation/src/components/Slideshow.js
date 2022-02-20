@@ -1,21 +1,11 @@
 import React, { useState } from 'react'
-import { SlideData } from './SlideData';
+import './Slideshow.scss'
 
-function SlideShow () {
-
-  const ImageSlide = ({ slides }) => {
-    const [current, setCurrent] = useState(0);
-    const length = slides.length
-  }
+function Slideshow() {
   return (
-    <div className='slideshow'>
-      <div className='slider'>
-        <div className='sliding'>
-
-        </div>
-      </div>
-    </div>
+    <h1>test</h1>
   )
 }
 
-export default SlideShow;
+
+export default Slideshow;

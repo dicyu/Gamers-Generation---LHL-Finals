@@ -13,8 +13,6 @@ import Body from "./components/Body";
 import GamesList from "./components/GamesList";
 import EditProfile from "./components/EditProfile";
 
-import Slideshow from "./components/Slideshow";
-
 function App() {
   const user = false;
   const profile = false;
