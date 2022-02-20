@@ -4,32 +4,29 @@ import Input from "./Information/Input";
 
 import "./Register.scss";
 
-export default function Register(props) {
+export default function Register() {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const newFunction = () => {
     return axios
-      .post("http://localhost:8001/register", {
+      .post("/register", {
         name,
         username,
         email,
         password,
       })
-      .then((res) => {
-        fetch("http://localhost:8002/");
-      })
       .catch((err) => {
-        console.log("hLO", err);
+        console.log("Horrid", err);
       });
   };
   return (
     <section class="register">
       <div>
         <form
-          action="http://localhost:8001/register"
-          method="post"
+          // action="http://localhost:8001/register"
+          // method="post"
           class="register-form"
         >
           <label class="name">
@@ -53,6 +50,7 @@ export default function Register(props) {
           <label class="password">
             Password:
             <Input
+              type="password"
               name="password"
               placeholder=""
               setVal={setPassword}
@@ -60,11 +58,10 @@ export default function Register(props) {
             />
           </label>
           <br />
-          {/* <label class="password">
-            Confirm password:
-            <Input name="password" placeholder="" />
-          </label> */}
-          <input onClick={newFunction}></input>
+          {/* <input class="submit" type="submit" onClick={newFunction} /> */}
+          <button class="submit" onClick={newFunction}>
+            Submit
+          </button>
         </form>
       </div>
     </section>

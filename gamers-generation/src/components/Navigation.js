@@ -4,15 +4,19 @@ import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+// import Register from "./Register";
 
 function Navigation() {
   return (
     <div className="navbar">
-      <IconButton>
-        <HomeIcon fontSize="large" className="navbar__home" />
-      </IconButton>
-
+      <Router>
+        <Link to="/">
+          <IconButton>
+            <HomeIcon fontSize="large" className="navbar__home" />
+          </IconButton>
+        </Link>
+      </Router>
       <span className="navbar__search">
         <input placeholder="Search games" />
         <IconButton>
@@ -49,7 +53,7 @@ function Navigation() {
             </IconButton>
           </Link>
           {/* <Routes>
-            <Route path="/register" element={<UserForm />} />
+            <Route path="/register" element= <Route2/> />
           </Routes> */}
         </Router>
       </span>

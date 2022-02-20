@@ -6,6 +6,11 @@ import Sidebar from "./components/Sidebar";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 import Register from "./components/Register";
+import Profile from "./components/Profile";
+// import UserEditForm from "./components/UserEditForm";
+// import Login from "./components/Login";
+// import Register from "./components/Register";
+
 import EditProfile from "./components/EditProfile";
 import Login from "./components/Login";
 import UserEditForm from "./components/UserEditForm";
@@ -13,7 +18,7 @@ import GamesList from "./components/GamesList";
 import HeaderProfile from "./components/HeaderProfile";
 
 function App() {
-  const user = true;
+  const user = false;
   const profile = false;
   const editProfile = false;
 
