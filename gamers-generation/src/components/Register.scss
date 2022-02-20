@@ -2,13 +2,20 @@
   display: flex;
   width: 475px;
   height: 165;
-  padding: 100px;
-  padding-top: 60px;
+  padding-top: 50px;
+  padding-left: 100px;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: space-between;
   color: white;
+}
+
+.register-title {
+  padding-top: 120px;
+  padding-left: 100px;
+  color: #FFF;
+  font-size: 42pt;
 }
 
 label,
@@ -26,4 +33,31 @@ label {
 
 p {
   white-space: pre;
+}
+
+.name {
+  padding-bottom: 30px;
+}
+
+.gamer_tag {
+  padding-bottom: 30px;
+}
+
+.email {
+  padding-bottom: 30px;
+}
+
+.password {
+  padding-bottom: 30px;
+}
+
+.right-image {
+  position: relative;
+  float: right;
+  right: 100px;
+  bottom: 630px;
+  width: 500px;
+  height: 600px;
+  background-image: url('./images/1.jpeg');
+  border-radius: 50px;
 }

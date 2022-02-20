@@ -13,6 +13,12 @@ import Body from "./components/Body";
 import GamesList from "./components/GamesList";
 import EditProfile from "./components/EditProfile";
 
+import "./components/Navigation.scss";
+import HomeIcon from "@mui/icons-material/Home";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 function App() {
   const user = false;
   const profile = false;
@@ -23,54 +29,56 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation />
-      {/* Slideshow */}
-      <Header />
-      <div className="main__container">
-        {user ? (
-          <div className="sidebar__container">
-            <Sidebar />
-            <div className="cards_container">
-              <ProfileCards />
-              <ProfileCards />
-            </div>
-            {/* Modal Button Press (JUST A TEST BUTTON) */}
-            <div className="Report">
-              <button onClick={() => setShow(true)}>Report</button>
-              <ReportModal
-                title="Report"
-                onClose={() => setShow(false)}
-                show={show}
-              >
-                <p>Testing</p>
-              </ReportModal>
-            </div>
-          </div>
-        ) : null}
-        <Body />
-        {/* input */}
-        {/* {editProfile ? <EditProfile /> : null} */}
-        {/* <Register /> */}
-        {/* <UserEditForm /> */}
-        {/* <EditProfile /> */}
-        {profile ? (
-          <div className="cards_container">
-            <ProfileCards />
-            <ProfileCards />
-          </div>
-        ) : null}
-        {/* <Input placeholder={"Death is upon us :D"} /> */}
-        {/* Modal Button Press (JUST A TEST BUTTON) */}
-        {/* <div className="Report">
-          <button onClick={() => setShow(true)}>Report</button>
-          <ReportModal
-            title="Report"
-            onClose={() => setShow(false)}
-            show={show}
-          ></ReportModal>
-        </div> */}
-        footer picture
-      </div>
+      <Router>
+        <div className="navbar">
+          <Link to="/">
+            <IconButton>
+              <HomeIcon fontSize="large" className="navbar__home" />
+            </IconButton>
+          </Link>
+
+          <span className="navbar__authentication">
+            <Link to="/register">
+              <IconButton>
+                <Button
+                  variant="outlined"
+                  style={{
+                    backgroundColor: "transparent",
+                    color: "#fff",
+                  }}
+                >
+                  Sign up
+                </Button>
+              </IconButton>
+            </Link>
+            <Link to="/login">
+              <IconButton>
+                <Button
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#fff",
+                    color: "#000",
+                  }}
+                >
+                  Login
+                </Button>
+              </IconButton>
+            </Link>
+          </span>
+        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                <Header />
+                <Body />
+              </div>
+            }
+          />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

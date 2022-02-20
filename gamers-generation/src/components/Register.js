@@ -26,6 +26,10 @@ export default function Register(props) {
   };
   return (
     <section class="register">
+      <div className='register-title'>
+        Join 
+        <p>Gaming Generations</p>
+      </div>
       <div>
         <form
           action="http://localhost:8001/register"
@@ -67,6 +71,8 @@ export default function Register(props) {
           <input onClick={newFunction}></input>
         </form>
       </div>
+
+      <div className='right-image'></div>
     </section>
   );
 }
