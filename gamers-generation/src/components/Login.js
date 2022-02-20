@@ -21,6 +21,7 @@ export default function Login(props) {
         <label class="password">
           Password:
           <Input
+            type="password"
             name={props.password}
             onChange={props.onChange}
             placeholder=""
