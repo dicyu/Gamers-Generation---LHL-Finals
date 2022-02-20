@@ -19,4 +19,42 @@
     margin-left: 20px;
     color: $white;
   }
+
+  &__search {
+    display: flex;
+    flex: 0.3;
+    opacity: 1;
+    border-radius: 6px;
+    text-align: center;
+    background-color: $white;
+    border: 1px gray solid;
+    padding: 0 50px;
+    color: $white;
+
+    > input {
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      min-width: 35vw;
+      outline: 0;
+      color: #000;
+      font-weight: 900;
+      font-size: 20px;
+    }
+  }
+
+  &__authentication {
+    display: flex;
+    flex: 0.3;
+    justify-content: flex-end;
+
+    .MuiSvgIcon-root {
+      margin-left: auto;
+      margin-right: 10px;
+    }
+  }
+}
+
+.searchIcon {
+  color: #000;
 }

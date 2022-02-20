@@ -3,8 +3,8 @@ import "./Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import Register from "./Register";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function Navigation() {
   return (

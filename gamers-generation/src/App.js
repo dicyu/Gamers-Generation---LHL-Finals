@@ -10,7 +10,6 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
 
-import GamesList from "./components/GamesList";
 import EditProfile from "./components/EditProfile";
 
 import "./components/Navigation.scss";

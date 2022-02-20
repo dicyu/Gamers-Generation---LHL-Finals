@@ -24,3 +24,8 @@
 .button--cancel {
   background-color: $pink;
 }
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgb(5, 36, 102);
+}
