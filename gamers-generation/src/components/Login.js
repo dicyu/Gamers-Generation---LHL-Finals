@@ -25,6 +25,7 @@ export default function Login() {
       });
   };
   return (
+<<<<<<< HEAD
     <section className="login">
       <div>
         <form
@@ -32,6 +33,16 @@ export default function Login() {
           onSubmit={(event) => event.preventDefault()}
         >
           <label className="email">
+=======
+    <section class="login">
+      <div className='test'>
+        <div class='login-title'>
+          Welcome to
+          <p>Gaming Generations</p>
+        </div>
+        <form class="login-form" onSubmit={(event) => event.preventDefault()}>
+          <label class="email">
+>>>>>>> 1c8fad7a2c4d55b9071a4dbf90df43d0adeaaac6
             Email:
             <Input name="email" setVal={setEmail} val={email} placeholder="" />
           </label>
@@ -51,6 +62,7 @@ export default function Login() {
             Submit
           </Button>
         </form>
+        <div className='right-image-login'></div>
       </div>
     </section>
   );

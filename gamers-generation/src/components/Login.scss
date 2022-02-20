@@ -3,13 +3,12 @@
 .login-form {
   display: flex;
   width: 475px;
-  height: 165;
-  padding: 100px;
-  padding-top: 60px;
+  height: 165px;
+  padding-top: 50px;
+  padding-left: 100px;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
-
   justify-content: space-between;
   color: $white;
 }
@@ -20,7 +19,8 @@ input {
 }
 
 label {
-  margin-bottom: 40px;
+  margin-top: 50px;
+  margin-bottom: 10px;
 }
 
 .submit {
@@ -33,4 +33,27 @@ p {
 
 Button {
   margin-left: 410px;
+  margin-top: 50px;
+}
+
+.login-title {
+  color: #FFF;
+  font-size: 42pt;
+  padding-top: 20px;
+  padding-left: 100px;
+}
+
+.test {
+  padding-top: 100px;
+}
+
+.right-image-login {
+  position: relative;
+  float: right;
+  right: 100px;
+  bottom: 330px;
+  width: 500px;
+  height: 600px;
+  background-image: url('./images/1.jpeg');
+  border-radius: 50px;
 }
