@@ -53,6 +53,11 @@
     background-color: $white;
     color: $black;
   }
+
+  button:hover {
+    background-color: $red;
+    color: $white;
+  }
 }
 
 .modal-title {

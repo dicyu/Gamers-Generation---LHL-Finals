@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
@@ -7,15 +7,24 @@ import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 import Profile from "./components/Profile";
 // import UserEditForm from "./components/UserEditForm";
-// import Login from "./components/Login";
+import Login from "./components/Login";
 // import Register from "./components/Register";
-
 import EditProfile from "./components/EditProfile";
 
 function App() {
-  const user = false;
-  const profile = false;
-  const editProfile = false;
+  let user = false;
+  let profile = false;
+  let editProfile = true;
+
+  if (document.cookie) {
+    user = true;
+  } else {
+    user = false;
+  }
+
+  // useEffect(
+
+  // )
 
   // State for Reporting - Modal
   const [show, setShow] = useState(false);
@@ -28,21 +37,18 @@ function App() {
         {user ? (
           <div className="sidebar__container">
             <Sidebar />
+            <Profile />
           </div>
-        ) : null}
-        <Profile />
-        {/* input */}
+        ) : (
+          <Login />
+        )}
         {editProfile ? <EditProfile /> : null}
-        {/* <UserEditForm /> */}
-        <EditProfile />
         {profile ? (
           <div className="cards_container">
             <ProfileCards />
             <ProfileCards />
           </div>
         ) : null}
-        {/* <Input placeholder={"Death is upon us :D"} /> */}
-        {/* Modal Button Press (JUST A TEST BUTTON) */}
         <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal

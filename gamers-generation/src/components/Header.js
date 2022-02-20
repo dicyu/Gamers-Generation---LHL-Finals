@@ -21,7 +21,7 @@ function Header() {
             {title}
           </Box>
           <br />
-          <label class="smaller-text">
+          <label className="smaller-text">
             <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
               This is a smaller instruction for Gamers Generation. Lorem ipsum
               dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

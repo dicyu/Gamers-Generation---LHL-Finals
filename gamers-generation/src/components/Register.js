@@ -22,18 +22,18 @@ export default function Register() {
       });
   };
   return (
-    <section class="register">
+    <section className="register">
       <div>
         <form
           // action="http://localhost:8001/register"
           // method="post"
-          class="register-form"
+          className="register-form"
         >
-          <label class="name">
+          <label className="name">
             Name:
             <Input name="name" placeholder="" setVal={setName} val={name} />
           </label>
-          <label class="gamer_tag">
+          <label className="gamer_tag">
             Username:
             <Input
               name="gamer_tag"
@@ -42,12 +42,12 @@ export default function Register() {
               val={username}
             />
           </label>
-          <label class="email">
+          <label className="email">
             Email:
             <Input name="email" placeholder="" setVal={setEmail} val={email} />
           </label>
           <br />
-          <label class="password">
+          <label className="password">
             Password:
             <Input
               type="password"
@@ -58,8 +58,8 @@ export default function Register() {
             />
           </label>
           <br />
-          {/* <input class="submit" type="submit" onClick={newFunction} /> */}
-          <button class="submit" onClick={newFunction}>
+          {/* <input className="submit" type="submit" onClick={newFunction} /> */}
+          <button className="submit" onClick={newFunction}>
             Submit
           </button>
         </form>
