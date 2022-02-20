@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Input from "./Information/Input";
+import { useNavigate } from "react-router-dom";
+
 
 import "./Register.scss";
 
@@ -9,7 +11,10 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const newFunction = () => {
+  const navigate = useNavigate();
+
+  const newFunction = (e) => {
+    e.preventDefault()
     return axios
       .post("/register", {
         name,
@@ -17,24 +22,22 @@ export default function Register() {
         email,
         password,
       })
+      .then(() => {
+        console.log("Anything")
+        navigate("/");
+      })
       .catch((err) => {
         console.log("Horrid", err);
       });
   };
   return (
-<<<<<<< HEAD
-    <section className="register">
-=======
     <section class="register">
       <div className='register-title'>
         Join 
         <p>Gaming Generations</p>
       </div>
->>>>>>> 1c8fad7a2c4d55b9071a4dbf90df43d0adeaaac6
       <div>
         <form
-          // action="http://localhost:8001/register"
-          // method="post"
           className="register-form"
         >
           <label className="name">
@@ -66,13 +69,11 @@ export default function Register() {
             />
           </label>
           <br />
-          {/* <input className="submit" type="submit" onClick={newFunction} /> */}
           <button className="submit" onClick={newFunction}>
             Submit
           </button>
         </form>
       </div>
-
       <div className='right-image'></div>
     </section>
   );

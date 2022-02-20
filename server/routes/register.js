@@ -18,14 +18,17 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     const { name, gamer_tag, email, password } = req.body;
     const queParam = [name, gamer_tag, email, bcrypt.hashSync(password, salt)];
+    let id;
     let query =
-      "INSERT INTO gamers (name, gamer_tag, email, password) VALUES ($1, $2, $3, $4);";
+      "INSERT INTO gamers (name, gamer_tag, email, password) VALUES ($1, $2, $3, $4) RETURNING *;";
     return db
       .query(query, queParam)
       .then((data) => {
-        console.log("Hey", data);
-        const user = data.rows;
-        res.json({ user });
+        console.log(data.rows)
+        const user = data.rows[0];
+        req.session["id"] = user.id;
+        console.log("Hello, ", user.id)
+        return res.json({ user });
       })
       .catch((err) => {
         res.status(500).send("Cannot sign up ", err);
