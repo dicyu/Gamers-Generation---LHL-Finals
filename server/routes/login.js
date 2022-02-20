@@ -10,7 +10,7 @@ module.exports = (db) => {
       .catch((err) => {
         return res
           .status(500)
-          .send("You cannot access the gamers list,  ", err);
+          .send("You cannot access the gamers list, ", err);
       });
   });
 
@@ -19,8 +19,11 @@ module.exports = (db) => {
     const queParam = [email];
     let query = "SELECT * FROM gamers WHERE email = $1;";
 
+    // console.log("First console")
+
     db.query(query, queParam)
       .then((data) => {
+        // console.log("Second console")
         if (bcrypt.compareSync(password, data.rows[0].password)) {
           req.session["id"] = data.rows[0].id;
           res.json(data.rows);

@@ -3,6 +3,8 @@ import "./Sidebar.scss";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
+import EditProfile from "./EditProfile";
+import { Link, Route, Routes } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -16,6 +18,7 @@ function Sidebar() {
               Online
             </span>
           </div>
+          <Link to="/edit">
           <IconButton>
             <Avatar
               fontSize="large"
@@ -23,6 +26,7 @@ function Sidebar() {
               style={{ border: "3px solid green" }}
             />
           </IconButton>
+          </Link>
         </h2>
       </div>
     </div>
