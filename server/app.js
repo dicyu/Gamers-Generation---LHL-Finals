@@ -5,7 +5,6 @@ const app = express();
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const PORT = 8001;
 
 require("dotenv").config();
 // app.use(bodyParser.json());
@@ -25,10 +24,14 @@ const indexRouter = require("./routes/index");
 const gamersRegisterRouter = require("./routes/gamers");
 const friendsRouter = require("./routes/friends");
 const reportsRouter = require("./routes/reports");
+const profileCardsRouter = require("./routes/profileCards");
+const likesRouter = require("./routes/likes");
 
 app.use("/friends", friendsRouter(db));
 app.use("/reports", reportsRouter(db));
 app.use("/register", gamersRegisterRouter(db));
+app.use("/profileCards", profileCardsRouter(db));
+app.use("/likes", likesRouter(db));
 app.use("/", indexRouter);
 
 module.exports = app;

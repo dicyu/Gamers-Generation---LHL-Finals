@@ -5,12 +5,12 @@ import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
-import UserEditForm from "./components/UserEditForm";
-import Login from "./components/Login";
 import Register from "./components/Register";
-
-import GamesList from "./components/GamesList";
 import EditProfile from "./components/EditProfile";
+import Login from "./components/Login";
+import UserEditForm from "./components/UserEditForm";
+import GamesList from "./components/GamesList";
+import HeaderProfile from "./components/HeaderProfile";
 
 function App() {
   const user = true;
@@ -24,40 +24,22 @@ function App() {
     <div className="App">
       <Navigation />
       <Header />
+      {user ? <HeaderProfile /> : null}
       <div className="main__container">
         {user ? (
-          <div className="sidebar__container">
-            <Sidebar />
+          <>
             <div className="cards_container">
               <ProfileCards />
               <ProfileCards />
             </div>
-            {/* Modal Button Press (JUST A TEST BUTTON) */}
-            <div className="Report">
-              <button onClick={() => setShow(true)}>Report</button>
-              <ReportModal
-                title="Report"
-                onClose={() => setShow(false)}
-                show={show}
-              >
-                <p>Testing</p>
-              </ReportModal>
+            <div className="sidebar__container">
+              <Sidebar />
             </div>
-          </div>
+          </>
         ) : null}
-        {/* input */}
         {editProfile ? <EditProfile /> : null}
-        <Register />
+        {/* <Register /> */}
         {/* <UserEditForm /> */}
-        <EditProfile />
-        {profile ? (
-          <div className="cards_container">
-            <ProfileCards />
-            <ProfileCards />
-          </div>
-        ) : null}
-        {/* <Input placeholder={"Death is upon us :D"} /> */}
-        {/* Modal Button Press (JUST A TEST BUTTON) */}
         <div className="Report">
           <button onClick={() => setShow(true)}>Report</button>
           <ReportModal

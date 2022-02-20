@@ -1,38 +1,38 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./ProfileCards.scss";
 import TinderCard from "react-tinder-card";
 import ReplayIcon from "@mui/icons-material/Replay";
 import CloseIcon from "@mui/icons-material/Close";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
+import axios from "axios";
 
 function ProfileCards() {
-  const [people, setPeople] = useState([
-    {
-      name: "Dickson",
-      imgUrl:
-        "https://i.pinimg.com/474x/df/72/d5/df72d51685e99a265ad186bada408e27.jpg",
-    },
-    {
-      name: "Cassie",
-      imgUrl:
-        "https://cutewallpaper.org/21/sasuke-profile-picture/Sasuke-1.1k-sasuke.haruno.uchiha-Instagram-Profile-.jpg",
-    },
-  ]);
-
-  const [currentIndex, setCurrentIndex] = useState(people.length - 1);
+  const [people, setPeople] = useState([]);
+  const [error, setError] = useState([]);
+  const [childRefs, setChildRefs] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [lastDirection, setLastDirection] = useState();
-  // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex);
 
-  const childRefs = useMemo(
-    () =>
-      Array(people.length)
-        .fill(0)
-        .map((i) => React.createRef()),
-    []
-  );
+  useEffect(() => {
+    axios
+      .get("/profileCards")
+      .then((req) => {
+        const refs = [];
+        req.data.forEach((person) => {
+          const personRef = React.createRef();
+          person.ref = personRef;
+          refs.push(personRef);
+        });
+        setPeople(req.data);
+        setChildRefs(refs);
+        setCurrentIndex(req.data.length - 1);
+      })
+      .catch((error) => setError(error));
+  }, []);
 
+  // swipeable card
   const updateCurrentIndex = (val) => {
     setCurrentIndex(val);
     currentIndexRef.current = val;
@@ -63,6 +63,10 @@ function ProfileCards() {
     }
   };
 
+  const createLike = (sent_like, received_like) => {
+    axios.post("/likes").send();
+  };
+
   // increase current index and show card
   const goBack = async () => {
     if (!canGoBack) return;
@@ -75,7 +79,7 @@ function ProfileCards() {
     <div className="swipeable__card">
       {people.map((person, index) => (
         <TinderCard
-          ref={childRefs[index]}
+          ref={person.ref}
           className="swipe"
           key={person.name}
           preventSwipe={["up", "down"]}
@@ -85,14 +89,13 @@ function ProfileCards() {
           <div className="card_bio__container">
             <div
               className="card"
-              style={{ backgroundImage: `url(${person.imgUrl})` }}
+              style={{
+                backgroundImage: `url(${person.avatar})`,
+              }}
             >
               <h3>{person.name}</h3>
             </div>
-            <div className="bio">
-              profile bio this is hard coded profile bio from the dB and has the
-              character limit...
-            </div>
+            <div className="bio">{person.bio}</div>
           </div>
         </TinderCard>
       ))}
