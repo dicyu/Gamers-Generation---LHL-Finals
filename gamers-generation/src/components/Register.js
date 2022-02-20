@@ -10,6 +10,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const newFunction = () => {
+    console.log(name)
     return axios
       .post("/register", {
         name,
@@ -31,14 +32,14 @@ export default function Register() {
         <form
           // action="http://localhost:8001/register"
           // method="post"
-          class="register-form"
+          class="register-form" onSubmit={(event) => event.preventDefault()}
         >
           <label class="name">
             Name:
             <Input name="name" placeholder="" setVal={setName} val={name} />
           </label>
           <label class="gamer_tag">
-            Username:
+            Gamer Tag:
             <Input
               name="gamer_tag"
               placeholder=""
