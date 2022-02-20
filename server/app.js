@@ -6,7 +6,6 @@ const logger = require("morgan");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-const logger = require("morgan");
 
 // .env file variables
 require("dotenv").config();
