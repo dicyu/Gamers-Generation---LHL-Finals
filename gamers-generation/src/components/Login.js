@@ -31,7 +31,11 @@ export default function Login() {
   };
   return (
     <section class="login">
-      <div>
+      <div className='test'>
+        <div class='login-title'>
+          Welcome to
+          <p>Gaming Generations</p>
+        </div>
         <form class="login-form" onSubmit={(event) => event.preventDefault()}>
           <label class="email">
             Email:
@@ -53,6 +57,7 @@ export default function Login() {
             Submit
           </Button>
         </form>
+        <div className='right-image-login'></div>
       </div>
     </section>
   );

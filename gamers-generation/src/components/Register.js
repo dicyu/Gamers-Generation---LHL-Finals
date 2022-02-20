@@ -23,6 +23,10 @@ export default function Register() {
   };
   return (
     <section class="register">
+      <div className='register-title'>
+        Join 
+        <p>Gaming Generations</p>
+      </div>
       <div>
         <form
           // action="http://localhost:8001/register"
@@ -64,6 +68,8 @@ export default function Register() {
           </button>
         </form>
       </div>
+
+      <div className='right-image'></div>
     </section>
   );
 }
