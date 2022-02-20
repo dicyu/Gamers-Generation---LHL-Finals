@@ -9,5 +9,5 @@ CREATE TABLE gamers(
   email VARCHAR(255),
   password VARCHAR(255),
   language VARCHAR(255) DEFAULT 'English',
-  timezone TIMESTAMP WITH TIME ZONE DEFAULT(current_timestamp AT TIME ZONE 'UTC')
+  timezone VARCHAR(255) DEFAULT 'UTC'
 );

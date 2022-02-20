@@ -3,8 +3,6 @@ import Input from "./Information/Input";
 import "./EditProfile.scss";
 import Button from "./Button";
 import axios from "axios";
-const bcrypt = require("bcrypt");
-const salt = bcrypt.genSaltSync(10);
 
 function EditProfile() {
   const [name, setName] = useState("");
@@ -18,18 +16,21 @@ function EditProfile() {
     event.preventDefault();
   };
   const newFunction = () => {
-    let userData = {};
-    let fd = new FormData();
-
-    fd.forEach((val, key) => {
-      userData[key] = val;
-    });
-
-    if (userData.password) {
-      userData.password = bcrypt(userData.password, salt);
-    }
     return axios
-      .patch("/gamers", userData, { withCredentials: true })
+      .post(
+        "/edit",
+        {
+          name,
+          gamer_tag,
+          email,
+          password,
+          timezone,
+        },
+        { withCredentials: true }
+      )
+      .then(() => {
+        console.log("hello");
+      })
       .catch((err) => {
         console.log("Failed: ", err);
       });
@@ -69,7 +70,7 @@ function EditProfile() {
           <Input name="password" setVal={setPassword} val={password} />
         </label>
         <label>
-          Timezone
+          Timezone:
           <Input name="timezone" setVal={setTimezone} val={timezone} />
         </label>
         <div className="edit__submit">
