@@ -40,13 +40,18 @@ Button {
   color: #FFF;
   font-size: 42pt;
   padding-top: 70px;
+  padding-left: 100px;
+}
+
+.test {
+  padding-top: 100px;
 }
 
 .right-image-login {
   position: relative;
   float: right;
   right: 100px;
-  bottom: 81px;
+  bottom: 330px;
   width: 500px;
   height: 600px;
   background-image: url('./images/1.jpeg');
