@@ -1,4 +1,4 @@
-INSERT INTO games_genres (game_id, ganre_id)
+INSERT INTO games_genres (game_id, genre_id)
 VALUES
 (1, 9),
 (1, 11),
