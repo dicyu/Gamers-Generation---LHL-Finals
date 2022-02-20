@@ -8,7 +8,7 @@ function Header() {
   const signUp = false;
   let title = "";
   if (signUp) {
-    title = "Join -- Gamers Generation";
+    title = "Join Gamers Generation";
   } else {
     title = "Welcome to Gamers Generation";
   }
@@ -17,19 +17,16 @@ function Header() {
     <div className="header">
       {signUp ? (
         <div className="header__welcome">
-          <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
+          <div className='title'>
             {title}
-          </Box>
+          </div>
           <br />
           <label class="smaller-text">
-            <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
-              This is a smaller instruction for Gamers Generation. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
-            </Box>
+              Welcome to Gamer's Generation.
+              <p>A place where you can find liked minded gamers to play your favorite game with!</p>
           </label>
+            <button className='signup-btn'>Sign Up</button>
+            <div className='header-2'>Get started</div>
         </div>
       ) : (
         ""
