@@ -1,5 +1,6 @@
 // Imports
-import React, { useEffect, useState } from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import "./Modal.scss";
 
 const ReportModal = (props) => {
@@ -7,7 +8,6 @@ const ReportModal = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(form);
   };
 
   const handleChange = (event) => {
@@ -15,20 +15,12 @@ const ReportModal = (props) => {
     const value = event.target.value;
     setForm({ ...form, [name]: value });
   };
-  // Function for Esc key use to close
-  const closeWhenEscapeKey = (e) => {
-    if ((e.charCode || e.keyCode) === 27) {
-      props.onClose();
-    }
-  };
 
-  // Clean up for esc key
-  useEffect(() => {
-    document.body.addEventListener("keydown", closeWhenEscapeKey);
-    return function cleanUp() {
-      document.body.removeEventListener("keydown", closeWhenEscapeKey);
-    };
-  }, []);
+  const newFunction = () => {
+    return axios.post("/report", {
+      
+    })
+  }
 
   // Render for modal
   return (
@@ -55,7 +47,7 @@ const ReportModal = (props) => {
             <select
               className="report-select"
               id="report__dropDown_Two"
-              name="report__dropDown_Two"
+              value="report__dropDown_Two"
               onChange={handleChange}
             >
               <option value="reason">Reason</option>
@@ -88,7 +80,7 @@ const ReportModal = (props) => {
             <button onClick={props.onSubmit} className="button">
               Submit
             </button>
-            <button onClick={props.onClose} className="button">
+            <button onClick={newFunction} className="button">
               Close
             </button>
           </div>
