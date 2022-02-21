@@ -60,7 +60,7 @@ export default function Register() {
             <Input name="email" placeholder="" setVal={setEmail} val={email} />
           </label>
           <br />
-          <label className="bio">
+          <label className="bio-container">
             Bio:
             <Input name="bio" placeholder="" setVal={setBio} val={bio} />
           </label>
