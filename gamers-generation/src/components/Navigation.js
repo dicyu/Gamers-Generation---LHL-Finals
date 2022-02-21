@@ -1,10 +1,10 @@
 import React from "react";
 import "./Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
-import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import Register from "./Register";
 
 function Navigation() {
   return (
@@ -41,9 +41,9 @@ function Navigation() {
               </Button>
             </IconButton>
           </Link>
-          {/* <Routes>
-            <Route path="/register" element={<UserForm />} />
-          </Routes> */}
+          <Routes>
+            <Route path="/register" element={<Register />} />
+          </Routes>
         </Router>
       </span>
     </div>

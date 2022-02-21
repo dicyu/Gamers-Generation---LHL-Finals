@@ -1,26 +1,59 @@
 @import "./styles/variables.scss";
 
 .header {
-  padding: 120px 88px 0;
+  padding-top: 70px;
   color: $white;
   font-size: 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 522px;
+  width: 100%;
+
+  &__welcome {
+    background-image: url("./images/1.jpeg");
+    height: 400px;
+  }
 }
+
 .title {
-  color: $white;
-  padding-left: 50px;
-  padding-bottom: 30px;
+  color: #4b4e53;
+  font-size: 72pt;
+  text-align: center;
+  padding-top: 50px;
 }
 
 .smaller-text {
+  position: relative;
+  color: #4b4e53;
+  top: -70px;
   font-size: 18px;
+  left: 255px;
+  text-align: justify;
+  width: 300px;
 }
 
 .header__username {
   color: $white;
   padding-left: 20px;
   font-size: 30px;
+}
+
+.signup-btn {
+  margin: 0;
+  position: absolute;
+  top: 350px;
+  left: 255px;
+  color: #fff;
+  border: transparent;
+  background: #4b4e53;
+  border-radius: 5px;
+  height: 50px;
+  width: 200px;
+}
+
+.header-2 {
+  text-align: center;
+  color: #fff;
+  margin-top: 120px;
+  font-size: 42pt;
 }

@@ -1,43 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./Information/Input";
 import Button from "./Button";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import "../App.scss";
 import "./Login.scss";
 
 export default function Login(props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const loginUser = () => {
+    props
+      .handleLogin(email, password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log("Login failed, ", err);
+      });
+  };
   return (
-    <section class="login">
-      <div>
-        <form class="login-form">
-          <label class="email">
+    <section className="login">
+      <div className="test">
+        <div className="login-title">
+          Welcome to
+          <p>Gaming Generations</p>
+        </div>
+        <form
+          className="login-form"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label className="email">
             Email:
-            <Input
-              name={props.email}
-              onChange={props.onChange}
-              placeholder=""
-            />
+            <Input name="email" setVal={setEmail} val={email} placeholder="" />
           </label>
           <br />
-          <label class="password">
+          <label className="password">
             Password:
             <Input
-              name={props.password}
-              onChange={props.onChange}
+              type="password"
+              name="password"
+              setVal={setPassword}
+              val={password}
               placeholder=""
             />
           </label>
           <br />
-          <label class="passwordConfirm">
-            Confirm password:
-            <Input
-              name={props.confirmPassword}
-              onChange={props.onChange}
-              placeholder=""
-            />
-          </label>
-          <Button submit>Submit</Button>
+          <Button submit onClick={loginUser}>
+            Submit
+          </Button>
         </form>
+        <div className="right-image-login"></div>
       </div>
     </section>
   );

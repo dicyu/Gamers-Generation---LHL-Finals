@@ -1,58 +1,64 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Input from "./Information/Input";
+import { useNavigate } from "react-router-dom";
 
 import "./Register.scss";
 
-export default function Register(props) {
+export default function Register() {
   const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
+  const [gamer_tag, setGamer_tag] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const newFunction = () => {
+  const navigate = useNavigate();
+
+  const newFunction = (e) => {
+    e.preventDefault();
     return axios
-      .post("http://localhost:8001/register", {
+      .post("/register", {
         name,
-        username,
+        gamer_tag,
         email,
         password,
       })
-      .then((res) => {
-        fetch("http://localhost:8002/");
+      .then(() => {
+        console.log("Anything");
+        navigate("/");
       })
       .catch((err) => {
-        console.log("hLO", err);
+        console.log("Horrid", err);
       });
   };
   return (
-    <section class="register">
+    <section className="register">
+      <div className="register-title">
+        Join
+        <p>Gaming Generations</p>
+      </div>
       <div>
-        <form
-          action="http://localhost:8001/register"
-          method="post"
-          class="register-form"
-        >
-          <label class="name">
+        <form className="register-form">
+          <label className="name">
             Name:
             <Input name="name" placeholder="" setVal={setName} val={name} />
           </label>
-          <label class="gamer_tag">
+          <label className="gamer_tag">
             Username:
             <Input
               name="gamer_tag"
               placeholder=""
-              setVal={setUsername}
-              val={username}
+              setVal={setGamer_tag}
+              val={gamer_tag}
             />
           </label>
-          <label class="email">
+          <label className="email">
             Email:
             <Input name="email" placeholder="" setVal={setEmail} val={email} />
           </label>
           <br />
-          <label class="password">
+          <label className="password">
             Password:
             <Input
+              type="password"
               name="password"
               placeholder=""
               setVal={setPassword}
@@ -60,13 +66,12 @@ export default function Register(props) {
             />
           </label>
           <br />
-          {/* <label class="password">
-            Confirm password:
-            <Input name="password" placeholder="" />
-          </label> */}
-          <input onClick={newFunction}></input>
+          <button className="submit" onClick={newFunction}>
+            Submit
+          </button>
         </form>
       </div>
+      <div className="right-image"></div>
     </section>
   );
 }
