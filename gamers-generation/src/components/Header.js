@@ -20,7 +20,7 @@ function Header() {
         <div className="header__welcome">
           <div className="title">{title}</div>
           <br />
-          <label class="smaller-text">
+          <label className="smaller-text">
             Welcome to Gamer's Generation.
             <p>
               A place where you can find liked minded gamers to play your

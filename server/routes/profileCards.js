@@ -4,9 +4,10 @@ const router = require("express").Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = "SELECT * FROM gamers;";
+    let id = req.session.id;
+    let query = "SELECT * FROM gamers WHERE id != $1;";
 
-    db.query(query)
+    db.query(query, [id])
       .then((data) => {
         return res.status(200).json(data.rows);
       })

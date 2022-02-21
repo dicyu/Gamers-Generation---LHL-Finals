@@ -30,7 +30,7 @@ export default function Register() {
       });
   };
   return (
-    <section class="register">
+    <section className="register">
       <div className="register-title">
         Join
         <p>Gaming Generations</p>
