@@ -4,7 +4,6 @@ import Input from "./Information/Input";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
-import "../App.scss";
 import "./Register.scss";
 
 export default function Register(props) {
