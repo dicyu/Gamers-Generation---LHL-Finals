@@ -64,7 +64,22 @@ function ProfileCards() {
   };
 
   const createLike = (sent_like, received_like) => {
-    axios.post("/likes").send();
+    axios
+      .post("/likes", {
+        sent_like,
+        received_like,
+      })
+      .then(() => {})
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleSwipe = (dir, person_id) => {
+    swipe(dir);
+    if (dir === "right") {
+      createLike(1, person_id);
+    }
   };
 
   // increase current index and show card
@@ -100,27 +115,31 @@ function ProfileCards() {
         </TinderCard>
       ))}
       <div className="swipeButtons">
-        <IconButton
-          className="swipeButtons__left"
-          style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
-          onClick={() => swipe("left")}
-        >
-          <CloseIcon fontSize="large" />
-        </IconButton>
-        <IconButton
-          className="swipeButtons__repeat"
-          style={{ backgroundColor: !canGoBack && "#c3c4d3" }}
-          onClick={() => goBack()}
-        >
-          <ReplayIcon fontSize="large" />
-        </IconButton>
-        <IconButton
-          className="swipeButtons__right"
-          style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
-          onClick={() => swipe("right")}
-        >
-          <FavoriteIcon fontSize="large" />
-        </IconButton>
+        {people.map((person) => (
+          <>
+            <IconButton
+              className="swipeButtons__left"
+              style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
+              onClick={() => handleSwipe("left", person.id)}
+            >
+              <CloseIcon fontSize="large" />
+            </IconButton>
+            <IconButton
+              className="swipeButtons__repeat"
+              style={{ backgroundColor: !canGoBack && "#c3c4d3" }}
+              onClick={() => goBack()}
+            >
+              <ReplayIcon fontSize="large" />
+            </IconButton>
+            <IconButton
+              className="swipeButtons__right"
+              style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
+              onClick={() => handleSwipe("right", person.id)}
+            >
+              <FavoriteIcon fontSize="large" />
+            </IconButton>
+          </>
+        ))}
       </div>
     </div>
   );
