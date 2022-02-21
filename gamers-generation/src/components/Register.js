@@ -8,7 +8,7 @@ import "./Register.scss";
 
 export default function Register() {
   const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
+  const [gamer_tag, setGamer_tag] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ export default function Register() {
     return axios
       .post("/register", {
         name,
-        username,
+        gamer_tag,
         email,
         password,
       })
@@ -49,8 +49,8 @@ export default function Register() {
             <Input
               name="gamer_tag"
               placeholder=""
-              setVal={setUsername}
-              val={username}
+              setVal={setGamer_tag}
+              val={gamer_tag}
             />
           </label>
           <label className="email">
