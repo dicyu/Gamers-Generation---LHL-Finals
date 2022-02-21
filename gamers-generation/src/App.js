@@ -85,6 +85,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path='/login' element={<Login />} />
           <Route path="/edit" element={<EditProfile/>}/>
+          <Route path="/profile_cards" element={<ProfileCards />}/>
         </Routes>
       </Router>
     </div>
