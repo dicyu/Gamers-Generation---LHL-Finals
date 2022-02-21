@@ -21,20 +21,26 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 function App() {
-  const storeAccessTokenInLocalStorage = (token)  => {
-    localStorage.setItem('token', token)
-  }
+  const storeAccessTokenInLocalStorage = (token) => {
+    localStorage.setItem("token", token);
+  };
   // State for user
-  const [token, setToken] = useState(null) 
-  const [currentUser, setCurrentUser] = useState(null)
+  const [token, setToken] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    const storedToken = getAccessTokenInLocalStorage('token')
-    return axios.get(`/current-user?token=${storedToken}`).then((res) => {
-      setToken(res.data.token)
-      setCurrentUser(res.data.result)
-    }).catch((err) => {setToken(null)})
-  }, [])
+    const storedToken = getAccessTokenInLocalStorage("token");
+    return axios
+      .get(`/current-user?token=${storedToken}`)
+      .then((res) => {
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        setToken(null);
+      });
+  }, []);
+
   const handleLogin = (email, password) => {
     return axios
       .post(
@@ -46,14 +52,36 @@ function App() {
         { withCredentials: true }
       )
       .then((res) => {
-        storeAccessTokenInLocalStorage(res.data.token)
-        setToken(res.data.token)
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
       })
       .catch((err) => {
         console.log("Login failed, ", err);
       });
   };
 
+  const handleRegister = (name, gamer_tag, email, password) => {
+    return axios
+      .post(
+        "/register",
+        {
+          name,
+          gamer_tag,
+          email,
+          password,
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        console.log("RIP", err);
+      });
+  };
 
   return (
     <div className="App">
@@ -109,7 +137,10 @@ function App() {
               </div>
             }
           />
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/register"
+            element={<Register handleRegister={handleRegister} />}
+          />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/edit" element={<EditProfile />} />
         </Routes>

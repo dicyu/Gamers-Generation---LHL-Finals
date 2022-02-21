@@ -1,7 +1,7 @@
+// import axios from "axios";
 import React, { useState } from "react";
 import Input from "./Information/Input";
 import Button from "./Button";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import "../App.scss";
@@ -23,9 +23,9 @@ export default function Login(props) {
       });
   };
   return (
-    <section class="login">
+    <section className="login">
       <div className="test">
-        <div class="login-title">
+        <div className="login-title">
           Welcome to
           <p>Gaming Generations</p>
         </div>
