@@ -11,27 +11,33 @@ import Body from "./components/Body";
 
 import EditProfile from "./components/EditProfile";
 
+import { getAccessTokenInLocalStorage } from "./helpers/helpers";
+
 import "./components/Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import axios from "axios";
 
 function App() {
-  // let user = false;
-  // let profile = false;
-  // let editProfile = true;
+  // State for user
+  const [currentUser, setCurrentUser] = useState(null)
 
-  // if (document.cookie) {
-  //   user = true;
-  // } else {
-  //   user = false;
-  // }
+  useEffect(() => {
+    const token = getAccessTokenInLocalStorage();
+    return axios.get("/current-user", {
+      token
+    })
+    .then((res) => {
+      setCurrentUser(res.data.result)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }, [])
 
-  let user = document.cookie
-
-  // State for Reporting - Modal
-  const [show, setShow] = useState(false);
+  console.log(currentUser)
 
   return (
     <div className="App">
@@ -42,35 +48,40 @@ function App() {
               <HomeIcon fontSize="large" className="navbar__home" />
             </IconButton>
           </Link>
-          {document.cookie ? 
-          <span className="navbar__authentication">
-            <Link to="/register">
-              <IconButton>
-                <Button
-                  variant="outlined"
-                  style={{
-                    backgroundColor: "transparent",
-                    color: "#fff",
-                  }}
-                >
-                  Sign up
-                </Button>
-              </IconButton>
-            </Link>
-            <Link to="/login">
-              <IconButton>
-                <Button
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#000",
-                  }}
-                >
-                  Login
-                </Button>
-              </IconButton>
-            </Link>
-          </span> : <Sidebar/>}
+          {currentUser ? (
+            <span className="navbar__authentication">
+              <Sidebar gamer_tag={"Sasuke"} />
+            </span>
+          ) : (
+            <span className="navbar__authentication">
+              <Link to="/register">
+                <IconButton>
+                  <Button
+                    variant="outlined"
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "#fff",
+                    }}
+                  >
+                    Sign up
+                  </Button>
+                </IconButton>
+              </Link>
+              <Link to="/login">
+                <IconButton>
+                  <Button
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#fff",
+                      color: "#000",
+                    }}
+                  >
+                    Login
+                  </Button>
+                </IconButton>
+              </Link>
+            </span>
+          )}
         </div>
         <Routes>
           <Route
@@ -83,8 +94,8 @@ function App() {
             }
           />
           <Route path="/register" element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path="/edit" element={<EditProfile/>}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/edit" element={<EditProfile />} />
         </Routes>
       </Router>
     </div>

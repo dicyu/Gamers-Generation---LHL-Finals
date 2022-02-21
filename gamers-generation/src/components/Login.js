@@ -12,6 +12,10 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
 
+  const storeAccessTokenInLocalStorage = (token)  => {
+    localStorage.setItem('token', token)
+  }
+
   const newFunction = () => {
     return axios
       .post(
@@ -22,7 +26,8 @@ export default function Login() {
         },
         { withCredentials: true }
       )
-      .then(() => {
+      .then((res) => {
+        storeAccessTokenInLocalStorage(res.data.token)
         navigate("/");
       })
       .catch((err) => {
