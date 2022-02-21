@@ -3,18 +3,17 @@ import React, { useState } from "react";
 import Input from "./Information/Input";
 import { useNavigate } from "react-router-dom";
 
-
 import "./Register.scss";
 
 export default function Register() {
   const [name, setName] = useState("");
-  const [gamer_tag, setGamer_tag] = useState("")
+  const [gamer_tag, setGamer_tag] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const newFunction = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     return axios
       .post("/register", {
         name,
@@ -23,7 +22,7 @@ export default function Register() {
         password,
       })
       .then(() => {
-        console.log("Anything")
+        console.log("Anything");
         navigate("/");
       })
       .catch((err) => {
@@ -31,15 +30,13 @@ export default function Register() {
       });
   };
   return (
-    <section class="register">
-      <div className='register-title'>
-        Join 
+    <section className="register">
+      <div className="register-title">
+        Join
         <p>Gaming Generations</p>
       </div>
       <div>
-        <form
-          className="register-form"
-        >
+        <form className="register-form">
           <label className="name">
             Name:
             <Input name="name" placeholder="" setVal={setName} val={name} />
@@ -74,7 +71,7 @@ export default function Register() {
           </button>
         </form>
       </div>
-      <div className='right-image'></div>
+      <div className="right-image"></div>
     </section>
   );
 }

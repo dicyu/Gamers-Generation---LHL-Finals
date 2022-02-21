@@ -11,7 +11,10 @@ import Body from "./components/Body";
 
 import EditProfile from "./components/EditProfile";
 
-import { getAccessTokenInLocalStorage } from "./helpers/helpers";
+import {
+  getAccessTokenInLocalStorage,
+  storeAccessTokenInLocalStorage,
+} from "./helpers/helpers";
 
 import "./components/Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
@@ -21,20 +24,39 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 function App() {
-  const storeAccessTokenInLocalStorage = (token)  => {
-    localStorage.setItem('token', token)
-  }
   // State for user
-  const [token, setToken] = useState(null) 
-  const [currentUser, setCurrentUser] = useState(null)
+  const [token, setToken] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  // Create Likes
+  const createLike = (received_like) => {
+    axios
+      .post(`/likes?token=${token}`, {
+        received_like,
+      })
+      .then((res) => {
+        if (res.data.matchCreated) {
+          // showModal
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
-    const storedToken = getAccessTokenInLocalStorage('token')
-    return axios.get(`/current-user?token=${storedToken}`).then((res) => {
-      setToken(res.data.token)
-      setCurrentUser(res.data.result)
-    }).catch((err) => {setToken(null)})
-  }, [])
+    const storedToken = getAccessTokenInLocalStorage("token");
+    return axios
+      .get(`/current-user?token=${storedToken}`)
+      .then((res) => {
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        setToken(null);
+      });
+  }, []);
+
   const handleLogin = (email, password) => {
     return axios
       .post(
@@ -46,15 +68,16 @@ function App() {
         { withCredentials: true }
       )
       .then((res) => {
-        storeAccessTokenInLocalStorage(res.data.token)
-        setToken(res.data.token)
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
       })
       .catch((err) => {
         console.log("Login failed, ", err);
       });
   };
 
-
+  console.log("current user: ", currentUser);
   return (
     <div className="App">
       <Router>
@@ -112,6 +135,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/edit" element={<EditProfile />} />
+          <Route
+            path="/swipe"
+            element={<ProfileCards createLike={createLike} />}
+          />
         </Routes>
       </Router>
     </div>

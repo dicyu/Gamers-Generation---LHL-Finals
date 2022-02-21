@@ -18,18 +18,19 @@ function Header() {
     <div className="header">
       {signUp ? (
         <div className="header__welcome">
-          <div className='title'>
-            {title}
-          </div>
+          <div className="title">{title}</div>
           <br />
-          <label class="smaller-text">
-              Welcome to Gamer's Generation.
-              <p>A place where you can find liked minded gamers to play your favourite game with!</p>
+          <label className="smaller-text">
+            Welcome to Gamer's Generation.
+            <p>
+              A place where you can find liked minded gamers to play your
+              favourite game with!
+            </p>
           </label>
           <Link to="/register">
-            <button className='signup-btn'>Sign Up</button>
-            </Link>
-            <div className='header-2'>Get started</div>
+            <button className="signup-btn">Sign Up</button>
+          </Link>
+          <div className="header-2">Get started</div>
         </div>
       ) : (
         <div>

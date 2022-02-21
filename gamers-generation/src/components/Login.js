@@ -23,14 +23,17 @@ export default function Login(props) {
       });
   };
   return (
-    <section class="login">
+    <section className="login">
       <div className="test">
-        <div class="login-title">
+        <div className="login-title">
           Welcome to
           <p>Gaming Generations</p>
         </div>
-        <form class="login-form" onSubmit={(event) => event.preventDefault()}>
-          <label class="email">
+        <form
+          className="login-form"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label className="email">
             Email:
             <Input name="email" setVal={setEmail} val={email} placeholder="" />
           </label>
