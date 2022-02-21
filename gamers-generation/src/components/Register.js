@@ -7,20 +7,22 @@ import "./Register.scss";
 
 export default function Register() {
   const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
+  const [gamer_tag, setGamer_tag] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const newFunction = () => {
+  const newFunction = (e) => {
+    e.preventDefault();
     return axios
       .post("/register", {
         name,
-        username,
+        gamer_tag,
         email,
         password,
       })
       .then(() => {
+        console.log("Anything");
         navigate("/");
       })
       .catch((err) => {
@@ -34,11 +36,7 @@ export default function Register() {
         <p>Gaming Generations</p>
       </div>
       <div>
-        <form
-          // action="http://localhost:8001/register"
-          // method="post"
-          className="register-form"
-        >
+        <form className="register-form">
           <label className="name">
             Name:
             <Input name="name" placeholder="" setVal={setName} val={name} />
@@ -48,8 +46,8 @@ export default function Register() {
             <Input
               name="gamer_tag"
               placeholder=""
-              setVal={setUsername}
-              val={username}
+              setVal={setGamer_tag}
+              val={gamer_tag}
             />
           </label>
           <label className="email">
@@ -68,13 +66,11 @@ export default function Register() {
             />
           </label>
           <br />
-          {/* <input className="submit" type="submit" onClick={newFunction} /> */}
           <button className="submit" onClick={newFunction}>
             Submit
           </button>
         </form>
       </div>
-
       <div className="right-image"></div>
     </section>
   );

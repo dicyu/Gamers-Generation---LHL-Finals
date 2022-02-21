@@ -5,26 +5,59 @@ import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
 import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
-import UserEditForm from "./components/UserEditForm";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
 
 import EditProfile from "./components/EditProfile";
 
+import { getAccessTokenInLocalStorage } from "./helpers/helpers";
+
 import "./components/Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import axios from "axios";
 
 function App() {
-  const user = false;
-  const profile = false;
-  const editProfile = false;
+  const storeAccessTokenInLocalStorage = (token) => {
+    localStorage.setItem("token", token);
+  };
+  // State for user
+  const [token, setToken] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
-  // State for Reporting - Modal
-  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const storedToken = getAccessTokenInLocalStorage("token");
+    return axios
+      .get(`/current-user?token=${storedToken}`)
+      .then((res) => {
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        setToken(null);
+      });
+  }, []);
+  const handleLogin = (email, password) => {
+    return axios
+      .post(
+        "/login",
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+      })
+      .catch((err) => {
+        console.log("Login failed, ", err);
+      });
+  };
 
   return (
     <div className="App">
@@ -35,35 +68,40 @@ function App() {
               <HomeIcon fontSize="large" className="navbar__home" />
             </IconButton>
           </Link>
-
-          <span className="navbar__authentication">
-            <Link to="/register">
-              <IconButton>
-                <Button
-                  variant="outlined"
-                  style={{
-                    backgroundColor: "transparent",
-                    color: "#fff",
-                  }}
-                >
-                  Sign up
-                </Button>
-              </IconButton>
-            </Link>
-            <Link to="/login">
-              <IconButton>
-                <Button
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#000",
-                  }}
-                >
-                  Login
-                </Button>
-              </IconButton>
-            </Link>
-          </span>
+          {token ? (
+            <span className="navbar__authentication">
+              <Sidebar gamer_tag={currentUser && currentUser.gamer_tag} />
+            </span>
+          ) : (
+            <span className="navbar__authentication">
+              <Link to="/register">
+                <IconButton>
+                  <Button
+                    variant="outlined"
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "#fff",
+                    }}
+                  >
+                    Sign up
+                  </Button>
+                </IconButton>
+              </Link>
+              <Link to="/login">
+                <IconButton>
+                  <Button
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#fff",
+                      color: "#000",
+                    }}
+                  >
+                    Login
+                  </Button>
+                </IconButton>
+              </Link>
+            </span>
+          )}
         </div>
         <Routes>
           <Route
@@ -76,8 +114,8 @@ function App() {
             }
           />
           <Route path="/register" element={<Register />} />
-          <Route path="login" element={<Login />} />
-          <Route path="/profile_cards" element={<ProfileCards />} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/edit" element={<EditProfile />} />
         </Routes>
       </Router>
     </div>

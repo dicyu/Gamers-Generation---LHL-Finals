@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
+const { getToken } = require("../utils/jwt");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -19,13 +20,14 @@ module.exports = (db) => {
     const { name, gamer_tag, email, password } = req.body;
     const queParam = [name, gamer_tag, email, bcrypt.hashSync(password, salt)];
     let query =
-      "INSERT INTO gamers (name, gamer_tag, email, password) VALUES ($1, $2, $3, $4);";
+      "INSERT INTO gamers (name, gamer_tag, email, password) VALUES ($1, $2, $3, $4) RETURNING *;";
     return db
       .query(query, queParam)
       .then((data) => {
-        console.log("Hey", data);
-        const user = data.rows;
-        res.json({ user });
+        const result = data.rows[0];
+        const token = getToken(result);
+
+        res.json({ token: token, result: result });
       })
       .catch((err) => {
         res.status(500).send("Cannot sign up ", err);
