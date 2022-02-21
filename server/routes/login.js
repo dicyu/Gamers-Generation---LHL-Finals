@@ -21,12 +21,10 @@ module.exports = (db) => {
       .then((data) => {
         if (bcrypt.compareSync(password, data.rows[0].password)) {
           const result = data.rows[0];
-          // req.session["id"] = data.rows[0].id;
           const token = getToken(result);
 
           res.json({ token: token, result: result });
         } else {
-          console.log("Now numba 5")
           res.status(401).send("wrong");
         }
       })
