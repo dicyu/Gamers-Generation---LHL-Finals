@@ -21,23 +21,30 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 function App() {
+  const storeAccessTokenInLocalStorage = (token)  => {
+    localStorage.setItem('token', token)
+  }
   // State for user
-  const [currentUser, setCurrentUser] = useState(null)
+  const [token, setToken] = useState(null) 
 
-  useEffect(() => {
-    const token = getAccessTokenInLocalStorage();
-    return axios.get("/current-user", {
-      token
-    })
-    .then((res) => {
-      setCurrentUser(res.data.result)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }, [])
-
-  console.log(currentUser)
+  const handleLogin = (email, password) => {
+    return axios
+      .post(
+        "/login",
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        storeAccessTokenInLocalStorage(res.data.token)
+        setToken(res.data.token)
+      })
+      .catch((err) => {
+        console.log("Login failed, ", err);
+      });
+  };
 
   return (
     <div className="App">
@@ -48,7 +55,7 @@ function App() {
               <HomeIcon fontSize="large" className="navbar__home" />
             </IconButton>
           </Link>
-          {currentUser ? (
+          {token ? (
             <span className="navbar__authentication">
               <Sidebar gamer_tag={"Sasuke"} />
             </span>
@@ -94,7 +101,7 @@ function App() {
             }
           />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/edit" element={<EditProfile />} />
         </Routes>
       </Router>

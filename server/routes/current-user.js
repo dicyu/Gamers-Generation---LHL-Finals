@@ -6,6 +6,8 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     const { token } = req.header;
+    console.log(req.header, req.body, req.params)
+    console.log("I'm going to die", token)
     const decodedToken = decodeTKN(token)
     if(!decodedToken){
       return res.status(401).json({error: "not Authorized - please try again"})

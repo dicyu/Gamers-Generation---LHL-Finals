@@ -7,27 +7,19 @@ import { useNavigate } from "react-router-dom";
 import "../App.scss";
 import "./Login.scss";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const storeAccessTokenInLocalStorage = (token)  => {
-    localStorage.setItem('token', token)
-  }
+  const storeAccessTokenInLocalStorage = (token) => {
+    localStorage.setItem("token", token);
+  };
 
-  const newFunction = () => {
-    return axios
-      .post(
-        "/login",
-        {
-          email,
-          password,
-        },
-        { withCredentials: true }
-      )
-      .then((res) => {
-        storeAccessTokenInLocalStorage(res.data.token)
+  const loginUser = () => {
+    props
+      .handleLogin(email, password)
+      .then(() => {
         navigate("/");
       })
       .catch((err) => {
@@ -36,8 +28,8 @@ export default function Login() {
   };
   return (
     <section class="login">
-      <div className='test'>
-        <div class='login-title'>
+      <div className="test">
+        <div class="login-title">
           Welcome to
           <p>Gaming Generations</p>
         </div>
@@ -58,11 +50,11 @@ export default function Login() {
             />
           </label>
           <br />
-          <Button submit onClick={newFunction}>
+          <Button submit onClick={loginUser}>
             Submit
           </Button>
         </form>
-        <div className='right-image-login'></div>
+        <div className="right-image-login"></div>
       </div>
     </section>
   );

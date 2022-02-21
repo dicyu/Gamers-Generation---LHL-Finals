@@ -8,7 +8,7 @@ import "./Register.scss";
 
 export default function Register() {
   const [name, setName] = useState("");
-  const [gamer_tag, setGamer_tag] = useState("");
+  const [gamer_tag, setGamer_tag] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
