@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import "./Header.scss";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function Header() {
   const signUp = true;
@@ -25,7 +26,9 @@ function Header() {
               Welcome to Gamer's Generation.
               <p>A place where you can find liked minded gamers to play your favorite game with!</p>
           </label>
-            <button className='signup-btn'>Sign Up</button>
+            <Link to='/register' className='signup-btn'>
+              <div className='text-btn'>Sign Up</div>
+              </Link>
             <div className='header-2'>Get started</div>
         </div>
       ) : (
