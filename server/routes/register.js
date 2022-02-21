@@ -16,11 +16,11 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    const { name, gamer_tag, email, password } = req.body;
-    const queParam = [name, gamer_tag, email, bcrypt.hashSync(password, salt)];
+    const { name, gamer_tag, email, bio, password } = req.body;
+    const queParam = [name, gamer_tag, email, bio, bcrypt.hashSync(password, salt)];
     let id;
     let query =
-      "INSERT INTO gamers (name, gamer_tag, email, password) VALUES ($1, $2, $3, $4) RETURNING *;";
+      "INSERT INTO gamers (name, gamer_tag, email, bio, password) VALUES ($1, $2, $3, $4, $5) RETURNING *;";
     return db
       .query(query, queParam)
       .then((data) => {
