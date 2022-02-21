@@ -26,7 +26,15 @@ function App() {
   }
   // State for user
   const [token, setToken] = useState(null) 
+  const [currentUser, setCurrentUser] = useState(null)
 
+  useEffect(() => {
+    const storedToken = getAccessTokenInLocalStorage('token')
+    return axios.get(`/current-user?token=${storedToken}`).then((res) => {
+      setToken(res.data.token)
+      setCurrentUser(res.data.result)
+    }).catch((err) => {setToken(null)})
+  }, [])
   const handleLogin = (email, password) => {
     return axios
       .post(
@@ -46,6 +54,7 @@ function App() {
       });
   };
 
+
   return (
     <div className="App">
       <Router>
@@ -57,7 +66,7 @@ function App() {
           </Link>
           {token ? (
             <span className="navbar__authentication">
-              <Sidebar gamer_tag={"Sasuke"} />
+              <Sidebar gamer_tag={currentUser && currentUser.gamer_tag} />
             </span>
           ) : (
             <span className="navbar__authentication">

@@ -12,10 +12,6 @@ export default function Login(props) {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const storeAccessTokenInLocalStorage = (token) => {
-    localStorage.setItem("token", token);
-  };
-
   const loginUser = () => {
     props
       .handleLogin(email, password)
