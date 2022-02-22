@@ -8,6 +8,7 @@ import ProfileCards from "./components/ProfileCards";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
+import Chat from "./components/Chat";
 
 import EditProfile from "./components/EditProfile";
 
@@ -81,13 +82,14 @@ function App() {
       });
   };
 
-  const handleRegister = (name, gamer_tag, email, password) => {
+  const handleRegister = (name, gamer_tag, bio, email, password) => {
     return axios
       .post(
         "/register",
         {
           name,
           gamer_tag,
+          bio,
           email,
           password,
         }
@@ -155,6 +157,7 @@ function App() {
               <div>
                 <Header />
                 <Body />
+                <Chat />
               </div>
             }
           />
@@ -168,6 +171,7 @@ function App() {
             path="/swipe"
             element={<ProfileCards createLike={createLike} />}
           />
+          <Route path="/chat" component={Chat} />
         </Routes>
       </Router>
     </div>

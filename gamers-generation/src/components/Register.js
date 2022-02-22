@@ -11,11 +11,12 @@ export default function Register(props) {
   const [gamer_tag, setGamer_tag] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [bio, setBio] = useState("");
   const navigate = useNavigate();
 
   const registerGamer = () => {
     props
-      .handleRegister(name, gamer_tag, email, password)
+      .handleRegister(name, gamer_tag, bio, email, password)
       .then(() => {
         navigate("/");
       })
@@ -37,7 +38,7 @@ export default function Register(props) {
             <Input name="name" placeholder="" setVal={setName} val={name} />
           </label>
           <label className="gamer_tag">
-            Username:
+            Gamer-Tag:
             <Input
               name="gamer_tag"
               placeholder=""
@@ -48,6 +49,11 @@ export default function Register(props) {
           <label className="email">
             Email:
             <Input name="email" placeholder="" setVal={setEmail} val={email} />
+          </label>
+          <br />
+          <label className="bio-container">
+            Bio:
+            <Input name="bio" type="text" placeholder="" setVal={setBio} val={bio} />
           </label>
           <br />
           <label className="password">
