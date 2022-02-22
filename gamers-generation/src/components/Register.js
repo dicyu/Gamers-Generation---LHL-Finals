@@ -1,42 +1,37 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState } from "react";
 import Input from "./Information/Input";
+import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
 import "./Register.scss";
 
-export default function Register() {
+export default function Register(props) {
   const [name, setName] = useState("");
   const [gamer_tag, setGamer_tag] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const newFunction = (e) => {
-    e.preventDefault();
-    return axios
-      .post("/register", {
-        name,
-        gamer_tag,
-        email,
-        password,
-      })
+  const registerGamer = () => {
+    props
+      .handleRegister(name, gamer_tag, email, password)
       .then(() => {
-        console.log("Anything");
         navigate("/");
       })
       .catch((err) => {
-        console.log("Horrid", err);
+        console.log("Registration failed, ", err);
       });
   };
+
   return (
-    <section className="register">
+    <section class="register">
       <div className="register-title">
         Join
         <p>Gaming Generations</p>
       </div>
       <div>
-        <form className="register-form">
+        <form className="register-form" onSubmit={(event) => event.preventDefault()}>
           <label className="name">
             Name:
             <Input name="name" placeholder="" setVal={setName} val={name} />
@@ -66,9 +61,9 @@ export default function Register() {
             />
           </label>
           <br />
-          <button className="submit" onClick={newFunction}>
+          <Button submit onClick={registerGamer}>
             Submit
-          </button>
+          </Button>
         </form>
       </div>
       <div className="right-image"></div>

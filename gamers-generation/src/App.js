@@ -24,6 +24,14 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 function App() {
+<<<<<<< HEAD
+  const storeAccessTokenInLocalStorage = (token) => {
+    localStorage.setItem("token", token);
+  };
+  // State for user
+  const [token, setToken] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+=======
   // State for user
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -43,6 +51,7 @@ function App() {
         console.log(err);
       });
   };
+>>>>>>> 24e8cc148ab128c59990025f302d47d1571851b3
 
   useEffect(() => {
     const storedToken = getAccessTokenInLocalStorage("token");
@@ -77,7 +86,32 @@ function App() {
       });
   };
 
+<<<<<<< HEAD
+  const handleRegister = (name, gamer_tag, email, password) => {
+    return axios
+      .post(
+        "/register",
+        {
+          name,
+          gamer_tag,
+          email,
+          password,
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        console.log("RIP", err);
+      });
+  };
+
+=======
   console.log("current user: ", currentUser);
+>>>>>>> 24e8cc148ab128c59990025f302d47d1571851b3
   return (
     <div className="App">
       <Router>
@@ -132,7 +166,10 @@ function App() {
               </div>
             }
           />
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/register"
+            element={<Register handleRegister={handleRegister} />}
+          />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/edit" element={<EditProfile />} />
           <Route

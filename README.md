@@ -11,8 +11,8 @@
 ## Functional Requirements
 
 - [x] Development focused on single page application (SPA)
-- [x] Data saved in API server using PostgreSQL databse
-- [x] Client application communicates with API server over HTTP using JSON formatting
+- [x] Data saved in API server using PostgreSQL database
+- [x] Client application communicates with API server over HTTP using res.json
 - [x] Tests using Storybook for components
 - [x] Routing through Express JS
 - [x] Front End views rendered by React
