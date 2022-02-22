@@ -1,11 +1,9 @@
 // web
 const express = require("express");
-// const bcrypt = require("bcrypt");
 const logger = require("morgan");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-// const jwt = require('jsonwebtoken')
 
 // .env file variables
 require("dotenv").config();

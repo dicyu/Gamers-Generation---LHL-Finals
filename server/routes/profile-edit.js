@@ -2,13 +2,14 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
 
+
 module.exports = (db) => {
   router.post("/", (req, res) => {
     const loop = req.body;
-    let id = req.session.id
+    let id = req.body.id
 
     for (const [key, value] of Object.entries(loop)) {
-      if (value) {
+      if (value && key !== id) {
         db.query(`UPDATE gamers SET ${key} = $1 WHERE id = $2;`, [
           value,
           id,

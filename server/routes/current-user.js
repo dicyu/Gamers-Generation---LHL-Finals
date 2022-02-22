@@ -21,5 +21,6 @@ module.exports = (db) => {
         return res.status(500).send("You cannot access the gamers list, ", err);
       });
   });
+
   return router;
 };

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Header from "./components/Header";
-import Navigation from "./components/Navigation";
+// import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
-import ReportModal from "./components/Modal";
+// import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 import Login from "./components/Login";
 import Register from "./components/Register";
