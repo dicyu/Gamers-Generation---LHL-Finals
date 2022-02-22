@@ -31,7 +31,12 @@ p {
   white-space: pre;
 }
 
-Button {
+.login-btn {
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+  background-color: $white;
+  border-color: transparent;
   margin-left: 410px;
   margin-top: 50px;
 }
@@ -45,6 +50,10 @@ Button {
 
 .test {
   padding-top: 100px;
+}
+
+.email {
+  font-size: 14pt;
 }
 
 .right-image-login {

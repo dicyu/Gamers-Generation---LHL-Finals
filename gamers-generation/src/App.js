@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Body from "./components/Body";
 import Chat from "./components/Chat";
 import MatchedModal from "./components/MatchedModal";
+import LoggedSplash from "./components/LoggedSplash";
 
 import EditProfile from "./components/EditProfile";
 
@@ -25,7 +26,7 @@ import IconButton from "@mui/material/IconButton";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 
-function App(props) {
+function App() {
   // State for user
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -154,7 +155,9 @@ function App(props) {
           </MatchedModal>
         </div>
         <Routes>
-          <Route
+          {!token ? (
+
+            <Route
             path="/"
             element={
               <div>
@@ -162,7 +165,17 @@ function App(props) {
                 <Body />
               </div>
             }
-          />
+            />
+          ) : (
+            <Route
+            path="/"
+            element={
+            <div>
+              <LoggedSplash gamer_tag={currentUser && currentUser.gamer_tag} />
+            </div>
+            }
+            />
+            )}
           <Route
             path="/register"
             element={<Register handleRegister={handleRegister} />}

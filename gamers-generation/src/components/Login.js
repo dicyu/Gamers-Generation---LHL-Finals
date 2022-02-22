@@ -49,9 +49,9 @@ export default function Login(props) {
             />
           </label>
           <br />
-          <Button submit onClick={loginUser}>
+          <button className='login-btn' submit onClick={loginUser}>
             Submit
-          </Button>
+          </button>
         </form>
         <div className="right-image-login"></div>
       </div>
