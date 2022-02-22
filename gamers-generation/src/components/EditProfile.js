@@ -47,7 +47,6 @@ function EditProfile() {
             name="bio"
             type="text"
             placeholder=""
-            wrap="hard"
           ></textarea>
         </div>
         <label>
