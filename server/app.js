@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // routes
 const indexRouter = require("./routes/index");
-const registerRouter = require("./routes/register");
+const gamersRegisterRouter = require("./routes/register");
 const friendsRouter = require("./routes/friends");
 const reportsRouter = require("./routes/reports");
 const profileCardsRouter = require("./routes/profileCards");
