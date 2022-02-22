@@ -1,15 +1,15 @@
+const { authorizeUser } = require("../middleware/authorizeUser");
 const router = require("express").Router();
 
-/* GET home page. */
-
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    let id = req.session.id;
+  router.get("/", authorizeUser, (req, res) => {
+    const queParam = req.currentUser.gamerID;
     let query = "SELECT * FROM gamers WHERE id != $1;";
 
-    db.query(query, [id])
+    db.query(query, [queParam])
       .then((data) => {
-        return res.status(200).json(data.rows);
+        const result = data.rows;
+        res.json({ result: result, token: req.currentUser.token });
       })
       .catch((err) => {
         return res.status(500).json(err);
