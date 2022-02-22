@@ -1,12 +1,11 @@
 // web
 const express = require("express");
-const cookieSession = require("cookie-session");
 const bcrypt = require("bcrypt");
 const logger = require("morgan");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 // .env file variables
 require("dotenv").config();
@@ -15,12 +14,6 @@ const KEY2 = process.env.KEY2;
 
 // Middleware
 app.use(cors({ origin: true, credentials: true }));
-app.use(
-  cookieSession({
-    name: "session",
-    keys: [KEY1, KEY2],
-  })
-);
 
 // const verifyTKN = (req, res, next) => {
 //   const token = req.headers('x-access-token')
@@ -60,7 +53,7 @@ const profileCardsRouter = require("./routes/profileCards");
 const likesRouter = require("./routes/likes");
 const loginRouter = require("./routes/login");
 const editRouter = require("./routes/profile-edit");
-const tokenRouter = require("./routes/current-user")
+const tokenRouter = require("./routes/current-user");
 
 app.use("/friends", friendsRouter(db));
 app.use("/reports", reportsRouter(db));
@@ -69,7 +62,8 @@ app.use("/profileCards", profileCardsRouter(db));
 app.use("/likes", likesRouter(db));
 app.use("/login", loginRouter(db));
 app.use("/edit", editRouter(db));
-app.use("/current-user", tokenRouter(db))
+app.use("/current-user", tokenRouter(db));
 app.use("/", indexRouter);
+app.use("/chat", indexRouter);
 
 module.exports = app;
