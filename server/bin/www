@@ -1,34 +1,71 @@
 #!/usr/bin/env node
-require('dotenv').config()
+require("dotenv").config();
+const socketio = require("socket.io");
 
+let users = [];
+
+const getUser = (id) => users.find((user) => user.id === id);
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('server:server');
-var http = require('http');
+var app = require("../app");
+var debug = require("debug")("server:server");
+var http = require("http");
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+var port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
 
 /**
  * Create HTTP server.
  */
 
 var server = http.createServer(app);
+const io = socketio(server);
 
+io.on("connection", (socket) => {
+  console.log("We have a new Connection!!!");
+
+  // our event from emit function
+  socket.on("join", ({ name, room }, callback) => {
+    const { error, user } = addUser({ id: socket.id, name, room });
+    if (error) return callback(error);
+
+    socket.join(user.room);
+    // back to the front end
+    socket.emit("message", { user: admin, text: `${user.name}, Say Hi!` });
+    socket.broadcast
+      .to(user.romm)
+      .emit("message", { user: admin, text: `${user.name} has joined!` });
+
+    // not going to run if there is no error(but passing it to the front)
+    callback();
+  });
+
+  // expecting user to be chat(expecting frontend reaction)
+  socket.on("sendMessage", (message, callback) => {
+    const user = getUser(socket.id);
+
+    io.to(user.room).emit("message", { user: user.name, text: message });
+
+    callback();
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User had left!!!");
+  });
+});
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on("error", onError);
+server.on("listening", onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -55,22 +92,20 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -84,8 +119,6 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  debug("Listening on " + bind);
 }

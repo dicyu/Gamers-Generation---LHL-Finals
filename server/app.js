@@ -28,7 +28,7 @@ const profileCardsRouter = require("./routes/profileCards");
 const likesRouter = require("./routes/likes");
 const loginRouter = require("./routes/login");
 const editRouter = require("./routes/profile-edit");
-const tokenRouter = require("./routes/current-user")
+const tokenRouter = require("./routes/current-user");
 
 app.use("/friends", friendsRouter(db));
 app.use("/reports", reportsRouter(db));
@@ -37,7 +37,8 @@ app.use("/profileCards", profileCardsRouter(db));
 app.use("/likes", likesRouter(db));
 app.use("/login", loginRouter(db));
 app.use("/edit", editRouter(db));
-app.use("/current-user", tokenRouter(db))
+app.use("/current-user", tokenRouter(db));
 app.use("/", indexRouter);
+app.use("/chat", indexRouter);
 
 module.exports = app;
