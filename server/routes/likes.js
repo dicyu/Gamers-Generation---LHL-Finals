@@ -1,10 +1,13 @@
+const { authorizeUser } = require("../middleware/authorizeUser");
+
 const router = require("express").Router();
 
 /* GET home page. */
 
 module.exports = (db) => {
-  router.post("/", async (req, res) => {
-    const { sent_like, received_like } = req.body;
+  router.post("/", authorizeUser, async (req, res) => {
+    const { received_like } = req.body;
+    const sent_like = req.currentUser.gamerID;
 
     try {
       const query1 = `SELECT * FROM likes WHERE sent_like = $1 AND received_like = $2;`;

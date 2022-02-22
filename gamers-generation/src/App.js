@@ -23,6 +23,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
+import Chat from "./components/Chat";
 
 function App() {
   // State for user
@@ -167,6 +168,7 @@ function App() {
             path="/swipe"
             element={<ProfileCards createLike={createLike} />}
           />
+          <Route path="/chat" component={Chat} />
         </Routes>
       </Router>
     </div>
