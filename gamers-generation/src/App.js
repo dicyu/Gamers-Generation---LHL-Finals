@@ -77,6 +77,7 @@ function App() {
       });
   };
 
+
   const handleRegister = (name, gamer_tag, email, password) => {
     return axios
       .post(
