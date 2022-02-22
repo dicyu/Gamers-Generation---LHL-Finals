@@ -1,39 +1,28 @@
-import React, { useState } from "react";
-import "./MatchedModal.scss"
-import { RiCloseLine } from "react-icons/ri";
+// Imports
+import React from 'react'
+import './MatchedModal.scss';
+import { Link } from 'react-router-dom';
 
-const MatchedModal = ({ setIsOpen }) => {
-    return (
-      <>
-        <div className={styles.darkBG} onClick={() => setIsOpen(false)} />
-        <div className={styles.centered}>
-          <div className={styles.modal}>
-            <div className={styles.modalHeader}>
-              <h5 className={styles.heading}>Dialog</h5>
-            </div>
-            <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
-              <RiCloseLine style={{ marginBottom: "-3px" }} />
-            </button>
-            <div className={styles.modalContent}>
-              Are you sure you want to delete the item?
-            </div>
-            <div className={styles.modalActions}>
-              <div className={styles.actionsContainer}>
-                <button className={styles.deleteBtn} onClick={() => setIsOpen(false)}>
-                  Delete
-                </button>
-                <button
-                  className={styles.cancelBtn}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
+
+const MatchedModal = (props) => {
+  // Render for modal
+  return (
+    <div className={`modal ${props.show ? 'show' : ''}`} onClick={props.onClose}>
+      <div className='modal-content' onClick={e => e.stopPropagation()}>
+        <div className='modal-header'>
+          <h4 className='modal-title'>{props.title}</h4>
         </div>
-      </>
-    );
-  };
+        <div className='modal-body'>{props.children}
+        </div>
+        <div className='modal-footer'>
+          <Link to="/login">
+          <button onClick={props.onClose} className="btn-modal">Chat</button>
+          </Link>
+          <button onClick={props.onClose} className='btn-modal'>Close</button>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default MatchedModal;

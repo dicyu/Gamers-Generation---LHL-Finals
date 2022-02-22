@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
 import Chat from "./components/Chat";
+import MatchedModal from "./components/MatchedModal";
 
 import EditProfile from "./components/EditProfile";
 
@@ -24,11 +25,11 @@ import IconButton from "@mui/material/IconButton";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 
-function App() {
+function App(props) {
   // State for user
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [show, setShow] = useState(false)
 
   // Create Likes
   const createLike = (received_like) => {
@@ -39,13 +40,13 @@ function App() {
       .then((res) => {
         if (res.data.matchCreated) {
           // showModal
-          setIsOpen(true);
-        } else {
-          setIsOpen(false);
+          console.log(res.data.matchCreated)
+          {setShow(true)}
         }
       })
       .catch((err) => {
         console.log(err);
+        setShow(false)
       });
   };
 
@@ -149,6 +150,8 @@ function App() {
               </Link>
             </span>
           )}
+          <MatchedModal title="You got a Match!" onClose={() => setShow(false)} show={show}>
+          </MatchedModal>
         </div>
         <Routes>
           <Route
@@ -157,7 +160,6 @@ function App() {
               <div>
                 <Header />
                 <Body />
-                <Chat />
               </div>
             }
           />
