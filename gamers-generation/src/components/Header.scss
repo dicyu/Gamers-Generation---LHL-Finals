@@ -10,7 +10,7 @@
   width: 100%;
 
   &__welcome {
-    background-image: url('./images/1.jpeg');
+    background-image: url("./images/1.jpeg");
     height: 400px;
   }
 }
@@ -45,8 +45,9 @@
   text-decoration: none;
   top: 350px;
   left: 255px;
+  color: #fff;
   border: transparent;
-  background: #4B4E53;
+  background: #4b4e53;
   border-radius: 5px;
   height: 50px;
   width: 200px;
@@ -60,8 +61,7 @@
 
 .header-2 {
   text-align: center;
-  color: #FFF;
+  color: #fff;
   margin-top: 120px;
   font-size: 42pt;
 }
-

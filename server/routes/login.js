@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
+const { getToken } = require("../utils/jwt");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -8,9 +9,7 @@ module.exports = (db) => {
         return res.json(gamers.rows);
       })
       .catch((err) => {
-        return res
-          .status(500)
-          .send("You cannot access the gamers list, ", err);
+        return res.status(500).send("You cannot access the gamers list, ", err);
       });
   });
 
@@ -18,21 +17,19 @@ module.exports = (db) => {
     const { email, password } = req.body;
     const queParam = [email];
     let query = "SELECT * FROM gamers WHERE email = $1;";
-
-    // console.log("First console")
-
     db.query(query, queParam)
       .then((data) => {
-        // console.log("Second console")
         if (bcrypt.compareSync(password, data.rows[0].password)) {
-          req.session["id"] = data.rows[0].id;
-          res.json(data.rows);
+          const result = data.rows[0];
+          const token = getToken(result);
+
+          res.json({ token: token, result: result });
         } else {
           res.status(401).send("wrong");
         }
       })
       .catch((err) => {
-        console.log("why", err);
+        return res.status(500).send("You cannot access the gamers list, ", err);
       });
   });
   return router;

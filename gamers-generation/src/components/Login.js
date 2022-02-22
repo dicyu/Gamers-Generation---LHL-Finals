@@ -1,27 +1,20 @@
+// import axios from "axios";
 import React, { useState } from "react";
 import Input from "./Information/Input";
 import Button from "./Button";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import "../App.scss";
 import "./Login.scss";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const newFunction = () => {
-    return axios
-      .post(
-        "/login",
-        {
-          email,
-          password,
-        },
-        { withCredentials: true }
-      )
+  const loginUser = () => {
+    props
+      .handleLogin(email, password)
       .then(() => {
         navigate("/");
       })
@@ -30,14 +23,17 @@ export default function Login() {
       });
   };
   return (
-    <section class="login">
-      <div className='test'>
-        <div class='login-title'>
+    <section className="login">
+      <div className="test">
+        <div className="login-title">
           Welcome to
           <p>Gaming Generations</p>
         </div>
-        <form class="login-form" onSubmit={(event) => event.preventDefault()}>
-          <label class="email">
+        <form
+          className="login-form"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label className="email">
             Email:
             <Input name="email" setVal={setEmail} val={email} placeholder="" />
           </label>
@@ -53,11 +49,11 @@ export default function Login() {
             />
           </label>
           <br />
-          <Button submit onClick={newFunction}>
+          <Button submit onClick={loginUser}>
             Submit
           </Button>
         </form>
-        <div className='right-image-login'></div>
+        <div className="right-image-login"></div>
       </div>
     </section>
   );

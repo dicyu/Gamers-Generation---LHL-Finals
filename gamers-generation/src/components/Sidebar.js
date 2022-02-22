@@ -3,16 +3,16 @@ import "./Sidebar.scss";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import EditProfile from "./EditProfile";
-import { Link, Route, Routes } from "react-router-dom";
+// import EditProfile from "./EditProfile";
+import { Link } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar(props) {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
         <h2>
           <div className="sidebar__username">
-            <span>bybang</span>
+            <span>{props.gamer_tag}</span>
             <span className="sidebar__status">
               <FiberManualRecordIcon />
               Online

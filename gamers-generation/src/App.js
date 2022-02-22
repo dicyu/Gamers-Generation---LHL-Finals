@@ -11,28 +11,95 @@ import Body from "./components/Body";
 
 import EditProfile from "./components/EditProfile";
 
+import {
+  getAccessTokenInLocalStorage,
+  storeAccessTokenInLocalStorage,
+} from "./helpers/helpers";
+
 import "./components/Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import axios from "axios";
 
 function App() {
-  // let user = false;
-  // let profile = false;
-  // let editProfile = true;
+  // State for user
+  const [token, setToken] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
-  // if (document.cookie) {
-  //   user = true;
-  // } else {
-  //   user = false;
-  // }
+  // Create Likes
+  const createLike = (received_like) => {
+    axios
+      .post(`/likes?token=${token}`, {
+        received_like,
+      })
+      .then((res) => {
+        if (res.data.matchCreated) {
+          // showModal
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  let user = document.cookie
+  useEffect(() => {
+    const storedToken = getAccessTokenInLocalStorage("token");
+    return axios
+      .get(`/current-user?token=${storedToken}`)
+      .then((res) => {
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        setToken(null);
+      });
+  }, []);
 
-  // State for Reporting - Modal
-  const [show, setShow] = useState(false);
+  const handleLogin = (email, password) => {
+    return axios
+      .post(
+        "/login",
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        console.log("Login failed, ", err);
+      });
+  };
 
+  const handleRegister = (name, gamer_tag, email, password) => {
+    return axios
+      .post(
+        "/register",
+        {
+          name,
+          gamer_tag,
+          email,
+          password,
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        console.log("RIP", err);
+      });
+  };
+
+  console.log("current user: ", currentUser);
   return (
     <div className="App">
       <Router>
@@ -42,35 +109,40 @@ function App() {
               <HomeIcon fontSize="large" className="navbar__home" />
             </IconButton>
           </Link>
-          {document.cookie ? 
-          <span className="navbar__authentication">
-            <Link to="/register">
-              <IconButton>
-                <Button
-                  variant="outlined"
-                  style={{
-                    backgroundColor: "transparent",
-                    color: "#fff",
-                  }}
-                >
-                  Sign up
-                </Button>
-              </IconButton>
-            </Link>
-            <Link to="/login">
-              <IconButton>
-                <Button
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#000",
-                  }}
-                >
-                  Login
-                </Button>
-              </IconButton>
-            </Link>
-          </span> : <Sidebar/>}
+          {token ? (
+            <span className="navbar__authentication">
+              <Sidebar gamer_tag={currentUser && currentUser.gamer_tag} />
+            </span>
+          ) : (
+            <span className="navbar__authentication">
+              <Link to="/register">
+                <IconButton>
+                  <Button
+                    variant="outlined"
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "#fff",
+                    }}
+                  >
+                    Sign up
+                  </Button>
+                </IconButton>
+              </Link>
+              <Link to="/login">
+                <IconButton>
+                  <Button
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#fff",
+                      color: "#000",
+                    }}
+                  >
+                    Login
+                  </Button>
+                </IconButton>
+              </Link>
+            </span>
+          )}
         </div>
         <Routes>
           <Route
@@ -82,10 +154,16 @@ function App() {
               </div>
             }
           />
-          <Route path="/register" element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path="/edit" element={<EditProfile/>}/>
-          <Route path="/profile_cards" element={<ProfileCards />}/>
+          <Route
+            path="/register"
+            element={<Register handleRegister={handleRegister} />}
+          />
+          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/edit" element={<EditProfile />} />
+          <Route
+            path="/swipe"
+            element={<ProfileCards createLike={createLike} />}
+          />
         </Routes>
       </Router>
     </div>
