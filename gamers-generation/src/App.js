@@ -77,13 +77,14 @@ function App() {
       });
   };
 
-  const handleRegister = (name, gamer_tag, email, password) => {
+  const handleRegister = (name, gamer_tag, bio, email, password) => {
     return axios
       .post(
         "/register",
         {
           name,
           gamer_tag,
+          bio,
           email,
           password,
         }

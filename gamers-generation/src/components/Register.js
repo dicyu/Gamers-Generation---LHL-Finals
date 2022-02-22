@@ -16,7 +16,7 @@ export default function Register(props) {
 
   const registerGamer = () => {
     props
-      .handleRegister(name, gamer_tag, email, password)
+      .handleRegister(name, gamer_tag, bio, email, password)
       .then(() => {
         navigate("/");
       })
@@ -53,7 +53,7 @@ export default function Register(props) {
           <br />
           <label className="bio-container">
             Bio:
-            <Input name="bio" placeholder="" setVal={setBio} val={bio} />
+            <Input name="bio" type="text" placeholder="" setVal={setBio} val={bio} />
           </label>
           <br />
           <label className="password">
