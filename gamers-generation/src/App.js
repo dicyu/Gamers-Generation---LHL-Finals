@@ -8,6 +8,7 @@ import ProfileCards from "./components/ProfileCards";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
+import Chat from "./components/Chat";
 
 import EditProfile from "./components/EditProfile";
 
@@ -78,6 +79,29 @@ function App() {
       });
   };
 
+  const handleRegister = (name, gamer_tag, bio, email, password) => {
+    return axios
+      .post(
+        "/register",
+        {
+          name,
+          gamer_tag,
+          bio,
+          email,
+          password,
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        console.log("RIP", err);
+      });
+  };
+
   console.log("current user: ", currentUser);
   return (
     <div className="App">
@@ -130,10 +154,14 @@ function App() {
               <div>
                 <Header />
                 <Body />
+                <Chat />
               </div>
             }
           />
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/register"
+            element={<Register handleRegister={handleRegister} />}
+          />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/edit" element={<EditProfile />} />
           <Route

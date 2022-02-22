@@ -17,20 +17,21 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    const { name, gamer_tag, email, password } = req.body;
-    const queParam = [name, gamer_tag, email, bcrypt.hashSync(password, salt)];
+    const { name, gamer_tag, bio, email, password } = req.body;
+    const queParam = [name, gamer_tag, bio, email, bcrypt.hashSync(password, salt)];
+    console.log("test")
     let query =
-      "INSERT INTO gamers (name, gamer_tag, email, password) VALUES ($1, $2, $3, $4) RETURNING *;";
-    return db
-      .query(query, queParam)
+      "INSERT INTO gamers (name, gamer_tag, bio, email, password) VALUES ($1, $2, $3, $4, $5) RETURNING *;";
+    db.query(query, queParam)
       .then((data) => {
+        console.log(">>>>>>>>", data.rows[0])
         const result = data.rows[0];
         const token = getToken(result);
-
-        res.json({ token: token, result: result });
+        console.log(">>>>>>>>", token)
+        return res.json({ token: token, result: result });
       })
       .catch((err) => {
-        res.status(500).send("Cannot sign up ", err);
+        return res.status(500).send("Cannot sign up ", err);
       });
   });
 

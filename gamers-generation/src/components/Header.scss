@@ -16,7 +16,7 @@
 }
 
 .title {
-  color: #4b4e53;
+  color: #000;
   font-size: 72pt;
   text-align: center;
   padding-top: 50px;
@@ -24,7 +24,7 @@
 
 .smaller-text {
   position: relative;
-  color: #4b4e53;
+  color: #000;
   top: -70px;
   font-size: 18px;
   left: 255px;
@@ -41,6 +41,8 @@
 .signup-btn {
   margin: 0;
   position: absolute;
+  font-size: 15pt;
+  text-decoration: none;
   top: 350px;
   left: 255px;
   color: #fff;
@@ -49,6 +51,12 @@
   border-radius: 5px;
   height: 50px;
   width: 200px;
+}
+
+.text-btn {
+  color: #FFF;
+  padding-left: 65px;
+  padding-top: 12px;
 }
 
 .header-2 {
