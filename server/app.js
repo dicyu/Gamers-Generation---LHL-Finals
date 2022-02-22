@@ -34,7 +34,7 @@ const tokenRouter = require("./routes/current-user")
 
 app.use("/friends", friendsRouter(db));
 app.use("/reports", reportsRouter(db));
-app.use("/register", gamersRegisterRouter(db));
+app.use("/register", registerRouter(db));
 app.use("/profileCards", profileCardsRouter(db));
 app.use("/likes", likesRouter(db));
 app.use("/login", loginRouter(db));

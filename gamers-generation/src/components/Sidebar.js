@@ -21,8 +21,8 @@ function Sidebar(props) {
           <Link to="/edit">
           <IconButton>
             <Avatar
-              fontSize="large"
-              sx={{ width: 75, height: 75 }}
+              fontSize="medium"
+              sx={{ width: 44, height: 44 }}
               style={{ border: "3px solid green" }}
             />
           </IconButton>
