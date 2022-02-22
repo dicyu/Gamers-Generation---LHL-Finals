@@ -8,6 +8,7 @@ import ProfileCards from "./components/ProfileCards";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
+import Chat from "./components/Chat";
 
 import EditProfile from "./components/EditProfile";
 
@@ -129,6 +130,7 @@ function App() {
               <div>
                 <Header />
                 <Body />
+                <Chat />
               </div>
             }
           />
