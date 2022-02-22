@@ -41,13 +41,14 @@ function EditProfile() {
       <div className="editProfile__container">
         <div className="edit__bio">
           <label for="bio">Bio: </label>
-          <input
+          <textarea
             className="user___create text--semi-bold"
             id="bio"
             name="bio"
             type="text"
-            placeholder="Tell us about yourself"
-          ></input>
+            placeholder=""
+            wrap="hard"
+          ></textarea>
         </div>
         <label>
           Name:
