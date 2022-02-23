@@ -26,6 +26,7 @@ module.exports = (db) => {
       })
       .catch((err) => {
         return res.json(err);
+        
       });
   });
   return router;
