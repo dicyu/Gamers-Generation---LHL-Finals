@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
-const { getToken } = require("../utils/jwt");
 
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
+    
     const loop = req.body;
     let id = req.body.id;
     for (const [key, value] of Object.entries(loop)) {

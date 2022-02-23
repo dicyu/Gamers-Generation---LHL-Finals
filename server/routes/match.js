@@ -18,7 +18,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     let query =
-      "INSERT INTO match (gamer_first_id, gamer_second_id) VALUES($1, $2);";
+      "INSERT INTO matches (gamer_first_id, gamer_second_id) VALUES($1, $2);";
 
     db.query(query)
       .then((data) => {

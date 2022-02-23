@@ -1,5 +1,9 @@
 @import "./styles/variables.scss";
 
+.login {
+  padding-top: 60px;
+}
+
 .login-form {
   display: flex;
   width: 475px;
@@ -11,6 +15,7 @@
   align-content: space-between;
   justify-content: space-between;
   color: $white;
+  font-size: 12pt;
 }
 
 label,
@@ -31,9 +36,25 @@ p {
   white-space: pre;
 }
 
-Button {
-  margin-left: 410px;
-  margin-top: 50px;
+.login-btn {
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  font-size: 12pt;
+  text-decoration: none;
+  color: #fff;
+  border: transparent;
+  background: #4b4e53;
+  border-radius: 5px;
+  height: 50px;
+  min-width: 64px;
+  padding: 5px 15px;
+  top: 620px;
+  left: 490px;
+}
+
+.login-btn:hover {
+  background-color: #7D7B70;
 }
 
 .login-title {
@@ -53,7 +74,7 @@ Button {
   right: 100px;
   bottom: 330px;
   width: 500px;
-  height: 600px;
+  height: 640px;
   background-image: url('./images/1.jpeg');
   border-radius: 50px;
 }
