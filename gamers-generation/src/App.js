@@ -9,7 +9,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
 import Chat from "./components/Chat";
-
+import MatchedModal from "./components/MatchedModal";
+import LoggedSplash from "./components/LoggedSplash";
 import EditProfile from "./components/EditProfile";
 
 import {
@@ -23,12 +24,12 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
-import Chat from "./components/Chat";
 
 function App() {
   // State for user
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [show, setShow] = useState(false);
 
   // Create Likes
   const createLike = (received_like) => {
@@ -39,10 +40,15 @@ function App() {
       .then((res) => {
         if (res.data.matchCreated) {
           // showModal
+          console.log(res.data.matchCreated);
+          {
+            setShow(true);
+          }
         }
       })
       .catch((err) => {
         console.log(err);
+        setShow(false);
       });
   };
 
@@ -81,16 +87,13 @@ function App() {
 
   const handleRegister = (name, gamer_tag, bio, email, password) => {
     return axios
-      .post(
-        "/register",
-        {
-          name,
-          gamer_tag,
-          bio,
-          email,
-          password,
-        }
-      )
+      .post("/register", {
+        name,
+        gamer_tag,
+        bio,
+        email,
+        password,
+      })
       .then((res) => {
         console.log(res.data);
         storeAccessTokenInLocalStorage(res.data.token);
@@ -102,68 +105,72 @@ function App() {
       });
   };
 
+  const handleEdit = (id, name, gamer_tag, bio, email, password, timezone) => {
+    return axios
+    .post(
+      "/edit",
+      {
+        id,
+        name,
+        gamer_tag,
+        bio,
+        email,
+        password,
+        timezone,
+      },
+      { withCredentials: true }
+    )
+    .then((res) => {
+      storeAccessTokenInLocalStorage(res.data.token);
+      setToken(res.data.token);
+      setCurrentUser(res.data.result);
+    })
+    .catch((err) => {
+      console.log("Failed: ", err);
+    });
+  };
+
   console.log("current user: ", currentUser);
   return (
     <div className="App">
       <Router>
         <div className="navbar">
-          <Link to="/">
-            <IconButton>
-              <HomeIcon fontSize="large" className="navbar__home" />
-            </IconButton>
-          </Link>
-          {token ? (
-            <span className="navbar__authentication">
-              <Sidebar gamer_tag={currentUser && currentUser.gamer_tag} />
-            </span>
-          ) : (
-            <span className="navbar__authentication">
-              <Link to="/register">
-                <IconButton>
-                  <Button
-                    variant="outlined"
-                    style={{
-                      backgroundColor: "transparent",
-                      color: "#fff",
-                    }}
-                  >
-                    Sign up
-                  </Button>
-                </IconButton>
-              </Link>
-              <Link to="/login">
-                <IconButton>
-                  <Button
-                    variant="contained"
-                    style={{
-                      backgroundColor: "#fff",
-                      color: "#000",
-                    }}
-                  >
-                    Login
-                  </Button>
-                </IconButton>
-              </Link>
-            </span>
-          )}
+          <Navigation />
+          <MatchedModal
+            title="You got a Match!"
+            onClose={() => setShow(false)}
+            show={show}
+          ></MatchedModal>
         </div>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <Header />
-                <Body />
-                <Chat />
-              </div>
-            }
-          />
+          {!token ? (
+            <Route
+              path="/"
+              element={
+                <div>
+                  <Header />
+                  <Body />
+                </div>
+              }
+            />
+          ) : (
+            <Route
+              path="/"
+              element={
+                <div>
+                  <LoggedSplash
+                    gamer_tag={currentUser && currentUser.gamer_tag}
+                  />
+                </div>
+              }
+            />
+          )}
           <Route
             path="/register"
             element={<Register handleRegister={handleRegister} />}
           />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/edit" element={<EditProfile />} />
+          <Route path="/edit" element={<EditProfile handleEdit={handleEdit} />} />
           <Route
             path="/swipe"
             element={<ProfileCards createLike={createLike} />}

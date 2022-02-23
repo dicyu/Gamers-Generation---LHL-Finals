@@ -105,9 +105,14 @@ function ProfileCards(props) {
                 backgroundImage: `url(${person.avatar})`,
               }}
             >
-              <h3>{person.name}</h3>
             </div>
-            <div className="bio">{person.bio}</div>
+            <div className="bio">
+              {person.gamer_tag}
+              <br />
+              <div className="bio-bio">
+              {person.bio}
+              </div>
+            </div>
           </div>
         </TinderCard>
       ))}

@@ -39,6 +39,7 @@
 }
 
 .signup-btn {
+  cursor: pointer;
   margin: 0;
   position: absolute;
   font-size: 15pt;
@@ -51,6 +52,10 @@
   border-radius: 5px;
   height: 50px;
   width: 200px;
+
+}
+.signup-btn:hover {
+  background-color: #7D7B70;
 }
 
 .text-btn {
