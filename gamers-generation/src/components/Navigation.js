@@ -16,11 +16,10 @@ import {
 function Navigation() {
     // State for user
     const [token, setToken] = useState(null);
-    const [currentUser, setCurrentUser] = useState(null);
-    const [show, setShow] = useState(false)
+    const [currentUser, setCurrentUser] = useState();
+    const storedToken = getAccessTokenInLocalStorage("token");
   
     useEffect(() => {
-      const storedToken = getAccessTokenInLocalStorage("token");
       return axios
         .get(`/current-user?token=${storedToken}`)
         .then((res) => {
@@ -30,7 +29,7 @@ function Navigation() {
         .catch((err) => {
           setToken(null);
         });
-    }, []);
+    }, [storedToken]);
   
   return (
     <div className="navbar">
@@ -39,11 +38,7 @@ function Navigation() {
               <HomeIcon fontSize="large" className="navbar__home" />
             </IconButton>
           </Link>
-          {token ? (
-            <span className="navbar__authentication">
-              <Sidebar gamer_tag={currentUser && currentUser.gamer_tag} />
-            </span>
-          ) : (
+          {!token ? (
             <span className="navbar__authentication">
               <Link to="/register">
                 <IconButton>
@@ -72,6 +67,10 @@ function Navigation() {
                 </IconButton>
               </Link>
             </span>
+          ) : (
+            <span className="navbar__authentication">
+            <Sidebar gamer_tag={currentUser && currentUser.gamer_tag} />
+          </span>
           )}
       </div>
   )
