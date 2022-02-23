@@ -11,7 +11,7 @@
 }
 
 .register-title {
-  padding-top: 120px;
+  padding-top: 180px;
   padding-left: 100px;
   color: #FFF;
   font-size: 42pt;
@@ -32,7 +32,28 @@ label {
   right: 100px;
   bottom: 280px;
   width: 500px;
-  height: 600px;
+  height: 640px;
   background-image: url('./images/1.jpeg');
   border-radius: 50px;
+}
+
+.reg-btn {
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  font-size: 12pt;
+  text-decoration: none;
+  color: #fff;
+  border: transparent;
+  background: #4b4e53;
+  border-radius: 5px;
+  height: 50px;
+  min-width: 64px;
+  padding: 5px 15px;
+  top: 860px;
+  left: 485px;
+}
+
+.reg-btn:hover {
+  background-color: #7D7B70;
 }
