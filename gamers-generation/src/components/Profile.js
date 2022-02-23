@@ -3,24 +3,23 @@ import React from "react";
 import "./Profile.scss";
 
 function Profile(props) {
-  const testData = ["Ren", "bybang", "pro.di.gy"];
 
   return (
     <div className="bio">
-      <div className="bio__gamerbio">Bio of the person goes here</div>
+      <div className="bio__gamerbio">{props.bio}</div>
 
       <div className="bio__container">
-        <div className="bio__recent-box">
+        {/* <div className="bio__recent-box">
           Recent Gamers <span className="bio__inner-text">Played With</span>
-        </div>
-        {testData.map((gamer) => (
+        </div> */}
+        {/* {testData.map((gamer) => ( */}
           <div className="bio__gamers-container">
             <div className="bio__gamers-name">
-              <span className="bio__profile-pic">Picture</span>
-              {gamer}
+              <span className="bio__profile-pic">{props.avatar}</span>
+              {props.gamer_tag}
             </div>
           </div>
-        ))}
+        {/* ))} */}
       </div>
 
       <div className="bio__skill-container">

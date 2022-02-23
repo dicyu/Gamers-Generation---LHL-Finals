@@ -101,6 +101,34 @@ function App() {
       });
   };
 
+
+  const handleEdit = (id, name, gamer_tag, bio, email, password, timezone) => {
+    return axios
+      .post(
+        "/edit",
+        {
+          id,
+          name,
+          gamer_tag,
+          bio,
+          email,
+          password,
+          timezone,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        console.log("Failed: ", err);
+      });
+  };
+
+  console.log("This is the thing", currentUser)
+  
   return (
     <div className="App">
       <Router>
@@ -160,7 +188,7 @@ function App() {
             element={<Register handleRegister={handleRegister} />}
           />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/edit" element={<EditProfile />} />
+          <Route path="/edit" element={<EditProfile handleEdit={handleEdit} />} />
           <Route
             path="/swipe"
             element={<ProfileCards createLike={createLike} />}
