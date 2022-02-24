@@ -5,14 +5,13 @@
   background-color: $nav-sidebar-color;
   display: flex;
   flex: 0.3;
-  border-top: 1px solid $nav-sidebar-color;
   max-width: 260px;
+  height: 100px;
 
   &__header {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid $nav-sidebar-color;
-    padding: 13px;
     width: 100%;
 
     h2 {

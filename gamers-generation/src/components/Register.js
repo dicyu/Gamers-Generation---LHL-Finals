@@ -67,9 +67,9 @@ export default function Register(props) {
             />
           </label>
           <br />
-          <Button submit onClick={registerGamer}>
-            Submit
-          </Button>
+          <button className="reg-btn" submit onClick={registerGamer}>
+            Sign-Up
+          </button>
         </form>
       </div>
       <div className="right-image"></div>

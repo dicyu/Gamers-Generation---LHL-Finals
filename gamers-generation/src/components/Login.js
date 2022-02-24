@@ -1,7 +1,6 @@
 // import axios from "axios";
 import React, { useState } from "react";
 import Input from "./Information/Input";
-import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
 import "../App.scss";
@@ -49,9 +48,9 @@ export default function Login(props) {
             />
           </label>
           <br />
-          <Button className="login__submit" submit onClick={loginUser}>
+          <button className="login-btn" submit onClick={loginUser}>
             Submit
-          </Button>
+          </button>
         </form>
         <div className="right-image-login"></div>
       </div>
