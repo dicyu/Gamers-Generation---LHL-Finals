@@ -53,6 +53,7 @@ function App() {
   };
 
   const storedToken = getAccessTokenInLocalStorage("token");
+  
   useEffect(() => {
     return axios
       .get(`/current-user?token=${storedToken}`)

@@ -90,32 +90,63 @@ function ProfileCards(props) {
   return (
     <div className="swipeable__card">
       {people.map((person, index) => (
+        
+        people ? 
+          
         <TinderCard
-          ref={person.ref}
-          className="swipe"
-          key={person.name}
-          preventSwipe={["up", "down"]}
-          onSwipe={(dir) => onSwipe(dir, person, index)}
-          onCardLeftScreen={() => outOfFrame(person.name, index)}
+        ref={person.ref}
+        className="swipe"
+        key={person.name}
+        preventSwipe={["up", "down"]}
+        onSwipe={(dir) => onSwipe(dir, person, index)}
+        onCardLeftScreen={() => outOfFrame(person.name, index)}
         >
-          <div className="card_bio__container">
-            <div
-              className="card"
-              style={{
-                backgroundImage: `url(${person.avatar})`,
-              }}
+        <div className="card_bio__container">
+          <div
+            className="card"
+            style={{
+              backgroundImage: `url(${person.avatar})`,
+            }}
             >
-            </div>
-            <div className="bio">
-              {person.gamer_tag}
-              <br />
-              <div className="bio-bio">
-              {person.bio}
-              </div>
+          </div>
+          <div className="bio">
+            {person.gamer_tag}
+            <br />
+            <div className="bio-bio">
+            {person.bio}
             </div>
           </div>
-        </TinderCard>
+        </div>
+        {console.log(people)}
+      </TinderCard>
+
+        :
+        
+        <TinderCard
+        className="swipe"
+        preventSwipe={["up", "down", "left", "right"]} >
+          {console.log("Working?")}
+      
+        <div className="card_bio__container">
+          <div
+            className="card"
+            style={{
+              backgroundImage: `url(https://tinyurl.com/2p8w3hbr)`,
+            }}
+            >
+          </div>
+          <div className="bio">
+            The Panda
+            <br />
+            <div className="bio-bio">
+            The Panda says you are out of matches.
+            </div>
+          </div>
+        </div>
+      </TinderCard>
+        
       ))}
+      
       <div className="swipeButtons">
         <IconButton
           className="swipeButtons__left"
