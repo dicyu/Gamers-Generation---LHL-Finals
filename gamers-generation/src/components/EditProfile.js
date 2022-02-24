@@ -16,7 +16,7 @@ function EditProfile(props) {
   const [timezone, setTimezone] = useState("");
   const [bio, setBio] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const storedToken = getAccessTokenInLocalStorage("token");
   
@@ -29,16 +29,19 @@ function EditProfile(props) {
       .catch((err) => {
         console.log(err);
       });
-  }, [storedToken]);
-
-  console.log(currentUser)
-
+  }, []);
+  
   const editGamer = () => {
     props
-    .handleEdit(currentUser, name, gamer_tag, bio, email, password, timezone)
-      .then(() => {
-        navigate("/");
-      })
+      .handleEdit(
+        currentUser.id,
+        name,
+        gamer_tag,
+        bio,
+        email,
+        password,
+        timezone
+      )
       .catch((err) => {
         console.log("Edit failed, ", err);
       });
@@ -88,6 +91,7 @@ function EditProfile(props) {
           Timezone:
           <Input name="timezone" setVal={setTimezone} val={timezone} />
         </label>
+        <Link to="/">
         <div className="edit__submit">
         <Link to="/">
           <Button submit onClick={editGamer}>
@@ -95,6 +99,7 @@ function EditProfile(props) {
           </Button>
           </Link>
         </div>
+        </Link>
       </div>
     </form>
   );

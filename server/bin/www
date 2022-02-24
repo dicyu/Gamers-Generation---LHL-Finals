@@ -1,10 +1,6 @@
 #!/usr/bin/env node
 require("dotenv").config();
 const socketio = require("socket.io");
-
-let users = [];
-
-const getUser = (id) => users.find((user) => user.id === id);
 /**
  * Module dependencies.
  */
@@ -27,38 +23,40 @@ app.set("port", port);
 var server = http.createServer(app);
 const io = socketio(server);
 
-io.on("connection", (socket) => {
-  console.log("We have a new Connection!!!");
+// io.on("connection", (socket) => {
+//   console.log("We have a new Connection!!!");
 
-  // our event from emit function
-  socket.on("join", ({ name, room }, callback) => {
-    const { error, user } = addUser({ id: socket.id, name, room });
-    if (error) return callback(error);
+//   // our event from emit function
+//   socket.on("join", ({ name, room }, callback) => {
+//     const { error, user } = addUser({ id: socket.id, name, room });
+//     if (error) return callback(error);
 
-    socket.join(user.room);
-    // back to the front end
-    socket.emit("message", { user: admin, text: `${user.name}, Say Hi!` });
-    socket.broadcast
-      .to(user.romm)
-      .emit("message", { user: admin, text: `${user.name} has joined!` });
+//     socket.join(user.room);
 
-    // not going to run if there is no error(but passing it to the front)
-    callback();
-  });
+//     // back to the front end
+//     socket.emit("message", { user: admin, text: `${user.name}, Say Hi!` });
+//     socket.broadcast
+//       .to(user.room)
+//       .emit("message", { user: admin, text: `${user.name} has joined!` });
 
-  // expecting user to be chat(expecting frontend reaction)
-  socket.on("sendMessage", (message, callback) => {
-    const user = getUser(socket.id);
+//     // not going to run if there is no error(but passing it to the front)
+//     callback();
+//   });
 
-    io.to(user.room).emit("message", { user: user.name, text: message });
+//   // expecting user to be chat(expecting frontend reaction)
+//   socket.on("sendMessage", (message, callback) => {
+//     const user = getUser(socket.id);
 
-    callback();
-  });
+//     io.to(user.room).emit("message", { user: user.name, text: message });
 
-  socket.on("disconnect", () => {
-    console.log("User had left!!!");
-  });
-});
+//     callback();
+//   });
+
+//   socket.on("disconnect", () => {
+//     console.log("User had left!!!");
+//     const user = removeUser(socket.id);
+//   });
+// });
 /**
  * Listen on provided port, on all network interfaces.
  */

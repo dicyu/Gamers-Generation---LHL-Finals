@@ -127,7 +127,13 @@ VALUES
 (5, 3, 5, 'That sounds terrible and I want no part of this');
 
 INSERT INTO likes (sent_like, received_like)
-VALUES (1, 2), (1, 3), (1, 4), (4, 1), (2, 1);
+VALUES (1, 2);
 
 INSERT INTO matches (gamer_first_id, gamer_second_id)
-VALUES (1, 4), (1, 2);
+VALUES (1, 2);
+
+INSERT INTO conversations(gamer_1_id, gamer_2_id)
+VALUES (1, 2);
+
+INSERT INTO chats(conversation_id, sender_id, receiver_id, chat)
+VALUES(1, 1, 2, 'hello there'), (1, 2, 1, 'Another message that is not from currentUser'), (1, 2, 1, 'How are you?');

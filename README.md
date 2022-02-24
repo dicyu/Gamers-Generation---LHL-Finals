@@ -21,7 +21,9 @@
 
 - [x] Register
 - [x] Login
-- [] Match with other users
+- [x] Match with other users
 - [x] Edit user profile
+- [x] Chat with matched player
+
+#### Stretch Features
 - [] Choose gaming preferences
-- [] Chat with matched player

@@ -15,7 +15,7 @@ export default function Button(props) {
     <button
       className={buttonClass}
       onClick={props.onClick}
-      type={props.type || ""}
+      type={props.type || "submit"}
     >
       Submit
     </button>
