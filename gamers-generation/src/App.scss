@@ -1,7 +1,12 @@
 @import "./components/styles/variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Bebas+Neue&family=Black+Ops+One&family=Creepster&family=Fredericka+the+Great&family=Libre+Barcode+39+Extended+Text&family=Play&family=Racing+Sans+One&family=Rye&family=Staatliches&family=Yanone+Kaffeesatz:wght@600&display=swap');
 
 * body {
   background-color: $body-background-color;
+}
+
+* {
+  font-family: 'Aldrich', sans-serif;
 }
 
 .App {

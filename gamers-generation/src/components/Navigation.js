@@ -13,23 +13,26 @@ import {
   storeAccessTokenInLocalStorage,
 } from "../helpers/helpers";
 
-function Navigation() {
+function Navigation({currentUser}) {
     // State for user
     const [token, setToken] = useState(null);
-    const [currentUser, setCurrentUser] = useState();
+    // const [currentUser, setCurrentUser] = useState();
     const storedToken = getAccessTokenInLocalStorage("token");
   
     useEffect(() => {
+      if (!currentUser) {
+        return
+      }
       return axios
         .get(`/current-user?token=${storedToken}`)
         .then((res) => {
           setToken(res.data.token);
-          setCurrentUser(res.data.result);
+          // setCurrentUser(res.data.result);
         })
         .catch((err) => {
           setToken(null);
         });
-    }, [storedToken]);
+    }, [storedToken, currentUser]);
   
   return (
     <div className="navbar">
@@ -69,7 +72,7 @@ function Navigation() {
             </span>
           ) : (
             <span className="navbar__authentication">
-            <Sidebar gamer_tag={currentUser && currentUser.gamer_tag} />
+            <Sidebar currentUser={currentUser} />
           </span>
           )}
       </div>

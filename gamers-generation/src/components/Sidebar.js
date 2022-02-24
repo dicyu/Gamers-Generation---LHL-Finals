@@ -6,13 +6,13 @@ import IconButton from "@mui/material/IconButton";
 // import EditProfile from "./EditProfile";
 import { Link } from "react-router-dom";
 
-function Sidebar(props) {
+function Sidebar({currentUser}) {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
         <h2>
           <div className="sidebar__username">
-            <span>{props.gamer_tag}</span>
+            <span>{currentUser?.gamer_tag}</span>
             <span className="sidebar__status">
               <FiberManualRecordIcon />
               Online
@@ -22,7 +22,8 @@ function Sidebar(props) {
           <IconButton>
             <Avatar
               fontSize="medium"
-              sx={{ width: 44, height: 44 }}
+              sx={{ width: 70, height: 70 }}
+              src={currentUser?.avatar}
               style={{ border: "3px solid green" }}
             />
           </IconButton>

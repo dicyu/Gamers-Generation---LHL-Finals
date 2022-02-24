@@ -57,8 +57,8 @@ function App() {
 
   const storedToken = getAccessTokenInLocalStorage("token");
 
-  useEffect(() => {
-    return axios
+  useEffect(() => 
+    axios
       .get(`/current-user?token=${storedToken}`)
       .then((res) => {
         setToken(res.data.token);
@@ -66,8 +66,7 @@ function App() {
       })
       .catch((err) => {
         setToken(null);
-      });
-  }, [token]);
+      }), [storedToken, currentUser]);
 
   const handleLogin = (email, password) => {
     return axios
@@ -139,7 +138,7 @@ function App() {
     <div className="App">
       <Router>
         <div className="navbar">
-          <Navigation />
+          <Navigation currentUser={currentUser}/>
         </div>
         <MatchedModal
           title="You got a Match!"

@@ -54,6 +54,7 @@ function EditProfile(props) {
         e.preventDefault();
       }}
     >
+          <div className="edit-profile">Edit Profile</div>
       <div className="editProfile__container">
         <div className="edit__bio">
           <label for="bio">Bio: </label>
@@ -72,7 +73,7 @@ function EditProfile(props) {
           <Input name="name" setVal={setName} val={name} />
         </label>
         <label>
-          Username:
+          Gamer Tag:
           <Input name="gamerTag" setVal={setGamer_tag} val={gamer_tag} />
         </label>
         <label>
@@ -94,9 +95,9 @@ function EditProfile(props) {
         <Link to="/">
         <div className="edit__submit">
         <Link to="/">
-          <Button submit onClick={editGamer}>
+          <button className="submit-btn" submit onClick={editGamer}>
             Submit
-          </Button>
+          </button>
           </Link>
         </div>
         </Link>
