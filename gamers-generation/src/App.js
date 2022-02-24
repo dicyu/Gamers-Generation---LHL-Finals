@@ -32,7 +32,7 @@ import axios from "axios";
 function App() {
   // State for user
   const [token, setToken] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState();
   const [show, setShow] = useState(false);
 
   // Create Likes
@@ -55,8 +55,9 @@ function App() {
       });
   };
 
+  const storedToken = getAccessTokenInLocalStorage("token");
+  
   useEffect(() => {
-    const storedToken = getAccessTokenInLocalStorage("token");
     return axios
       .get(`/current-user?token=${storedToken}`)
       .then((res) => {
@@ -89,7 +90,7 @@ function App() {
   };
 
 
-  const handleRegister = (name, gamer_tag, email, password) => {
+  const handleRegister = (name, gamer_tag, bio, email, password) => {
     return axios
       .post("/register", {
         name,
@@ -140,29 +141,29 @@ function App() {
     <div className="App">
       <Router>
         <div className="navbar">
-          <Navigation />
+        <Navigation />
+        </div>
           <MatchedModal
             title="You got a Match!"
             onClose={() => setShow(false)}
             show={show}
           ></MatchedModal>
-        </div>
         <Routes>
           {!token ? (
             <Route
-              path="/"
-              element={
-                <div>
+            path="/"
+            element={
+              <div>
                   <Header />
                   <Body />
                 </div>
               }
-            />
-          ) : (
-            <Route
-              path="/"
-              element={
-                <div>
+              />
+              ) : (
+                <Route
+                path="/"
+                element={
+                  <div>
                   <LoggedSplash
                     gamer_tag={currentUser && currentUser.gamer_tag}
                   />

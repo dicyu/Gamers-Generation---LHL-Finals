@@ -4,6 +4,7 @@ import "./EditProfile.scss";
 import Button from "./Button";
 import axios from "axios";
 import { getAccessTokenInLocalStorage } from "../helpers/helpers";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function EditProfile(props) {
@@ -17,8 +18,9 @@ function EditProfile(props) {
   const [currentUser, setCurrentUser] = useState(null);
   // let navigate = useNavigate();
 
+  const storedToken = getAccessTokenInLocalStorage("token");
+  
   useEffect(() => {
-    const storedToken = getAccessTokenInLocalStorage("token");
     return axios
       .get(`/current-user?token=${storedToken}`)
       .then((res) => {
@@ -91,9 +93,11 @@ function EditProfile(props) {
         </label>
         <Link to="/">
         <div className="edit__submit">
-          <Button submit onClick={editGamer} >
+        <Link to="/">
+          <Button submit onClick={editGamer}>
             Submit
           </Button>
+          </Link>
         </div>
         </Link>
       </div>
