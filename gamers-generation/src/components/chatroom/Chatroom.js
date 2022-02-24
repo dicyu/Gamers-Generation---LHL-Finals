@@ -9,7 +9,7 @@ import axios from "axios";
 import { getAccessTokenInLocalStorage } from "../../helpers/helpers";
 import { io } from "socket.io-client";
 
-function Chatroom({ currentUser, token }) {
+function Chatroom({ currentUser }) {
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [chats, setChats] = useState([]);
@@ -115,7 +115,8 @@ function Chatroom({ currentUser, token }) {
   }, [chats]);
 
   console.log("currentChat??????????????", currentChat);
-  console.log("currentUser--------------", currentUser);
+  console.log("conversations", conversations);
+  console.log("token?", storedToken);
 
   return (
     <>
@@ -129,7 +130,10 @@ function Chatroom({ currentUser, token }) {
             {conversations.map((conversation) => {
               console.log("conversation???????????", conversation);
               return (
-                <div onClick={() => setConvo(conversation)}>
+                <div
+                  onClick={() => setConvo(conversation)}
+                  className="chatroom_conversations"
+                >
                   <Conversation
                     conversation={conversation}
                     currentUser={currentUser}

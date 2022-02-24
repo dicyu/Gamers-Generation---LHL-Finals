@@ -5,28 +5,39 @@ module.exports = (db) => {
   router.get("/", authorizeUser, async (req, res) => {
     let id = req.currentUser.gamerID;
     let query =
-      "SELECT * FROM matches WHERE gamer_first_id = $1 OR gamer_second_id = $1;";
+      "SELECT gamers.id AS gamers_id, gamers.*, matches.id AS match_id, matches.* FROM gamers JOIN matches ON gamers.id = gamer_second_id WHERE gamer_first_id = $1 OR gamer_second_id = $1;";
+
+    // "SELECT gamers.* FROM gamers JOIN matches ON gamer_first_id = gamers.id WHERE gamer_first_id = $1 OR gamer_second_id = $1;";
+    // let query =
+    //   "SELECT * FROM matches WHERE gamer_first_id = $1 OR gamer_second_id = $1;";
+
+    // SELECT * FROM gamers JOIN matches ON gamer_first_id = gamers(id) WHERE gamer_first_id = $1 OR gamer_second_id = $1;
 
     db.query(query, [id])
       .then((data) => {
-        console.log("This data is from match route: ", data);
-        const currentMatches = data.rows[0];
-        let query = "SELECT * FROM gamers WHERE id = $1 OR id = $2";
-        console.log("Witches have Liches", currentMatches.gamer_first_id);
-        const queParam = [
-          currentMatches.gamer_first_id,
-          currentMatches.gamer_second_id,
-        ];
+        // console.log("This data is from match route: ", data);
+        // const currentMatches = data.rows[0];
+        // let query =
+        //   "SELECT * FROM gamers JOIN matches ON gamer_first_id = gamers(id) WHERE gamer_first_id = $1 OR gamer_second_id = $1;";
+        // console.log(
+        //   "Witches have Liches",
+        //   currentMatches.gamer_first_id,
+        //   currentMatches.gamer_second_id
+        // );
+        // const queParam = [
+        //   currentMatches.gamer_first_id,
+        //   currentMatches.gamer_second_id,
+        // ];
         // expected output = [{}, {}]
-        db.query(query, queParam)
-          .then((data) => {
-            console.log("Truckers Banned from Ottawa", data.rows);
-            res.status(200).json(data.rows);
-          })
-          .catch((err) => {
-            res.status(500).json(err);
-          });
+        console.log("Truckers Banned from Ottawa", data.rows);
+        res.status(200).json(data.rows);
+        // .then((data) => {
+        // })
+        // .catch((err) => {
+        //   res.status(500).json(err);
+        // });
       })
+      // db.query(query, [id])
       .catch((err) => {
         console.log("Only you can prevent wild fires", err);
         res.status(500).json(err);
@@ -52,6 +63,10 @@ module.exports = (db) => {
 
   return router;
 };
+
+/* logic 
+if two users matched, it should create the new conversation table and we should get the conversations
+*/
 
 // router.post("/", (req, res) => {
 //   let query =

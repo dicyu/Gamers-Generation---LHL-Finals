@@ -46,7 +46,7 @@ function App() {
           // showModal
           console.log(res.data.matchCreated);
 
-            setShow(true);
+          setShow(true);
         }
       })
       .catch((err) => {
@@ -56,7 +56,7 @@ function App() {
   };
 
   const storedToken = getAccessTokenInLocalStorage("token");
-  
+
   useEffect(() => {
     return axios
       .get(`/current-user?token=${storedToken}`)
@@ -89,7 +89,6 @@ function App() {
       });
   };
 
-
   const handleRegister = (name, gamer_tag, bio, email, password) => {
     return axios
       .post("/register", {
@@ -108,7 +107,6 @@ function App() {
         console.log("RIP", err);
       });
   };
-
 
   const handleEdit = (id, name, gamer_tag, bio, email, password, timezone) => {
     return axios
@@ -135,35 +133,35 @@ function App() {
       });
   };
 
-  console.log("This is the thing", currentUser)
-  
+  console.log("This is the thing", currentUser);
+
   return (
     <div className="App">
       <Router>
         <div className="navbar">
-        <Navigation />
+          <Navigation />
         </div>
-          <MatchedModal
-            title="You got a Match!"
-            onClose={() => setShow(false)}
-            show={show}
-          ></MatchedModal>
+        <MatchedModal
+          title="You got a Match!"
+          onClose={() => setShow(false)}
+          show={show}
+        ></MatchedModal>
         <Routes>
           {!token ? (
             <Route
-            path="/"
-            element={
-              <div>
+              path="/"
+              element={
+                <div>
                   <Header />
                   <Body />
                 </div>
               }
-              />
-              ) : (
-                <Route
-                path="/"
-                element={
-                  <div>
+            />
+          ) : (
+            <Route
+              path="/"
+              element={
+                <div>
                   <LoggedSplash
                     gamer_tag={currentUser && currentUser.gamer_tag}
                   />

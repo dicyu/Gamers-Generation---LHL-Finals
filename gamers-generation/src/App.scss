@@ -4,19 +4,19 @@
   background-color: $body-background-color;
 }
 
-.main__container {
-  display: grid;
-  grid-template-columns: 1fr 260px;
-  .cards_container {
-    display: grid;
-    column-gap: 1rem;
-    row-gap: 1rem;
-    padding: 2rem;
-    z-index: 0;
-    grid-template-columns: 1fr;
-    @media (min-width: 1024px) {
-      grid-template-columns: 1fr 1fr;
-    }
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  // .cards_container {
+  //   display: grid;
+  //   column-gap: 1rem;
+  //   row-gap: 1rem;
+  //   padding: 2rem;
+  //   z-index: 0;
+  //   grid-template-columns: 1fr;
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
   }
   .sidebar__container {
     position: fixed;
@@ -41,9 +41,4 @@
   border-radius: 36px;
   margin-right: 73px;
   margin-bottom: -6px;
-}
-
-.test {
-  color: white;
-  font-size: 72pt;
 }

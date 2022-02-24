@@ -88,64 +88,57 @@ function ProfileCards(props) {
 
   return (
     <div className="swipeable__card">
-      {people.map((person, index) => (
-        
-        people ? 
-          
-        <TinderCard
-        ref={person.ref}
-        className="swipe"
-        key={person.name}
-        preventSwipe={["up", "down"]}
-        onSwipe={(dir) => onSwipe(dir, person, index)}
-        onCardLeftScreen={() => outOfFrame(person.name, index)}
-        >
-        <div className="card_bio__container">
-          <div
-            className="card"
-            style={{
-              backgroundImage: `url(${person.avatar})`,
-            }}
-            >
-          </div>
-          <div className="bio">
-            {person.gamer_tag}
-            <br />
-            <div className="bio-bio">
-            {person.bio}
+      {people.map((person, index) =>
+        index ? (
+          <TinderCard
+            ref={person.ref}
+            className="swipe"
+            key={person.name}
+            preventSwipe={["up", "down"]}
+            onSwipe={(dir) => onSwipe(dir, person, index)}
+            onCardLeftScreen={() => outOfFrame(person.name, index)}
+          >
+            <div className="card_bio__container">
+              <div
+                className="card"
+                style={{
+                  backgroundImage: `url(${person.avatar})`,
+                }}
+              ></div>
+              <div className="bio">
+                {person.gamer_tag}
+                <br />
+                <div className="bio-bio">{person.bio}</div>
+              </div>
             </div>
-          </div>
-        </div>
-        {console.log(people)}
-      </TinderCard>
+            {console.log(people)}
+          </TinderCard>
+        ) : (
+          <TinderCard
+            className="swipe"
+            preventSwipe={["up", "down", "left", "right"]}
+          >
+            {console.log("Working?")}
 
-        :
-        
-        <TinderCard
-        className="swipe"
-        preventSwipe={["up", "down", "left", "right"]} >
-          {console.log("Working?")}
-      
-        <div className="card_bio__container">
-          <div
-            className="card"
-            style={{
-              backgroundImage: `url(https://tinyurl.com/2p8w3hbr)`,
-            }}
-            >
-          </div>
-          <div className="bio">
-            The Panda
-            <br />
-            <div className="bio-bio">
-            The Panda says you are out of matches.
+            <div className="card_bio__container">
+              <div
+                className="card"
+                style={{
+                  backgroundImage: `url(https://tinyurl.com/2p8w3hbr)`,
+                }}
+              ></div>
+              <div className="bio">
+                The Panda
+                <br />
+                <div className="bio-bio">
+                  The Panda says you are out of matches.
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </TinderCard>
-        
-      ))}
-      
+          </TinderCard>
+        )
+      )}
+
       <div className="swipeButtons">
         <IconButton
           className="swipeButtons__left"

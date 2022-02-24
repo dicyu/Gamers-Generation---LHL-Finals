@@ -13,6 +13,7 @@ function Conversation({ conversation, currentUser }) {
     axios
       .get(`/matches?token=${storedToken}`)
       .then((res) => {
+        console.log("Balloons are suffering :D", res.data);
         setUsers(res.data);
       })
       .catch((error) => {
@@ -20,16 +21,20 @@ function Conversation({ conversation, currentUser }) {
       });
   }, [currentUser, conversation]);
 
+  console.log(`Now we're not users`, users);
   const friend = users.filter((user) => user.id !== currentUser?.id);
+  console.log(`Now we're not friend`, friend);
 
   return (
-    <div className="conversation__mainContainer">
-      <img
-        className="conversation__image"
-        src="https://images.unsplash.com/photo-1645504812848-29c2ebd5cd54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-        alt=""
-      />
-      <span className="conversation__name">{friend[0]?.name}</span>
+    <div>
+      {friend.map((user) => {
+        return (
+          <div className="conversation__mainContainer">
+            <img className="conversation__image" src={user?.avatar} alt="" />
+            <span className="conversation__name">{user?.gamer_tag}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

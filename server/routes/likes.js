@@ -26,6 +26,8 @@ module.exports = (db) => {
       if (shouldCreateMatch) {
         const query4 = `INSERT INTO matches (gamer_first_id, gamer_second_id) VALUES($1, $2);`;
         await db.query(query4, [sent_like, received_like]);
+        const query5 = `INSERT INTO conversations (gamer_1_id, gamer_2_id) VALUES($1, $2);`;
+        await db.query(query5, [sent_like, received_like]);
       }
       return res.status(201).json({
         message: "successfully liked a user",

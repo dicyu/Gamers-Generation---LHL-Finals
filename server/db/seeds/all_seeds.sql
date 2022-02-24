@@ -1,12 +1,14 @@
 INSERT INTO gamers (name, gamer_tag, avatar , bio, email, password)
 VALUES 
 ('Mary Liu', 'Checkers775', 'https://www.pngall.com/wp-content/uploads/2016/03/Cat-PNG-2.png', 'Hey! Looking for casual players to group with after work hours are over', 'spawncheck@test.ca', '$2b$10$N.DWA68HUbfioAEQenls8O8hDcD1axiQ5QZjprJpubT6T0USXjFeW'),
-('Charlie Richards', 'PWNmaster', 'https://www.pngall.com/wp-content/uploads/2016/06/Sparrow-PNG-Image.png', 'description', 'test@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvOMfjVJzD6CmZAd7uQZkI1cyqb20hKW2W'),
-('Sam Wrait', 'TheLegend27', 'https://i.kym-cdn.com/photos/images/newsfeed/001/199/793/c39.png',  'description', 'arenaathena981@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvO0jpeNrGzoPRytF7iJR0Q32cCDQskbQ2'),
-('Sasuke Uchiha', 'OneEyedUchiha', 'https://i.pinimg.com/564x/f2/9a/85/f29a85b01260d7a4f477b8e4646e94b4.jpg', 'description', 'avengeplant@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvOqeYyKMNOVZNg6ln//YTaS2McV7y45B.'),
-('Suade Stokes', 'Suade', NULL, 'description', 'williamson@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvO8zUrfiK3eMFzrUn47gCEar/UaxmfMVu'),
-('Lily Pots', 'WolfShaper', 'https://thecinemaholic.com/wp-content/uploads/2021/01/nezuu-e1638963260523.jpg', 'description', 'tybaltpie@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvOaJyW.k0BTJT5FpgJmKcq6wvDE9xTZwa'),
-('Josh Yu', 'LovechildLuck888', NULL, 'description', 'belovedchild@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvOqeYyKMNOVZNg6ln//YTaS2McV7y45B.');
+('Charlie Richards', 'PWNmaster', 'https://scx2.b-cdn.net/gfx/news/2022/studying-penguin-poo-t.jpg', 'Lets get ready to RUMBLLLEEE', 'test@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvOMfjVJzD6CmZAd7uQZkI1cyqb20hKW2W'),
+('Sam Wrait', 'TheLegend27', 'https://i.kym-cdn.com/photos/images/newsfeed/001/199/793/c39.png',  'Not looking to buy gold', 'arenaathena981@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvO0jpeNrGzoPRytF7iJR0Q32cCDQskbQ2'),
+('Sasuke Uchiha', 'OneEyedUchiha', 'https://i.pinimg.com/564x/f2/9a/85/f29a85b01260d7a4f477b8e4646e94b4.jpg', 'Itachi did nothing wrong', 'avengeplant@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvOqeYyKMNOVZNg6ln//YTaS2McV7y45B.'),
+('Lily Pots', 'WolfShaper', 'https://thecinemaholic.com/wp-content/uploads/2021/01/nezuu-e1638963260523.jpg', 'I like playing Marvel games and eating tacos', 'tybaltpie@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvOaJyW.k0BTJT5FpgJmKcq6wvDE9xTZwa'),
+('Josh Yu', 'LovechildLuck888', 'https://tinyurl.com/bdhzv9hv', 'I play trains', 'belovedchild@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvOqeYyKMNOVZNg6ln//YTaS2McV7y45B.');
+
+INSERT INTO gamers (name, gamer_tag, bio, email, password) VALUES 
+('Suade Stokes', 'Suade', 'I am online all day', 'williamson@test.ca', '$2b$10$6bac8TvJ0qO3Q7GZyRTMvO8zUrfiK3eMFzrUn47gCEar/UaxmfMVu');
 
 INSERT INTO games (game_name, released)
 VALUES 
@@ -21,29 +23,29 @@ Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles', '2021-10-13 00:00:12')
 ('Minecraft', '2011-11-17 00:00:12'),
 ('Dark Souls', '2011-09-21 00:00:12');
 
-INSERT INTO gamers_games (gamer_id, game_id, play_style)
+INSERT INTO gamers_games (gamer_id, game_id)
 VALUES
-(1, 1, 'Semi-casual'),
+(1, 1),
 (1, 2),
 (1, 3),
-(1, 4, 'Hardcore'),
+(1, 4),
 (2, 3),
 (2, 9),
 (2, 10),
-(3, 3, 'Semi-casual'),
+(3, 3),
 (3, 4),
-(3, 9, 'Hardcore'),
+(3, 9),
 (4, 6),
 (4, 7),
-(4, 8, 'Semi-casual'),
-(5, 9, 'Hardcore'),
+(4, 8),
+(5, 9),
 (6, 1),
 (6, 2),
 (6, 4),
-(7, 1, 'Hardcore'),
-(7, 7, 'Semi-casual'),
+(7, 1),
+(7, 7),
 (7, 8),
-(7, 9, 'Semi-casual');
+(7, 9);
 
 INSERT INTO genres (name)
 VALUES
@@ -127,13 +129,13 @@ VALUES
 (5, 3, 5, 'That sounds terrible and I want no part of this');
 
 INSERT INTO likes (sent_like, received_like)
-VALUES (1, 2);
+VALUES (4, 6);
 
 INSERT INTO matches (gamer_first_id, gamer_second_id)
 VALUES (1, 2);
 
 INSERT INTO conversations(gamer_1_id, gamer_2_id)
-VALUES (1, 2);
+VALUES (4, 6);
 
 INSERT INTO chats(conversation_id, sender_id, receiver_id, chat)
-VALUES(1, 1, 2, 'hello there'), (1, 2, 1, 'Another message that is not from currentUser'), (1, 2, 1, 'How are you?');
+VALUES(1, 4, 6, 'hello there'), (1, 6, 4, 'Hey OneEyed, I look forward to play with you'), (1, 4, 6, 'How are you?');

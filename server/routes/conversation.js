@@ -7,7 +7,8 @@ module.exports = (db) => {
   router.post("/", async (req, res) => {
     try {
       let query1 = "SELECT * FROM matches;";
-      let result1 = await db.query(query1, [gamer_1, gamer_2]);
+      let result1 = await db.query(query1);
+      console.log(result1);
 
       const convoExists = result1 && result1.rows.length > 0;
       if (convoExists) {
@@ -16,6 +17,7 @@ module.exports = (db) => {
       const query2 =
         "INSERT INTO conversations (gamer_1_id, gamer_2_id) VALUES($1, $2);";
       const result2 = await db.query(query2, [gamer_1_id, gamer_2_id]);
+      console.log("result222222222222222", result2);
 
       return res.status(201).json({
         message: "successfully created convo",
