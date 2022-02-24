@@ -8,21 +8,25 @@ import ProfileCards from "./components/ProfileCards";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
-import Chat from "./components/Chat";
+import Chatroom from "./components/chatroom/Chatroom";
 import MatchedModal from "./components/MatchedModal";
 import LoggedSplash from "./components/LoggedSplash";
 import EditProfile from "./components/EditProfile";
-
 import {
   getAccessTokenInLocalStorage,
   storeAccessTokenInLocalStorage,
 } from "./helpers/helpers";
-
 import "./components/Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
 import axios from "axios";
 
 function App() {
@@ -63,7 +67,7 @@ function App() {
       .catch((err) => {
         setToken(null);
       });
-  }, []);
+  }, [token]);
 
   const handleLogin = (email, password) => {
     return axios
@@ -95,7 +99,6 @@ function App() {
         password,
       })
       .then((res) => {
-        console.log(res.data);
         storeAccessTokenInLocalStorage(res.data.token);
         setToken(res.data.token);
         setCurrentUser(res.data.result);
@@ -107,27 +110,27 @@ function App() {
 
   const handleEdit = (id, name, gamer_tag, bio, email, password, timezone) => {
     return axios
-    .post(
-      "/edit",
-      {
-        id,
-        name,
-        gamer_tag,
-        bio,
-        email,
-        password,
-        timezone,
-      },
-      { withCredentials: true }
-    )
-    .then((res) => {
-      storeAccessTokenInLocalStorage(res.data.token);
-      setToken(res.data.token);
-      setCurrentUser(res.data.result);
-    })
-    .catch((err) => {
-      console.log("Failed: ", err);
-    });
+      .post(
+        "/edit",
+        {
+          id,
+          name,
+          gamer_tag,
+          bio,
+          email,
+          password,
+          timezone,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        storeAccessTokenInLocalStorage(res.data.token);
+        setToken(res.data.token);
+        setCurrentUser(res.data.result);
+      })
+      .catch((err) => {
+        console.log("Failed: ", err);
+      });
   };
 
   console.log("current user: ", currentUser);
@@ -170,12 +173,18 @@ function App() {
             element={<Register handleRegister={handleRegister} />}
           />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/edit" element={<EditProfile handleEdit={handleEdit} />} />
+          <Route
+            path="/edit"
+            element={<EditProfile handleEdit={handleEdit} />}
+          />
           <Route
             path="/swipe"
             element={<ProfileCards createLike={createLike} />}
           />
-          <Route path="/chat" component={Chat} />
+          <Route
+            path="/chat"
+            element={<Chatroom currentUser={currentUser} token={token} />}
+          />
         </Routes>
       </Router>
     </div>

@@ -32,7 +32,7 @@ label {
   margin-left: 417px;
 }
 
-p {
+.title-text {
   white-space: pre;
 }
 
@@ -54,11 +54,11 @@ p {
 }
 
 .login-btn:hover {
-  background-color: #7D7B70;
+  background-color: #7d7b70;
 }
 
 .login-title {
-  color: #FFF;
+  color: #fff;
   font-size: 42pt;
   padding-top: 20px;
   padding-left: 100px;
@@ -75,6 +75,6 @@ p {
   bottom: 330px;
   width: 500px;
   height: 640px;
-  background-image: url('./images/1.jpeg');
+  background-image: url("./images/1.jpeg");
   border-radius: 50px;
 }

@@ -26,7 +26,7 @@ export default function Login(props) {
       <div className="test">
         <div className="login-title">
           Welcome to
-          <p>Gaming Generations</p>
+          <p className="title-text">Gaming Generations</p>
         </div>
         <form
           className="login-form"
@@ -48,7 +48,7 @@ export default function Login(props) {
             />
           </label>
           <br />
-          <button className='login-btn' submit onClick={loginUser}>
+          <button className="login-btn" submit onClick={loginUser}>
             Submit
           </button>
         </form>
