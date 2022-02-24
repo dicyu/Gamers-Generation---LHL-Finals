@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const { authorizeUser } = require("../middleware/authorizeUser");
+const { decodeTKN } = require("../utils/jwt");
 
 module.exports = (db) => {
-
   router.get("/", authorizeUser, (req, res) => {
-
     const queParam = [req.currentUser.gamerID];
     let query = "SELECT * FROM gamers WHERE id = $1;";
+
     db.query(query, queParam)
       .then((data) => {
         const result = data.rows[0];

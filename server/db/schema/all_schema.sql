@@ -9,6 +9,8 @@ DROP TABLE IF EXISTS reports CASCADE;
 DROP TABLE IF EXISTS messages CASCADE;
 DROP TABLE IF EXISTS likes CASCADE;
 DROP TABLE IF EXISTS matches CASCADE;
+DROP TABLE IF EXISTS conversations CASCADE;
+DROP TABLE IF EXISTS chats CASCADE;
 
 CREATE TABLE gamers(
   id SERIAL PRIMARY KEY NOT NULL,
@@ -86,3 +88,22 @@ CREATE TABLE matches(
   gamer_first_id INT REFERENCES gamers(id) ON DELETE CASCADE,
   gamer_second_id INT REFERENCES gamers(id) ON DELETE CASCADE
 );
+
+CREATE TABLE conversations(
+  id SERIAL PRIMARY KEY NOT NULL,
+  gamer_1_id INT REFERENCES gamers(id) ON DELETE CASCADE,
+  gamer_2_id INT REFERENCES gamers(id) ON DELETE CASCADE,
+  timecheck TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE chats(
+  id SERIAL PRIMARY KEY NOT NULL,
+  conversation_id INT REFERENCES conversations(id) ON DELETE CASCADE,
+  sender_id INT REFERENCES gamers(id) ON DELETE CASCADE,
+  receiver_id INT REFERENCES gamers(id) ON DELETE CASCADE,
+  chat text,
+  timecheck TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+  -- something to implement post-bootcamp
+  -- users [gamer_id1, gamer_id2] INT[] REFERENCES gamers(id) ON DELETE CASCADE,

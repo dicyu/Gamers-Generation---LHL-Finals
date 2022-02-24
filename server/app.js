@@ -29,6 +29,9 @@ const likesRouter = require("./routes/likes");
 const loginRouter = require("./routes/login");
 const editRouter = require("./routes/profile-edit");
 const tokenRouter = require("./routes/current-user");
+const conversationRouter = require("./routes/conversation");
+const chatRouter = require("./routes/chat");
+const matchesRouter = require("./routes/match");
 
 app.use("/friends", friendsRouter(db));
 app.use("/reports", reportsRouter(db));
@@ -39,6 +42,8 @@ app.use("/login", loginRouter(db));
 app.use("/edit", editRouter(db));
 app.use("/current-user", tokenRouter(db));
 app.use("/", indexRouter);
-app.use("/chat", indexRouter);
+app.use("/chats", chatRouter(db));
+app.use("/conversations", conversationRouter(db));
+app.use("/matches", matchesRouter(db));
 
 module.exports = app;

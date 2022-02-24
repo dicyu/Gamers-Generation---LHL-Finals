@@ -1,0 +1,75 @@
+@import "../styles/variables.scss";
+
+.chatroom {
+  &__mainContainer {
+    height: calc(100vh - 70px);
+    display: flex;
+  }
+
+  &__menu {
+    flex: 3.5;
+    &__input {
+      width: 90%;
+      padding: 10px 0;
+      border: none;
+      border-bottom: 1px solid gray;
+    }
+  }
+
+  &__box {
+    flex: 5.5;
+  }
+
+  &__matchHistory {
+    flex: 3;
+  }
+
+  &__boxTop {
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 10px;
+  }
+
+  &__boxBottom {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__input {
+      width: 80%;
+      height: 90px;
+      padding: 10px;
+    }
+
+    &__submitButton {
+      width: 70px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #fff;
+      color: #000;
+    }
+  }
+
+  &__noConversation {
+    poisition: absolute;
+    top: 10%;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    cursor: default;
+  }
+}
+
+.chatroom__menuWrapper .chatroom__boxWrapper .chatroom__matchHistoryWrapper {
+  padding: 10px;
+  height: 100%;
+}
+
+.chatroom__boxWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
