@@ -26,13 +26,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
-// for later development
-
-// .then((data) => {
-//   const result = data.rows[0];
-//   console.log(result)
-//   const token = getToken(result);
-//   console.log(token)
-//   res.json({ token: token, result: result });
-// })

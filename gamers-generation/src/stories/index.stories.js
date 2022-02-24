@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -15,7 +15,7 @@ storiesOf("Input", module).add("Base", () => (
 
 storiesOf("Button", module)
   .add("Base", () => <Button>Base</Button>)
-  .add("Remove", () => <Button remove>Cancel</Button>)
+  .add("Remove", () => <Button remove>Remove</Button>)
   .add("Cancel", () => <Button cancel>Cancel</Button>)
   .add("Submit", () => <Button submit>Submit</Button>)
   .add("Clickable", () => (
