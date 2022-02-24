@@ -2,8 +2,6 @@ const { authorizeUser } = require("../middleware/authorizeUser");
 
 const router = require("express").Router();
 
-/* GET home page. */
-
 module.exports = (db) => {
   router.post("/", authorizeUser, async (req, res) => {
     const { received_like } = req.body;
@@ -24,14 +22,15 @@ module.exports = (db) => {
       const query3 = `SELECT * FROM likes WHERE sent_like = $2 AND received_like = $1;`;
       const result3 = await db.query(query3, [sent_like, received_like]);
 
-      const shouldCreatMatch = result3 && result3.rows.length > 0;
-      if (shouldCreatMatch) {
+      const shouldCreateMatch = result3 && result3.rows.length > 0;
+      if (shouldCreateMatch) {
         const query4 = `INSERT INTO matches (gamer_first_id, gamer_second_id) VALUES($1, $2);`;
         await db.query(query4, [sent_like, received_like]);
       }
       return res.status(201).json({
         message: "successfully liked a user",
         data: result2.rows,
+        matchCreated: shouldCreateMatch,
       });
     } catch (error) {
       return res.status(500).json(error);

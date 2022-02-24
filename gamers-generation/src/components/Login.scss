@@ -27,17 +27,17 @@ label {
   margin-left: 417px;
 }
 
-p {
+.title-text {
   white-space: pre;
 }
 
-Button {
+.login__submit {
   margin-left: 410px;
   margin-top: 50px;
 }
 
 .login-title {
-  color: #FFF;
+  color: #fff;
   font-size: 42pt;
   padding-top: 20px;
   padding-left: 100px;
@@ -54,6 +54,6 @@ Button {
   bottom: 330px;
   width: 500px;
   height: 600px;
-  background-image: url('./images/1.jpeg');
+  background-image: url("./images/1.jpeg");
   border-radius: 50px;
 }

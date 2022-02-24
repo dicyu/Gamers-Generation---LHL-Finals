@@ -22,7 +22,6 @@ function ProfileCards(props) {
 
   useEffect(() => {
     const storedToken = getAccessTokenInLocalStorage("token");
-    console.log("is this executes?");
     axios
       .get(`/profileCards?token=${storedToken}`)
       .then((res) => {

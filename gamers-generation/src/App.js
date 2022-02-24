@@ -8,22 +8,24 @@ import ProfileCards from "./components/ProfileCards";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Body from "./components/Body";
-import Chat from "./components/Chat";
-
+import Chatroom from "./components/chatroom/Chatroom";
 import EditProfile from "./components/EditProfile";
-
 import {
   getAccessTokenInLocalStorage,
   storeAccessTokenInLocalStorage,
 } from "./helpers/helpers";
-
 import "./components/Navigation.scss";
 import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
 import axios from "axios";
-import Chat from "./components/Chat";
 
 function App() {
   // State for user
@@ -57,7 +59,7 @@ function App() {
       .catch((err) => {
         setToken(null);
       });
-  }, []);
+  }, [token]);
 
   const handleLogin = (email, password) => {
     return axios
@@ -81,18 +83,14 @@ function App() {
 
   const handleRegister = (name, gamer_tag, bio, email, password) => {
     return axios
-      .post(
-        "/register",
-        {
-          name,
-          gamer_tag,
-          bio,
-          email,
-          password,
-        }
-      )
+      .post("/register", {
+        name,
+        gamer_tag,
+        bio,
+        email,
+        password,
+      })
       .then((res) => {
-        console.log(res.data);
         storeAccessTokenInLocalStorage(res.data.token);
         setToken(res.data.token);
         setCurrentUser(res.data.result);
@@ -102,7 +100,6 @@ function App() {
       });
   };
 
-  console.log("current user: ", currentUser);
   return (
     <div className="App">
       <Router>
@@ -154,7 +151,6 @@ function App() {
               <div>
                 <Header />
                 <Body />
-                <Chat />
               </div>
             }
           />
@@ -168,7 +164,10 @@ function App() {
             path="/swipe"
             element={<ProfileCards createLike={createLike} />}
           />
-          <Route path="/chat" component={Chat} />
+          <Route
+            path="/chat"
+            element={<Chatroom currentUser={currentUser} token={token} />}
+          />
         </Routes>
       </Router>
     </div>
