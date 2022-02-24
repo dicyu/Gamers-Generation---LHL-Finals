@@ -1,17 +1,56 @@
+@import "./styles/variables.scss";
+
 .editProfile__container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 1fr;
-  gap: 80px;
-  justify-items: center;
+  row-gap: 47px;
+  column-gap: 150px;
+  justify-items: normal;
+  position: fixed;
   color: #fff;
-  margin: 20px;
+  margin: 139px 14px 14px 222px;
 }
 
 .edit__submit {
   grid-column: 2;
+  margin-right: 200px;
 }
 
 .edit__bio {
   grid-row: 1 / 3;
+}
+
+.edit-form{
+  border-left-width: 50px;
+  // margin-right: 150px;
+}
+
+#bio {
+  border-radius: 0.5rem;
+  min-width: 470px;
+  min-height: 195px;
+  font-size: 12pt;
+  color: white;
+  background-color: $input-blue;
+  border-color: black;
+  resize: none;
+}
+
+#bio::placeholder{
+  color: white;
+  font-size: 1.2em;
+  font-style: italic;
+  position: relative;
+  left: 10px;
+  top: 0px;
+}
+
+#bio:hover{
+  border-color: white;
+}
+
+.button--submit{
+  margin-left: 342px;
+  margin-top: 50px;
 }

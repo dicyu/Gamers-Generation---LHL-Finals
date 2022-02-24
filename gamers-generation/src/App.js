@@ -3,7 +3,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
-import ReportModal from "./components/Modal";
+// import ReportModal from "./components/Modal";
 import ProfileCards from "./components/ProfileCards";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -45,9 +45,8 @@ function App() {
         if (res.data.matchCreated) {
           // showModal
           console.log(res.data.matchCreated);
-          {
+
             setShow(true);
-          }
         }
       })
       .catch((err) => {
@@ -89,7 +88,8 @@ function App() {
       });
   };
 
-  const handleRegister = (name, gamer_tag, bio, email, password) => {
+
+  const handleRegister = (name, gamer_tag, email, password) => {
     return axios
       .post("/register", {
         name,
@@ -107,6 +107,7 @@ function App() {
         console.log("RIP", err);
       });
   };
+
 
   const handleEdit = (id, name, gamer_tag, bio, email, password, timezone) => {
     return axios
@@ -133,7 +134,8 @@ function App() {
       });
   };
 
-  console.log("current user: ", currentUser);
+  console.log("This is the thing", currentUser)
+  
   return (
     <div className="App">
       <Router>

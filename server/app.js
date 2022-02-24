@@ -1,11 +1,9 @@
 // web
 const express = require("express");
-// const bcrypt = require("bcrypt");
 const logger = require("morgan");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-// const jwt = require('jsonwebtoken')
 
 // .env file variables
 require("dotenv").config();
@@ -23,7 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // routes
 const indexRouter = require("./routes/index");
-const gamersRegisterRouter = require("./routes/register");
+const registerRouter = require("./routes/register");
 const friendsRouter = require("./routes/friends");
 const reportsRouter = require("./routes/reports");
 const profileCardsRouter = require("./routes/profileCards");
@@ -37,7 +35,7 @@ const matchesRouter = require("./routes/match");
 
 app.use("/friends", friendsRouter(db));
 app.use("/reports", reportsRouter(db));
-app.use("/register", gamersRegisterRouter(db));
+app.use("/register", registerRouter(db));
 app.use("/profileCards", profileCardsRouter(db));
 app.use("/likes", likesRouter(db));
 app.use("/login", loginRouter(db));

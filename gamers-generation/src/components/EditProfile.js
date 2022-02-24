@@ -4,7 +4,7 @@ import "./EditProfile.scss";
 import Button from "./Button";
 import axios from "axios";
 import { getAccessTokenInLocalStorage } from "../helpers/helpers";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function EditProfile(props) {
   const [name, setName] = useState("");
@@ -15,7 +15,7 @@ function EditProfile(props) {
   const [timezone, setTimezone] = useState("");
   const [bio, setBio] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   useEffect(() => {
     const storedToken = getAccessTokenInLocalStorage("token");
@@ -28,15 +28,18 @@ function EditProfile(props) {
         console.log(err);
       });
   }, []);
-
-  console.log(currentUser)
-
+  
   const editGamer = () => {
     props
-    .handleEdit(currentUser.id, name, gamer_tag, bio, email, password, timezone)
-      .then(() => {
-        navigate("/");
-      })
+      .handleEdit(
+        currentUser.id,
+        name,
+        gamer_tag,
+        bio,
+        email,
+        password,
+        timezone
+      )
       .catch((err) => {
         console.log("Edit failed, ", err);
       });
@@ -86,11 +89,13 @@ function EditProfile(props) {
           Timezone:
           <Input name="timezone" setVal={setTimezone} val={timezone} />
         </label>
+        <Link to="/">
         <div className="edit__submit">
-          <Button submit onClick={editGamer}>
+          <Button submit onClick={editGamer} >
             Submit
           </Button>
         </div>
+        </Link>
       </div>
     </form>
   );

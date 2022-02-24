@@ -19,7 +19,6 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     const { name, gamer_tag, bio, email, password } = req.body;
     const queParam = [name, gamer_tag, bio, email, bcrypt.hashSync(password, salt)];
-    console.log("test")
     let query =
       "INSERT INTO gamers (name, gamer_tag, bio, email, password) VALUES ($1, $2, $3, $4, $5) RETURNING *;";
     db.query(query, queParam)
