@@ -75,20 +75,20 @@ We hope you enjoy our application! More information about it below
 
 #### Frontend 
 
-- [x]"@emotion/react": "^11.7.1",
-- [x]"@emotion/styled": "^11.6.0",
-- [x]"@mui/icons-material": "^5.4.1",
-- [x]"@mui/material": "^5.4.1",
-- [x]"axios": "^0.25.0",
-- [x]"classnames": "^2.3.1",
-- [x]"nodemailer": "^6.7.2",
-- [x]"react": "^17.0.2",
-- [x]"react-dom": "^17.0.2",
-- [x]"react-scripts": "5.0.0",
-- [x]"react-tinder-card": "^1.4.5",
-- [x]"sass": "^1.49.7",
-- [x]"socket.io-client": "^4.4.1",
-- [x]"web-vitals": "^2.1.4"
+- [x] "@emotion/react": "^11.7.1",
+- [x] "@emotion/styled": "^11.6.0",
+- [x] "@mui/icons-material": "^5.4.1",
+- [x] "@mui/material": "^5.4.1",
+- [x] "axios": "^0.25.0",
+- [x] "classnames": "^2.3.1",
+- [x] "nodemailer": "^6.7.2",
+- [x] "react": "^17.0.2",
+- [x] "react-dom": "^17.0.2",
+- [x] "react-scripts": "5.0.0",
+- [x] "react-tinder-card": "^1.4.5",
+- [x] "sass": "^1.49.7",
+- [x] "socket.io-client": "^4.4.1",
+- [x] "web-vitals": "^2.1.4"
 
 #### Socket
 
