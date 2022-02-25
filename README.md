@@ -14,33 +14,33 @@ Welcome to Gamers Generation homepage beta 1! As you can see, we have some instr
 
 If you look to the top right corner, you can see that you have options to login or register (if you tap the sign up button under the description of the app, it'll also take you to the registration page)
 
-[Image of homepage](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/homepage.png?raw=true)
+![Image of homepage](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/homepage.png?raw=true)
 
-[login](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/loginpage.png?raw=true)
+![login](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/loginpage.png?raw=true)
 
-[register](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/registration.png?raw=true)
+![register](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/registration.png?raw=true)
 
 For now, we'll register as a user with the gamer tag of CriminalActofCanada but also login to a pre-created account to show you more of our features between two users. Shown below is our secondary user's landing page. Since we've already added a new user, we should be able to match with them!
 
-[Landing page](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/langingpage.png?raw=true)
+![Landing page](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/langingpage.png?raw=true)
 
 If you click on your avatar, you can edit your profile if you'd like!
 
-[Edit page](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/editprofile.png?raw=true)
+![Edit page](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/editprofile.png?raw=true)
 
 When you click match, you'll see cards that you can swipe or click buttons for to select what users you like or not. Swipe right for yes, and left for no. As you can see, WolfShaper has a space for their profile picture and their description on the card to tell you a little about themselves
 
-[Initial card](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/matchCard.png?raw=true)
+![Initial card](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/matchCard.png?raw=true)
 
 We can also see the card for our new user here!
 
-[Criminal act of Canada as a user](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/cardfornewuser.png?raw=true)
+![Criminal act of Canada as a user](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/cardfornewuser.png?raw=true)
 
 
 Now we can begin chatting between the two users, with our newly created user sending the first message!
 
-[Message logged in user](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/chat1.png?raw=true)
-[Reply from logged in user](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/chat2.png?raw=true)
+![Message logged in user](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/chat1.png?raw=true)
+![Reply from logged in user](https://github.com/dicyu/Gamers-Generation---LHL-Finals/blob/main/gamers-generation/public/chat2.png?raw=true)
 
 We hope you enjoy our application! More information about it below
 
