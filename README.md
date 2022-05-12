@@ -141,6 +141,7 @@ We hope you enjoy our application! More information about it below
 - [ ] More dynamic match history
 - [ ] Additional scss
 - [ ] Profile page
+- [ ] Email verification
 
 
 
