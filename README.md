@@ -129,18 +129,18 @@ We hope you enjoy our application! More information about it below
 - [x] "webpack": "^5.68.0"
 
 ### Stretch Features to Implement later
-- [] Choose gaming preferences
-- [] Friends/Block list
-- [] Report a user
-- [] Admin account for moderation
-- [] Game search bar
-- [] Implement Typescript
-- [] Implement Redux
-- [] Change background colours
-- [] Set character limits for certain input fields
-- [] More dynamic match history
-- [] Additional scss
-- [] Profile page
+- [ ] Choose gaming preferences
+- [ ] Friends/Block list
+- [ ] Report a user
+- [ ] Admin account for moderation
+- [ ] Game search bar
+- [ ] Implement Typescript
+- [ ] Implement Redux
+- [ ] Change background colours
+- [ ] Set character limits for certain input fields
+- [ ] More dynamic match history
+- [ ] Additional scss
+- [ ] Profile page
 
 
 
